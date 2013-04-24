@@ -13,7 +13,7 @@
 }
 
 body {
-	background-color:#E6E6E6;
+	background-color:#f5f5f5;
 }
 
 /*******
@@ -22,31 +22,41 @@ body {
 
 div#login_wrapper {
 	background-color: #FFF;
-	border-radius: 10px;
 	
 	/* size */
 	width:300px;
-	height:200px;
+	height:250px;
 	/* position (half the height)*/
 	position:absolute;
 	top:50%;
-	margin-top:-100px;
+	margin-top:-150px;
 	left:50%;
-	margin-left:-150px;
+	margin-left:-125px;
+	
+	-webkit-border-radius: 10px;
+	   -moz-border-radius: 10px;
+			border-radius: 10px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+	   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+			box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 
 div#login_box {
 	/* size */
 	width:200px;
-	height:90px;
+	height:170px;
 	/* position */
 	position:absolute;
 	top:50%;
-	margin-top:-45px;
+	margin-top:-85px;
 	right:50%;
 	margin-right:-100px;
 	/* align */
 	text-align:right;
+}
+
+img#logo {
+	margin-bottom:10px;	
 }
 
 input#username {
