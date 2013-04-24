@@ -69,6 +69,12 @@ input#password {
 	margin-bottom:5px;
 }
 
+div#signup {
+	margin-top:10px;
+	text-align:center;
+	color:#a0a0a0;
+	font-size:11px;	
+}
 
 /*
 a:link {
