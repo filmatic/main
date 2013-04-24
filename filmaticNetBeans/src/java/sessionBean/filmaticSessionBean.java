@@ -4,10 +4,16 @@
  */
 package sessionBean;
 
-import javax.ejb.LocalBean;
+import entities.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import javax.annotation.Resource;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
+import javax.ejb.LocalBean;
+import javax.persistence.*;
+import javax.sql.DataSource;
 
 /**
  *
@@ -19,5 +25,34 @@ public class filmaticSessionBean {
 
     @PersistenceUnit
     EntityManagerFactory emf;
+    
+    /**
+     * checkUser() will take in username and password and search for a match in the Person table.  
+     * If the credentials match, a Person will be returned from the table.  Else, null.
+     * 
+     * @param username
+     * @param password
+     * @return Person if credentials match; null otherwise.
+     */
+    public Person checkUser(String username, String password) {
+        
+        Query query = emf.createEntityManager().createQuery("SELECT p.personId FROM Person p WHERE p.email = :username");
+        List<Integer> searchResults = query.setParameter("username", username).getResultList();
+        Integer[] results = (Integer[]) searchResults.toArray(new Integer[searchResults.size()]);
+        
+        Integer result = results[0];
+        //System.out.println(result);
+        
+        Person person = (Person) emf.createEntityManager().find(Person.class, result);
+        if (person != null) {
+            if (person.getPassword().equals(password)) {
+                return person;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
     
 }

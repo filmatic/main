@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Customer.findByRating", query = "SELECT c FROM Customer c WHERE c.rating = :rating"),
     @NamedQuery(name = "Customer.findByTimesLoggedIn", query = "SELECT c FROM Customer c WHERE c.timesLoggedIn = :timesLoggedIn")})
 public class Customer implements Serializable {
-    @Column(name = "AccountCreationDate")
+    @Column(name =     "AccountCreationDate")
     @Temporal(TemporalType.DATE)
     private Date accountCreationDate;
     private static final long serialVersionUID = 1L;

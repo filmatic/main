@@ -32,6 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Person.findByTelephone", query = "SELECT p FROM Person p WHERE p.telephone = :telephone"),
     @NamedQuery(name = "Person.findByAccessLevel", query = "SELECT p FROM Person p WHERE p.accessLevel = :accessLevel")})
 public class Person implements Serializable {
+    @Column(name = "AccessLevel")
+    private Integer accessLevel;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -63,8 +65,6 @@ public class Person implements Serializable {
     @Size(max = 20)
     @Column(name = "Telephone")
     private String telephone;
-    @Column(name = "AccessLevel")
-    private Character accessLevel;
     @JoinTable(name = "moviequeue", joinColumns = {
         @JoinColumn(name = "AccountNumber", referencedColumnName = "PersonId")}, inverseJoinColumns = {
         @JoinColumn(name = "MovieId", referencedColumnName = "MovieId")})
@@ -157,14 +157,6 @@ public class Person implements Serializable {
         this.telephone = telephone;
     }
 
-    public Character getAccessLevel() {
-        return accessLevel;
-    }
-
-    public void setAccessLevel(Character accessLevel) {
-        this.accessLevel = accessLevel;
-    }
-
     @XmlTransient
     public Collection<Movie> getMovieCollection() {
         return movieCollection;
@@ -221,6 +213,14 @@ public class Person implements Serializable {
     @Override
     public String toString() {
         return "entities.Person[ personId=" + personId + " ]";
+    }
+
+    public Integer getAccessLevel() {
+        return accessLevel;
+    }
+
+    public void setAccessLevel(Integer accessLevel) {
+        this.accessLevel = accessLevel;
     }
     
 }

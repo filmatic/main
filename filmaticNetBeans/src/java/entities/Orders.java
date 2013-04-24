@@ -24,12 +24,14 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Orders.findByCurrentlyOut", query = "SELECT o FROM Orders o WHERE o.currentlyOut = :currentlyOut"),
     @NamedQuery(name = "Orders.findByReturnDate", query = "SELECT o FROM Orders o WHERE o.returnDate = :returnDate")})
 public class Orders implements Serializable {
-    @Column(name = "DateTime")
+    @Column(name =     "DateTime")
     @Temporal(TemporalType.DATE)
     private Date dateTime;
-    @Column(name = "ReturnDate")
+    @Column(name =     "ReturnDate")
     @Temporal(TemporalType.DATE)
     private Date returnDate;
+    @Column(name = "Pending")
+    private Integer pending;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -118,6 +120,14 @@ public class Orders implements Serializable {
     @Override
     public String toString() {
         return "entities.Orders[ orderId=" + orderId + " ]";
+    }
+
+    public Integer getPending() {
+        return pending;
+    }
+
+    public void setPending(Integer pending) {
+        this.pending = pending;
     }
 
     public Date getDateTime() {
