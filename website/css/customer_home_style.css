@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* width must not be 100% */
+.center-horizontal {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+body {
+	
+}
+
+div#wrapper {
+	/* size */
+	width:800px;
+	height:100%;
+}
+
+div#logo {
+	width:800px;
+	margin-top:50px;
+}
+
+img#logo {
+	
+}
+
+div#navigationbar {
+	width:800px;
+	margin-top:10px;
+}
+
+div#held-movies {
+}
+
+.featurette-divider {
+	margin-top:30px;
+	margin-bottom:30px;	
+}
+
+div.movie-heading {
+	height:240px;
+	width:160px;
+}
+
+.movie-heading .movie-logo {
+	height:220px;
+	width:160px;
+}
+
+div#carousel-items {
+	left:50%;
+	margin-left:-285px;
+}
+
+
+/* CUSTOMIZE NAV BAR
+---------------------------*/
+.navbar .navbar-inner {
+padding: 0;
+}
+.navbar .nav {
+margin: 0;
+display: table;
+width: 100%;
+}
+.navbar .nav li {
+display: table-cell;
+width: 1%;
+float: none;
+}
+.navbar .nav li a {
+font-weight: bold;
+text-align: center;
+border-left: 1px solid rgba(255,255,255,.75);
+border-right: 1px solid rgba(0,0,0,.1);
+}
+.navbar .nav li:first-child a {
+border-left: 0;
+border-radius: 3px 0 0 3px;
+}
+.navbar .nav li:last-child a {
+border-right: 0;
+border-radius: 0 3px 3px 0;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+}
+
+.carousel .container {
+	
+}
+
+.carousel-control {
+  margin-top: 20px;
+}
+
+
