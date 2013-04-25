@@ -12,12 +12,11 @@
 		<script src="js/bootstrap.min.js"></script>
         
         <div id="login_wrapper">
-        	
             <div id="login_box">
             	<img id="logo" src="img/login_logo.jpg" alt="login" />
             	<form method="post" action="LoginServlet" name="LoginForm">
-            		<input id="username" name="username" type="text" placeholder="Username"><br />
-                        <input id="password" name="password" type="password" placeholder="Password"><br />
+                    <input id="username" name="username" type="text" placeholder="Username"><br />
+                    <input id="password" name="password" type="password" placeholder="Password"><br />
                     <button type="submit" class="btn btn-warning">Login</button><br />
                 </form>
             </div>

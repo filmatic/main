@@ -50,11 +50,11 @@ public class LoginServlet extends HttpServlet {
                 request.getSession().setAttribute("person", person);
                 System.out.println(person.getAccessLevel());
                 if (person.getAccessLevel() == 0) {
-                    RequestDispatcher rd = request.getRequestDispatcher("userHomePage.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("customer_home.jsp");
                     rd.forward(request, response);
                 }
                 else if (person.getAccessLevel() == 1) {
-                    RequestDispatcher rd = request.getRequestDispatcher("adminHomePage.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("customer_home.jsp");
                     rd.forward(request, response);
                 }
                 else {
