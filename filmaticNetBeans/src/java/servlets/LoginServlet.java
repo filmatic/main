@@ -39,32 +39,46 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            
+            // GET USERNAME AND PASSWORD
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             
-            Person person = filmaticBean.checkUser(username, password);
+            // CHECK IF THE USER EXISTS
+            Person person = filmaticBean.checkUser(username, password);             
             Integer zero = 0;
             
             if (person != null) {
+                
+                // ADD PERSON OBJECT TO SESSION
                 request.getSession().setAttribute("person", person);
-                System.out.println(person.getAccessLevel());
+                
+                // PERSON IS A CUSTOMER
                 if (person.getAccessLevel() == 0) {
                     RequestDispatcher rd = request.getRequestDispatcher("customer_home.jsp");
                     rd.forward(request, response);
                 }
+                
+                // PERSON IS AN ADMIN
                 else if (person.getAccessLevel() == 1) {
                     RequestDispatcher rd = request.getRequestDispatcher("customer_home.jsp");
                     rd.forward(request, response);
-                }
+                }           
                 else {
                     RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
                     rd.forward(request, response);
                 }
             }
+            // INVALID PASSWORD/USERNAME
             else {
+                // SET INVALID PW FLAG
+                boolean invalidpw = true;
+                request.setAttribute("invalidpw", invalidpw);
+                
+                // SET THE USER NAME
+                request.setAttribute("username",username);
+
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-                    rd.forward(request, response);
+                rd.forward(request, response);
             }
             
         } finally {            

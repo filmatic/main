@@ -40,6 +40,8 @@ public class filmaticSessionBean {
         List<Integer> searchResults = query.setParameter("username", username).getResultList();
         Integer[] results = (Integer[]) searchResults.toArray(new Integer[searchResults.size()]);
         
+        if (results.length==0) return null;
+        
         Integer result = results[0];
         //System.out.println(result);
         
