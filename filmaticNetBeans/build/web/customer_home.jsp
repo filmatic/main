@@ -54,15 +54,15 @@
                     	<div class="row-fluid">
                         
                                 <div class="span3 movie-heading">
-                                	  <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo">
+                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
                                 </div>
                                 
                                 <div class="span3 movie-heading">
-                                	  <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo">
+                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
                                 </div>
                                 
                                 <div class="span3 movie-heading">
-                                	  <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo">
+                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
                                 </div>
                             
                         </div>
@@ -73,15 +73,15 @@
                      	 <div class="row-fluid">
                     
                                 <div class="span3 movie-heading">
-                                	  <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo">
+                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
                                 </div>
                                 
                                 <div class="span3 movie-heading">
-                                	  <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo">
+                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
                                 </div>
                                 
                                 <div class="span3 movie-heading">
-                                	  <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo">
+                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
                                 </div>
                      	</div>
                 	</div>
@@ -101,34 +101,43 @@
             
             <!-- CURRENT QUEUE/HELD MOVIES-->
             <div id="held_movies">
-            	<h3> Current Queue </h3>
+            	<h3>Currently Held Movies</h3>
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
+                      <th>Title</th>
+                      <th>Genre</th>
+                      <th>Rented On</th>
+                      <th>Rating</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>1</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                      <td>Trouble in the Movie Queue</td>
+                      <td>Action</td>
+                      <td>09-02-05</td>
+                      <td>
+                          <i class="icon-search icon-star"></i>
+                          <i class="icon-search icon-star"></i>
+                          <i class="icon-search icon-star"></i>
+                          <i class="icon-search icon-star-empty"></i>
+                          <i class="icon-search icon-star-empty"></i>
+                      </td>
                     </tr>
                     <tr>
                       <td>2</td>
                       <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
+                      <td>Comedy</td>
+                      <td>05-05-03</td>
+                      <td>
+                          <i class="icon-search icon-star"></i>
+                          <i class="icon-search icon-star"></i>
+                          <i class="icon-search icon-star"></i>
+                          <i class="icon-search icon-star-empty"></i>
+                          <i class="icon-search icon-star-empty"></i>
+                      </td>
                     </tr>
                   </tbody>
                 </table>

@@ -22,9 +22,6 @@ div#right-frame {
 }
 
 
-
-
-
 /* CUSTOMIZE NAV BAR (DON'T TOUCH)
 ---------------------------*/
 
@@ -35,6 +32,8 @@ div#right-frame {
 
 body {
 	margin-bottom:100px;
+	_overflow:auto;
+	overflow:scroll;
 }
 
 div#wrapper {

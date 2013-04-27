@@ -1,26 +1,39 @@
 @charset "utf-8";
 /* CSS Document */
 
-div#left-frame {
-	width: 300px;
-	height: 400px;
+div#best-sellers-frame {
 	
-	float:left;
 }
 
-div#left-frame img {
-	width:220px;
-	height:300px;
-	margin-left:34px;
-	margin-top:18px;
+.featurette-divider {
+	margin-top:30px;
+	
 }
 
-div#right-frame {
-	width: 500px;
-	height: 400px;
-	float:right;
+
+div#search-frame {
+	margin-top:0px;
 }
 
+button#search-button {
+	height:30px;
+}
+
+.number-column {
+	width:36px;	
+}
+
+.genre-column {
+	width:120px;	
+}
+
+.rating-column {
+	width:88px;
+}
+
+.queue-column {
+	width: 60px;
+}
 
 /* CUSTOMIZE NAV BAR (DON'T TOUCH)
 ---------------------------*/

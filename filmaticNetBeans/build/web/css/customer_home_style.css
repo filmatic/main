@@ -2,13 +2,45 @@
 /* CSS Document */
 
 /* width must not be 100% */
+
+
+div#held-movies {
+}
+
+.featurette-divider {
+	margin-top:30px;
+	margin-bottom:30px;	
+}
+
+div.movie-heading {
+	height:240px;
+	width:160px;
+}
+
+.movie-logo {
+	height:220px;
+	width:160px;
+}
+
+div#carousel-items {
+        width:800px;
+	left:50%;
+	margin-left:-285px;
+}
+
+/**
+DONT EDIT
+*/
+
 .center-horizontal {
 	margin-left:auto;
 	margin-right:auto;
 }
 
 body {
-	margin-bottom:100px;
+        height: 100%;
+	_overflow:auto;
+        overflow:scroll;
 }
 
 div#wrapper {
@@ -30,30 +62,6 @@ div#navigationbar {
 	width:800px;
 	margin-top:10px;
 }
-
-div#held-movies {
-}
-
-.featurette-divider {
-	margin-top:30px;
-	margin-bottom:30px;	
-}
-
-div.movie-heading {
-	height:240px;
-	width:160px;
-}
-
-.movie-logo {
-	height:220px;
-	width:160px;
-}
-
-div#carousel-items {
-	left:50%;
-	margin-left:-285px;
-}
-
 
 /* CUSTOMIZE NAV BAR
 ---------------------------*/
@@ -84,20 +92,4 @@ border-radius: 3px 0 0 3px;
 border-right: 0;
 border-radius: 0 3px 3px 0;
 }
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-}
-
-.carousel .container {
-	
-}
-
-.carousel-control {
-  margin-top: 20px;
-}
-
 
