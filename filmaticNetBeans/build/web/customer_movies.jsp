@@ -30,8 +30,8 @@
                         <li class="active"><a href="#">Movies</a></li>
                         <li class=""><a href="QueueServlet">Queue</a></li>
                         <li class=""><a href="HistoryServlet">History</a></li>
-                        <li class=""><a href="#">Settings</a></li>
-                        <li class=""><a href="#">Support</a></li>
+                        <li class=""><a href="SettingsServlet">Settings</a></li>
+                        <li class=""><a href="SupportServlet">Support</a></li>
                   </ul>
               </div>
             </div>

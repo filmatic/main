@@ -29,8 +29,8 @@
                         <li class=""><a href="GenerateAllMovieServlet">Movies</a></li>
                         <li class=""><a href="QueueServlet">Queue</a></li>
                         <li class="active"><a href="#">History</a></li>
-                        <li class=""><a href="#">Settings</a></li>
-                        <li class=""><a href="#">Support</a></li>
+                        <li class=""><a href="SettingsServlet">Settings</a></li>
+                        <li class=""><a href="SupportServlet">Support</a></li>
                   </ul>
               </div>
             </div>
