@@ -57,4 +57,18 @@ public class filmaticSessionBean {
         }
     }
     
+    public Movie getMovie(String movieId) {
+        Movie movie = (Movie) emf.createEntityManager().find(Movie.class, movieId);
+        if (movie != null) {
+            return movie;
+        } else {
+            return null;
+        }
+    }
+    
+    public Movie[] getMovies() {
+        List<Movie> searchResults = emf.createEntityManager().createQuery("SELECT m FROM Movie m ORDER BY m.title").getResultList();
+        return searchResults.toArray(new Movie[searchResults.size()]);
+    }
+    
 }

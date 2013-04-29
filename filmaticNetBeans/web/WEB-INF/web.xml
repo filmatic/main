@@ -4,9 +4,33 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>servlets.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>QueueServlet</servlet-name>
+        <servlet-class>servlets.GenerateQueueServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddToQueueServlet</servlet-name>
+        <servlet-class>servlets.AddToQueueServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GenerateAllMovieServlet</servlet-name>
+        <servlet-class>servlets.GenerateAllMovieServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueueServlet</servlet-name>
+        <url-pattern>/QueueServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToQueueServlet</servlet-name>
+        <url-pattern>/AddToQueueServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GenerateAllMovieServlet</servlet-name>
+        <url-pattern>/GenerateAllMovieServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
