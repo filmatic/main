@@ -54,26 +54,27 @@
                     </tr>
                   </thead>
                   
-                  <tbody>
-                      
-                      <c:forEach var="movie" items="${movieList}">
-                          <tr>
-                              <td>${movie.movieId}</td>
-                              <td>${movie.title}</td>
-                              <td>${movie.genre}</td>
-                              <td>
-                                  <i class="icon-search icon-star"></i>
-                                  <i class="icon-search icon-star"></i>
-                                  <i class="icon-search icon-star"></i>
-                                  <i class="icon-search icon-star-empty"></i>
-                                  <i class="icon-search icon-star-empty"></i>
-                              </td>
-                              <td>
-                                  <button class="btn btn-success" name="movieToQueue" value="${movie.movieId}" type="button" action="AddToQueueServlet">Queue</button>
-                              </td>
-                          </tr>
-                      </c:forEach>
-                  </tbody>
+                  <form action="AddToQueueServlet" method="post">
+                    <tbody>
+                        <c:forEach var="movie" items="${movieList}">
+                            <tr>
+                                <td>${movie.movieId}</td>
+                                <td>${movie.title}</td>
+                                <td>${movie.genre}</td>
+                                <td>
+                                    <i class="icon-search icon-star"></i>
+                                    <i class="icon-search icon-star"></i>
+                                    <i class="icon-search icon-star"></i>
+                                    <i class="icon-search icon-star-empty"></i>
+                                    <i class="icon-search icon-star-empty"></i>
+                                </td>
+                                <td>
+                                    <button class="btn btn-success" name="movieToQueue" value="${movie.movieId}" type="submit">Queue</button>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                  </form>
                   
                 </table>
            </div>

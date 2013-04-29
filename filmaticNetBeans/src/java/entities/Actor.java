@@ -43,11 +43,8 @@ public class Actor implements Serializable {
     private Integer age;
     @Column(name = "Rating")
     private Integer rating;
-    @JoinTable(name = "actsin", joinColumns = {
-        @JoinColumn(name = "ActorId", referencedColumnName = "ActorId")}, inverseJoinColumns = {
-        @JoinColumn(name = "MovieId", referencedColumnName = "MovieId")})
-    @ManyToMany
-    private Collection<Movie> movieCollection;
+    @OneToMany(mappedBy = "actorId")
+    private Collection<Actsin> actsinCollection;
 
     public Actor() {
     }
@@ -97,12 +94,12 @@ public class Actor implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Movie> getMovieCollection() {
-        return movieCollection;
+    public Collection<Actsin> getActsinCollection() {
+        return actsinCollection;
     }
 
-    public void setMovieCollection(Collection<Movie> movieCollection) {
-        this.movieCollection = movieCollection;
+    public void setActsinCollection(Collection<Actsin> actsinCollection) {
+        this.actsinCollection = actsinCollection;
     }
 
     @Override

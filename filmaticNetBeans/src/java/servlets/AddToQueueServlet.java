@@ -39,7 +39,26 @@ public class AddToQueueServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
+            String movieIdTemp = (String) request.getParameter("movieToQueue");
+            Integer movieId = Integer.parseInt(movieIdTemp);
+            Person person = (Person) request.getSession().getAttribute("person");
             
+            System.out.println("Here" + movieId);
+            
+            Movie movie = filmaticBean.getMovie(movieId);
+            Integer personId = person.getPersonId();
+            
+            Moviequeue newQueueEntry = new Moviequeue();
+            
+            if ((movie != null) && (person.getPersonId() != null) && (filmaticBean.existsInQueue(person.getPersonId().toString(), movieId) == false)) {
+                newQueueEntry.setMovieQueueId(filmaticBean.getMaxMovieId());
+                newQueueEntry.setAccountNumber(person.getPersonId());
+                newQueueEntry.setMovieId(movie.getMovieId());
+                filmaticBean.save(newQueueEntry);
+            }
+            
+             RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
+             rd.forward(request, response);
             
         } finally {            
             out.close();

@@ -22,24 +22,25 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Orders.findByOrderId", query = "SELECT o FROM Orders o WHERE o.orderId = :orderId"),
     @NamedQuery(name = "Orders.findByDateTime", query = "SELECT o FROM Orders o WHERE o.dateTime = :dateTime"),
     @NamedQuery(name = "Orders.findByCurrentlyOut", query = "SELECT o FROM Orders o WHERE o.currentlyOut = :currentlyOut"),
-    @NamedQuery(name = "Orders.findByReturnDate", query = "SELECT o FROM Orders o WHERE o.returnDate = :returnDate")})
+    @NamedQuery(name = "Orders.findByReturnDate", query = "SELECT o FROM Orders o WHERE o.returnDate = :returnDate"),
+    @NamedQuery(name = "Orders.findByPending", query = "SELECT o FROM Orders o WHERE o.pending = :pending")})
 public class Orders implements Serializable {
-    @Column(name =     "DateTime")
-    @Temporal(TemporalType.DATE)
-    private Date dateTime;
-    @Column(name =     "ReturnDate")
-    @Temporal(TemporalType.DATE)
-    private Date returnDate;
-    @Column(name = "Pending")
-    private Integer pending;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "OrderId")
     private Integer orderId;
+    @Column(name = "DateTime")
+    @Temporal(TemporalType.DATE)
+    private Date dateTime;
     @Column(name = "CurrentlyOut")
     private Integer currentlyOut;
+    @Column(name = "ReturnDate")
+    @Temporal(TemporalType.DATE)
+    private Date returnDate;
+    @Column(name = "Pending")
+    private Integer pending;
     @JoinColumn(name = "MovieId", referencedColumnName = "MovieId")
     @ManyToOne
     private Movie movieId;
@@ -65,12 +66,36 @@ public class Orders implements Serializable {
         this.orderId = orderId;
     }
 
+    public Date getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
+    }
+
     public Integer getCurrentlyOut() {
         return currentlyOut;
     }
 
     public void setCurrentlyOut(Integer currentlyOut) {
         this.currentlyOut = currentlyOut;
+    }
+
+    public Date getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public Integer getPending() {
+        return pending;
+    }
+
+    public void setPending(Integer pending) {
+        this.pending = pending;
     }
 
     public Movie getMovieId() {
@@ -120,30 +145,6 @@ public class Orders implements Serializable {
     @Override
     public String toString() {
         return "entities.Orders[ orderId=" + orderId + " ]";
-    }
-
-    public Integer getPending() {
-        return pending;
-    }
-
-    public void setPending(Integer pending) {
-        this.pending = pending;
-    }
-
-    public Date getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(Date dateTime) {
-        this.dateTime = dateTime;
-    }
-
-    public Date getReturnDate() {
-        return returnDate;
-    }
-
-    public void setReturnDate(Date returnDate) {
-        this.returnDate = returnDate;
     }
     
 }

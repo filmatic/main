@@ -81,10 +81,24 @@ public class filmaticSessionBean {
     
     /**
      * 
+     * @param personId
+     * @return 
+     */
+    public Person getPerson(String personId) {
+        Person person = (Person) emf.createEntityManager().find(Person.class, personId);
+        if (person != null) {
+            return person;
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+     * 
      * @param movieId
      * @return 
      */
-    public Movie getMovie(String movieId) {
+    public Movie getMovie(Integer movieId) {
         Movie movie = (Movie) emf.createEntityManager().find(Movie.class, movieId);
         if (movie != null) {
             return movie;
@@ -100,6 +114,42 @@ public class filmaticSessionBean {
     public Movie[] getAllMovies() {
         List<Movie> searchResults = emf.createEntityManager().createQuery("SELECT m FROM Movie m ORDER BY m.title").getResultList();
         return searchResults.toArray(new Movie[searchResults.size()]);
+    }
+    
+    /**
+     * 
+     * @param personId
+     * @param movieId
+     * @return 
+     */
+    public boolean existsInQueue(String personId, Integer movieId) {
+        Query query = emf.createEntityManager().createQuery("SELECT m FROM Moviequeue m WHERE m.accountNumber = :personId");
+        List<Moviequeue> searchResults = query.setParameter("personId", Integer.parseInt(personId)).getResultList();
+        if (searchResults == null) {
+            return false;
+        } else {
+            for (int i = 0; i < searchResults.size(); i++) {
+                if (searchResults.get(i).getMovieId() == movieId) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Integer getMaxMovieId() {
+        String moviequeue = (String) emf.createEntityManager().createNativeQuery("SELECT CAST(MAX(CAST(moviequeueid AS SIGNED)) AS CHAR(20)) FROM Moviequeue").getSingleResult();
+        if (moviequeue == null) {
+            return 0;
+        } else {
+            int itemid = Integer.parseInt(moviequeue);
+            itemid++;
+            return itemid;
+        }
     }
     
 }

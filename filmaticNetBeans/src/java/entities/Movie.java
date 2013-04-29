@@ -58,14 +58,12 @@ public class Movie implements Serializable {
     @Size(max = 45)
     @Column(name = "ImageLocation")
     private String imageLocation;
-    @ManyToMany(mappedBy = "movieCollection")
-    private Collection<Actor> actorCollection;
-    @ManyToMany(mappedBy = "movieCollection")
-    private Collection<Person> personCollection;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "movie")
     private Tags tags;
     @OneToMany(mappedBy = "movieId")
     private Collection<Orders> ordersCollection;
+    @OneToMany(mappedBy = "movieId")
+    private Collection<Actsin> actsinCollection;
 
     public Movie() {
     }
@@ -146,24 +144,6 @@ public class Movie implements Serializable {
         this.imageLocation = imageLocation;
     }
 
-    @XmlTransient
-    public Collection<Actor> getActorCollection() {
-        return actorCollection;
-    }
-
-    public void setActorCollection(Collection<Actor> actorCollection) {
-        this.actorCollection = actorCollection;
-    }
-
-    @XmlTransient
-    public Collection<Person> getPersonCollection() {
-        return personCollection;
-    }
-
-    public void setPersonCollection(Collection<Person> personCollection) {
-        this.personCollection = personCollection;
-    }
-
     public Tags getTags() {
         return tags;
     }
@@ -179,6 +159,15 @@ public class Movie implements Serializable {
 
     public void setOrdersCollection(Collection<Orders> ordersCollection) {
         this.ordersCollection = ordersCollection;
+    }
+
+    @XmlTransient
+    public Collection<Actsin> getActsinCollection() {
+        return actsinCollection;
+    }
+
+    public void setActsinCollection(Collection<Actsin> actsinCollection) {
+        this.actsinCollection = actsinCollection;
     }
 
     @Override

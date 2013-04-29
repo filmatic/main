@@ -5,12 +5,10 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,8 +30,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Person.findByTelephone", query = "SELECT p FROM Person p WHERE p.telephone = :telephone"),
     @NamedQuery(name = "Person.findByAccessLevel", query = "SELECT p FROM Person p WHERE p.accessLevel = :accessLevel")})
 public class Person implements Serializable {
-    @Column(name = "AccessLevel")
-    private Integer accessLevel;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -65,11 +61,8 @@ public class Person implements Serializable {
     @Size(max = 20)
     @Column(name = "Telephone")
     private String telephone;
-    @JoinTable(name = "moviequeue", joinColumns = {
-        @JoinColumn(name = "AccountNumber", referencedColumnName = "PersonId")}, inverseJoinColumns = {
-        @JoinColumn(name = "MovieId", referencedColumnName = "MovieId")})
-    @ManyToMany
-    private Collection<Movie> movieCollection;
+    @Column(name = "AccessLevel")
+    private Integer accessLevel;
     @JoinColumn(name = "StateAbrv", referencedColumnName = "StateAbrv")
     @ManyToOne
     private States stateAbrv;
@@ -157,13 +150,12 @@ public class Person implements Serializable {
         this.telephone = telephone;
     }
 
-    @XmlTransient
-    public Collection<Movie> getMovieCollection() {
-        return movieCollection;
+    public Integer getAccessLevel() {
+        return accessLevel;
     }
 
-    public void setMovieCollection(Collection<Movie> movieCollection) {
-        this.movieCollection = movieCollection;
+    public void setAccessLevel(Integer accessLevel) {
+        this.accessLevel = accessLevel;
     }
 
     public States getStateAbrv() {
@@ -213,14 +205,6 @@ public class Person implements Serializable {
     @Override
     public String toString() {
         return "entities.Person[ personId=" + personId + " ]";
-    }
-
-    public Integer getAccessLevel() {
-        return accessLevel;
-    }
-
-    public void setAccessLevel(Integer accessLevel) {
-        this.accessLevel = accessLevel;
     }
     
 }
