@@ -12,12 +12,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.*;
+import javax.servlet.RequestDispatcher;
+import sessionBean.filmaticSessionBean;
+import javax.ejb.EJB;
+
 /**
  *
  * @author kris
  */
 public class QueueServlet extends HttpServlet {
 
+    @EJB filmaticSessionBean filmaticBean;
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -34,8 +41,18 @@ public class QueueServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
+            Person person = (Person) request.getSession().getAttribute("person");
+            Integer personId = person.getPersonId();
             
-            // FORWARD TO QUEUE
+            Moviequeue[] currentQueue = filmaticBean.getCurrentUserQueue(personId);
+
+            Movie[] movieQueueList = new Movie[currentQueue.length];
+            for (int i = 0; i < movieQueueList.length; i++) {
+                movieQueueList[i] = filmaticBean.getMovie(currentQueue[i].getMovieId());
+            }
+                
+            request.getSession().setAttribute("queueList", movieQueueList);
+
             RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
             rd.forward(request, response);
         } finally {            

@@ -137,6 +137,16 @@ public class filmaticSessionBean {
         }
     }
     
+    public Moviequeue[] getCurrentUserQueue(Integer personId) {
+        Query query = emf.createEntityManager().createQuery("SELECT m FROM Moviequeue m WHERE m.accountNumber = :personId");
+        List<Moviequeue> searchResults = query.setParameter("personId", personId).getResultList();
+        if (searchResults == null) {
+            return null;
+        } else {
+            return searchResults.toArray(new Moviequeue[searchResults.size()]);
+        }
+    }
+    
     /**
      * 
      * @return 

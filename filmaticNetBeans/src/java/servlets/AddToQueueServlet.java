@@ -57,6 +57,15 @@ public class AddToQueueServlet extends HttpServlet {
                 filmaticBean.save(newQueueEntry);
             }
             
+            Moviequeue[] currentQueue = filmaticBean.getCurrentUserQueue(personId);
+                
+            Movie[] movieQueueList = new Movie[currentQueue.length];
+            for (int i = 0; i < movieQueueList.length; i++) {
+                movieQueueList[i] = filmaticBean.getMovie(currentQueue[i].getMovieId());
+            }
+                
+            request.getSession().setAttribute("queueList", movieQueueList);
+            
              RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
              rd.forward(request, response);
             
