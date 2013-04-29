@@ -28,7 +28,7 @@
                     <ul class="nav">
                       <li class=""><a href="HomeServlet">Home</a></li>
                         <li class="active"><a href="#">Movies</a></li>
-                        <li class=""><a href="#">Queue</a></li>
+                        <li class=""><a href="QueueServlet">Queue</a></li>
                         <li class=""><a href="#">History</a></li>
                         <li class=""><a href="#">Settings</a></li>
                         <li class=""><a href="#">Support</a></li>

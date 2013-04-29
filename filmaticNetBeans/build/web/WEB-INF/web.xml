@@ -5,10 +5,6 @@
         <servlet-class>servlets.LoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>QueueServlet</servlet-name>
-        <servlet-class>servlets.GenerateQueueServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AddToQueueServlet</servlet-name>
         <servlet-class>servlets.AddToQueueServlet</servlet-class>
     </servlet>
@@ -20,13 +16,13 @@
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>servlets.HomeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>QueueServlet</servlet-name>
+        <servlet-class>servlets.QueueServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>QueueServlet</servlet-name>
-        <url-pattern>/QueueServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddToQueueServlet</servlet-name>
@@ -39,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/HomeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueueServlet</servlet-name>
+        <url-pattern>/QueueServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
