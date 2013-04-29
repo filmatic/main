@@ -4,7 +4,7 @@
 		<title>Filmatic - Home</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
-        <link href="css/customer_queue_style.css" rel="stylesheet" media="screen" />
+        <link href="css/customer_history_style.css" rel="stylesheet" media="screen" />
 	</head>
 
 <body>
@@ -27,8 +27,8 @@
                     <ul class="nav">
                       <li class=""><a href="HomeServlet">Home</a></li>
                         <li class=""><a href="GenerateAllMovieServlet">Movies</a></li>
-                        <li class="active"><a href="#">Queue</a></li>
-                        <li class=""><a href="HistoryServlet">History</a></li>
+                        <li class=""><a href="QueueServlet">Queue</a></li>
+                        <li class="active"><a href="#">History</a></li>
                         <li class=""><a href="#">Settings</a></li>
                         <li class=""><a href="#">Support</a></li>
                   </ul>
@@ -37,9 +37,9 @@
             
             
             
-           <!-- BEST SELLERS LIST -->
+           <!-- CUSTOMER HISTORY -->
            <div id="queue-frame">
-           		<h3>Queue</h3>
+           		<h3>History</h3>
            		
                 <table class="table table-bordered table-condensed table-striped">  
                 
@@ -49,8 +49,7 @@
                       <th>Title</th>
                       <th class="genre-column">Genre</th>
                       <th class="rating-column">Rating</th>
-                      <th class="rent-column"><!-- RENT BUTTONS --></th>
-                      <th class="remove-column"><!-- REMOVE BUTTONS --></th>
+                      <th class="order-date-column">Order Date</th>
                     </tr>
                   </thead>
                   
@@ -66,12 +65,7 @@
                           <i class="icon-search icon-star-empty"></i>
                           <i class="icon-search icon-star-empty"></i>
                       </td>
-                      <td>
-						<button class="btn btn-warning" type="button">Rent</button>
-                      </td>
-                      <td>
-                      	<button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>
-                      </td>
+                      <td>07/15/03</td>
                     </tr>
                     
                     <tr>
@@ -85,12 +79,7 @@
                           <i class="icon-search icon-star-empty"></i>
                           <i class="icon-search icon-star-empty"></i>
                       </td>
-                      <td>
-						<button class="btn btn-warning" type="button">Rent</button>
-                      </td>
-					  <td>
-                      	<button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>
-                      </td>
+                      <td>07/15/03</td>
                     </tr>
                   </tbody>
                   

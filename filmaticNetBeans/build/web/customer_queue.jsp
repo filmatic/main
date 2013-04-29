@@ -28,7 +28,7 @@
                       <li class=""><a href="HomeServlet">Home</a></li>
                         <li class=""><a href="GenerateAllMovieServlet">Movies</a></li>
                         <li class="active"><a href="#">Queue</a></li>
-                        <li class=""><a href="#">History</a></li>
+                        <li class=""><a href="HistoryServlet">History</a></li>
                         <li class=""><a href="#">Settings</a></li>
                         <li class=""><a href="#">Support</a></li>
                   </ul>
