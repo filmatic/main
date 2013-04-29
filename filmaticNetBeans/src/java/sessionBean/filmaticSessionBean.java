@@ -27,6 +27,28 @@ public class filmaticSessionBean {
     EntityManagerFactory emf;
     
     /**
+     * Saves the entity object passed in. Objects that already exist should be
+     * updated with update. Trying to save a object that already exists will
+     * throw an Exception.
+     *
+     * @param object
+     */
+    public void save(Object object) {
+        emf.createEntityManager().persist(object);
+    }
+    
+    /**
+     * Updates the entity object passed in. Can also save new objects. But
+     * changes will not be tracked? Look up API for more details for difference
+     * between merge() and save().
+     *
+     * @param object
+     */
+    public void update(Object object) {
+        emf.createEntityManager().merge(object);
+    }
+    
+    /**
      * checkUser() will take in username and password and search for a match in the Person table.  
      * If the credentials match, a Person will be returned from the table.  Else, null.
      * 
@@ -57,6 +79,11 @@ public class filmaticSessionBean {
         }
     }
     
+    /**
+     * 
+     * @param movieId
+     * @return 
+     */
     public Movie getMovie(String movieId) {
         Movie movie = (Movie) emf.createEntityManager().find(Movie.class, movieId);
         if (movie != null) {
@@ -66,7 +93,11 @@ public class filmaticSessionBean {
         }
     }
     
-    public Movie[] getMovies() {
+    /**
+     * 
+     * @return 
+     */
+    public Movie[] getAllMovies() {
         List<Movie> searchResults = emf.createEntityManager().createQuery("SELECT m FROM Movie m ORDER BY m.title").getResultList();
         return searchResults.toArray(new Movie[searchResults.size()]);
     }

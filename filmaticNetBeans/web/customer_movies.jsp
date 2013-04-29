@@ -69,7 +69,7 @@
                                   <i class="icon-search icon-star-empty"></i>
                               </td>
                               <td>
-                                  <button class="btn btn-success" type="button" value="${movie.movieId}" action="AddToQueueServlet">Queue</button>
+                                  <button class="btn btn-success" name="movieToQueue" value="${movie.movieId}" type="button" action="AddToQueueServlet">Queue</button>
                               </td>
                           </tr>
                       </c:forEach>
