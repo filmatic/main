@@ -26,7 +26,7 @@
             <div id="navigationbar" class="navbar center-horizontal">
                 <div class="navbar-inner">
                     <ul class="nav">
-                      <li class=""><a href="#">Home</a></li>
+                      <li class=""><a href="HomeServlet">Home</a></li>
                         <li class="active"><a href="#">Movies</a></li>
                         <li class=""><a href="#">Queue</a></li>
                         <li class=""><a href="#">History</a></li>
