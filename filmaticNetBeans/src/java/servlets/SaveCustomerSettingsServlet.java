@@ -15,11 +15,12 @@ import entities.*;
 import javax.servlet.RequestDispatcher;
 import sessionBean.filmaticSessionBean;
 import javax.ejb.EJB;
+
 /**
  *
  * @author Jonathan
  */
-public class AddToQueueServlet extends HttpServlet {
+public class SaveCustomerSettingsServlet extends HttpServlet {
 
     @EJB filmaticSessionBean filmaticBean;
     
@@ -39,33 +40,42 @@ public class AddToQueueServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            String movieIdTemp = (String) request.getParameter("movieToQueue");
-            Integer movieId = Integer.parseInt(movieIdTemp);
-            Person person = (Person) request.getSession().getAttribute("person");
+            Person currentUser = (Person) request.getSession().getAttribute("person");
+            Customer currentCustomer = (Customer) request.getSession().getAttribute("customer");
+            //Customer currentCustomer = filmaticBean.getCustomer(currentUser.getPersonId());
             
-            Movie movie = filmaticBean.getMovie(movieId);
-            Integer personId = person.getPersonId();
+            System.out.println(currentCustomer.getCustomerId());
             
-            Moviequeue newQueueEntry = new Moviequeue();
+            String newFirstName = (String) request.getParameter("customerName");
+            String newLastName = null;
             
-            if ((movie != null) && (person.getPersonId() != null) && (filmaticBean.existsInQueue(person.getPersonId().toString(), movieId) == false)) {
-                newQueueEntry.setMovieQueueId(filmaticBean.getMaxMovieId());
-                newQueueEntry.setAccountNumber(person.getPersonId());
-                newQueueEntry.setMovieId(movie.getMovieId());
-                filmaticBean.save(newQueueEntry);
+            int temp =  0;
+            for (int i = 0; i < newFirstName.length(); i++) {
+                if (newFirstName.charAt(i) == ' ') {
+                    temp = i;
+                    break;
+                }
             }
             
-            Moviequeue[] currentQueue = filmaticBean.getCurrentUserQueue(personId);
-                
-            Movie[] movieQueueList = new Movie[currentQueue.length];
-            for (int i = 0; i < movieQueueList.length; i++) {
-                movieQueueList[i] = filmaticBean.getMovie(currentQueue[i].getMovieId());
-            }
-                
-            request.getSession().setAttribute("queueList", movieQueueList);
+            newLastName = newFirstName.substring(temp + 1, newFirstName.length());
+            newFirstName = newFirstName.substring(0, temp);
             
-            RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
+            String newEmail = (String) request.getParameter("customerEmail");
+            String newCardNumber = (String) request.getParameter("customerCardNumber");
+            
+            System.out.println(newCardNumber);
+            
+            currentUser.setFirstName(newFirstName);
+            currentUser.setLastName(newLastName);
+            currentUser.setEmail(newEmail);
+            currentCustomer.setCreditCardNumber(newCardNumber);
+            
+            filmaticBean.update(currentCustomer);
+            filmaticBean.update(currentUser);
+            
+            RequestDispatcher rd = request.getRequestDispatcher("customer_settings.jsp");
             rd.forward(request, response);
+            
             
         } finally {            
             out.close();
