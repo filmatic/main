@@ -44,8 +44,6 @@ public class SaveCustomerSettingsServlet extends HttpServlet {
             Customer currentCustomer = (Customer) request.getSession().getAttribute("customer");
             //Customer currentCustomer = filmaticBean.getCustomer(currentUser.getPersonId());
             
-            System.out.println(currentCustomer.getCustomerId());
-            
             String newFirstName = (String) request.getParameter("customerName");
             String newLastName = null;
             
@@ -63,12 +61,13 @@ public class SaveCustomerSettingsServlet extends HttpServlet {
             String newEmail = (String) request.getParameter("customerEmail");
             String newCardNumber = (String) request.getParameter("customerCardNumber");
             
-            System.out.println(newCardNumber);
-            
             currentUser.setFirstName(newFirstName);
             currentUser.setLastName(newLastName);
             currentUser.setEmail(newEmail);
             currentCustomer.setCreditCardNumber(newCardNumber);
+            
+            //request.setAttribute("person", currentUser);
+            //request.setAttribute("customer", currentCustomer);
             
             filmaticBean.update(currentCustomer);
             filmaticBean.update(currentUser);
