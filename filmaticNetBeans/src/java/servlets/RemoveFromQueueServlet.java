@@ -15,11 +15,12 @@ import entities.*;
 import javax.servlet.RequestDispatcher;
 import sessionBean.filmaticSessionBean;
 import javax.ejb.EJB;
+
 /**
  *
  * @author Jonathan
  */
-public class AddToQueueServlet extends HttpServlet {
+public class RemoveFromQueueServlet extends HttpServlet {
 
     @EJB filmaticSessionBean filmaticBean;
     
@@ -39,21 +40,12 @@ public class AddToQueueServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            String movieIdTemp = (String) request.getParameter("movieToQueue");
-            Integer movieId = Integer.parseInt(movieIdTemp);
             Person person = (Person) request.getSession().getAttribute("person");
-            
-            Movie movie = filmaticBean.getMovie(movieId);
+            String movieIdTemp = (String) request.getParameter("movieToRemove");
+            Integer movieId = Integer.parseInt(movieIdTemp);
             Integer personId = person.getPersonId();
             
-            Moviequeue newQueueEntry = new Moviequeue();
-            
-            if ((movie != null) && (person.getPersonId() != null) && (filmaticBean.existsInQueue(person.getPersonId().toString(), movieId) == false)) {
-                newQueueEntry.setMovieQueueId(filmaticBean.getMaxMovieId());
-                newQueueEntry.setAccountNumber(person.getPersonId());
-                newQueueEntry.setMovieId(movie.getMovieId());
-                filmaticBean.save(newQueueEntry);
-            }
+            filmaticBean.removeFromCurrentUserQueue(personId, movieId);
             
             Moviequeue[] currentQueue = filmaticBean.getCurrentUserQueue(personId);
                 
@@ -64,8 +56,8 @@ public class AddToQueueServlet extends HttpServlet {
                 
             request.getSession().setAttribute("queueList", movieQueueList);
             
-             RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
-             rd.forward(request, response);
+            RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
+            rd.forward(request, response);
             
         } finally {            
             out.close();

@@ -162,4 +162,10 @@ public class filmaticSessionBean {
         }
     }
     
+    public void removeFromCurrentUserQueue(Integer personId, Integer movieId) {
+        String queryToRun = "DELETE FROM Moviequeue WHERE accountNumber=" + personId + " AND movieId=" + movieId;
+        Query query = emf.createEntityManager().createNativeQuery(queryToRun);
+        query.executeUpdate();
+    }
+    
 }
