@@ -44,13 +44,13 @@
                 <dl class="dl-horizontal">
                 
                 	<dt>Name:</dt>
-                	<dd><input class="input-medium" type="text" placeholder="Jon Jones"></dd>
+                	<dd><input class="input-medium" type="text" value="${person.firstName} ${person.lastName}"></dd>
                     
                     <dt>E-mail:</dt>
-                	<dd><input class="input-medium" type="text" placeholder="jogn@email.com"></dd>
+                	<dd><input class="input-medium" type="text" value="${person.email}"></dd>
                     
                     <dt>Credit Card Number:</dt>
-                	<dd><input class="input-medium" type="text" placeholder="xxxx-xxxx-xxxx-1234"></dd>
+                	<dd><input class="input-medium" type="text" value="${customer.creditCardNumber}"></dd>
                     
                     <dt></dt>
                     <dd><button class="btn btn-success" type="button">Save</button></dd>

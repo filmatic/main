@@ -43,8 +43,12 @@ public class LoginServlet extends HttpServlet {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             
+            Customer customer = null;
+            Employee employee = null;
+            
             // CHECK IF THE USER EXISTS
-            Person person = filmaticBean.checkUser(username, password);             
+            Person person = filmaticBean.checkUser(username, password);
+            
             Integer zero = 0;
             
             if (person != null) {
@@ -54,12 +58,16 @@ public class LoginServlet extends HttpServlet {
                 
                 // PERSON IS A CUSTOMER
                 if (person.getAccessLevel() == 0) {
+                    customer = filmaticBean.getCustomer(person.getPersonId());
+                    request.getSession().setAttribute("customer", customer);
                     RequestDispatcher rd = request.getRequestDispatcher("customer_home.jsp");
                     rd.forward(request, response);
                 }
                 
                 // PERSON IS AN ADMIN
                 else if (person.getAccessLevel() == 1) {
+                    employee = filmaticBean.getEmployee(person.getPersonId());
+                    request.getSession().setAttribute("employee", employee);
                     RequestDispatcher rd = request.getRequestDispatcher("customer_home.jsp");
                     rd.forward(request, response);
                 }           
