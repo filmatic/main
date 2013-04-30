@@ -39,23 +39,25 @@
             
            <!-- PERSONAL INFO -->
            <div id="personal-info-frame">
-           		<h3>Personal Info</h3>
-				
-                <dl class="dl-horizontal">
-                
-                	<dt>Name:</dt>
-                	<dd><input class="input-medium" type="text" placeholder="Jon Jones"></dd>
-                    
-                    <dt>E-mail:</dt>
-                	<dd><input class="input-medium" type="text" placeholder="jogn@email.com"></dd>
-                    
-                    <dt>Credit Card Number:</dt>
-                	<dd><input class="input-medium" type="text" placeholder="xxxx-xxxx-xxxx-1234"></dd>
-                    
-                    <dt></dt>
-                    <dd><button class="btn btn-success" type="button">Save</button></dd>
-                  
-                </dl>
+               <form action="SaveCustomerSettingsServlet" method="post">
+                            <h3>Personal Info</h3>
+
+                    <dl class="dl-horizontal">
+
+                            <dt>Name:</dt>
+                            <dd><input class="input-medium" type="text" name="customerName" value="${person.firstName} ${person.lastName}"></dd>
+
+                        <dt>E-mail:</dt>
+                            <dd><input class="input-medium" type="text" name="customerEmail" value="${person.email}"></dd>
+
+                        <dt>Credit Card Number:</dt>
+                            <dd><input class="input-medium" type="text" name="customerCardNumber" value="${customer.creditCardNumber}"></dd>
+
+                        <dt></dt>
+                        <dd><button class="btn btn-success" type="submit">Save</button></dd>
+
+                    </dl>
+               </form>
            </div>
            
            

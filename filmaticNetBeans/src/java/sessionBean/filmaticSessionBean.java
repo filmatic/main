@@ -137,6 +137,11 @@ public class filmaticSessionBean {
         }
     }
     
+    /**
+     * 
+     * @param personId
+     * @return 
+     */
     public Moviequeue[] getCurrentUserQueue(Integer personId) {
         Query query = emf.createEntityManager().createQuery("SELECT m FROM Moviequeue m WHERE m.accountNumber = :personId");
         List<Moviequeue> searchResults = query.setParameter("personId", personId).getResultList();
@@ -162,10 +167,42 @@ public class filmaticSessionBean {
         }
     }
     
+    /**
+     * 
+     * @param personId
+     * @param movieId 
+     */
     public void removeFromCurrentUserQueue(Integer personId, Integer movieId) {
         String queryToRun = "DELETE FROM Moviequeue WHERE accountNumber=" + personId + " AND movieId=" + movieId;
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
+    /**
+     * 
+     * @param personId
+     * @return 
+     */
+    public Customer getCustomer(Integer personId) {
+        Customer customer = (Customer) emf.createEntityManager().find(Customer.class, personId);
+        if (customer != null) {
+            return customer;
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+     * 
+     * @param personId
+     * @return 
+     */
+    public Employee getEmployee(Integer personId) {
+        Employee employee = (Employee) emf.createEntityManager().find(Employee.class, personId);
+        if (employee != null) {
+            return employee;
+        } else {
+            return null;
+        }
+    }
 }
