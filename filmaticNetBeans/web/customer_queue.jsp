@@ -67,10 +67,14 @@
                                     <i class="icon-search icon-star-empty"></i>
                                 </td>
                               <td>
-                                  <button class="btn btn-warning" type="button">Rent</button>
+                                  <form action="AskToRentServlet" method="post">
+                                    <button class="btn btn-warning" type="submit" name="movieToRent" value="${movie.movieId}">Rent</button>
+                                  </form>
                               </td>
                               <td>
-                                  <button class="btn btn-danger" type="button"><i class="icon-remove icon-white"></i></button>
+                                  <form action="RemoveFromQueueServlet" method="post">
+                                    <button class="btn btn-danger" type="submit" name="movieToRemove" value="${movie.movieId}"><i class="icon-remove icon-white"></i></button>
+                                  </form>
                               </td>
                           </tr>
                       </c:forEach>
