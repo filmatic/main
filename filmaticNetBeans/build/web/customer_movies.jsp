@@ -5,6 +5,32 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
         <link href="css/customer_movies_style.css" rel="stylesheet" media="screen" />
+        
+        <script type="text/javascript">
+            function change(type) {
+                
+                //var search_types = document.getElementById("search_type");
+                //var search_list = search_types.getElementsByTagName("li");
+                var type_button = document.getElementById("search_type_button");
+                //var keyword = search_list[0];
+                //var title = search_list[1];
+                //var genre = search_list[2];
+                
+                if (type=='keyword') {
+                    type_button.innerHTML = 'Keyword <span class=\"caret\">';
+                }
+                else if (type=='title') {
+                    type_button.innerHTML = "Title <span class=\"caret\">";
+                }
+                else if (type='genre') {
+                    type_button.innerHTML = 'Genre <span class=\"caret\">';
+                }
+                
+                // Reset the class
+                
+            }
+        </script> 
+        
 	</head>
 
 <body>
@@ -90,14 +116,14 @@
                         <input class="span3" id="appendedPrependedDropdownButton" placeholder="Search Movies" type="text">
                         
                         <div class="btn-group">
-                            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                            <button id="search_type_button" class="btn dropdown-toggle" data-toggle="dropdown">
                                     Keyword
                                     <span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu">
-                            	<li class="active"><a href="">Keyword</a</li>
-                                <li ><a href="">Title</a</li>
-                                <li><a href="">Genre</a></li>
+                            <ul id="search_type"class="dropdown-menu">
+                                <li><a href="javascript:change('keyword')">Keyword</a></li>
+                                <li><a href="javascript:change('title')">Title</a></li>
+                                <li><a href="javascript:change('genre')">Genre</a></li>
                             </ul>
                             
                             <button id="search-button" type="submit" class="btn btn-warning"><i class="icon-search icon-white"></i></button>
