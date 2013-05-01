@@ -5,6 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
         <link href="css/customer_movies_style.css" rel="stylesheet" media="screen" />
+        <link href="css/bootstrap-select.css" rel="stylesheet" media="screen" />
         
         <script type="text/javascript">
             function change(type) {
@@ -37,6 +38,7 @@
                 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+                <script src="js/bootstrap-select.js"></script>
 
 		<div id="wrapper" class="center-horizontal">
         	<!-- logo -->
@@ -111,20 +113,16 @@
             <div id="search-frame">
             	<h3>Search Movies</h3>
                 
-                <form class="form-search">
+                <form class="form-search" method="post" action="SearchServlet">
                     <div class="input-prepend input-append">
-                        <input class="span3" id="appendedPrependedDropdownButton" placeholder="Search Movies" type="text">
+                        <input class="span3" id="appendedPrependedDropdownButton" placeholder="Search Movies" name="searchKeyword" type="text">
                         
                         <div class="btn-group">
-                            <button id="search_type_button" class="btn dropdown-toggle" data-toggle="dropdown">
-                                    Keyword
-                                    <span class="caret"></span>
-                            </button>
-                            <ul id="search_type"class="dropdown-menu">
-                                <li><a href="javascript:change('keyword')">Keyword</a></li>
-                                <li><a href="javascript:change('title')">Title</a></li>
-                                <li><a href="javascript:change('genre')">Genre</a></li>
-                            </ul>
+                            <select class="selectpicker" name="searchType">
+                                <option value="keyword">Keyword</option>
+                                <option value="title">Title</option>
+                                <option value="genre">Genre</option>
+                            </select>
                             
                             <button id="search-button" type="submit" class="btn btn-warning"><i class="icon-search icon-white"></i></button>
                         </div>

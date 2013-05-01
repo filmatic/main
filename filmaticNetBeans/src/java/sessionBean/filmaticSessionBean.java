@@ -257,4 +257,34 @@ public class filmaticSessionBean {
         customer.setTimesLoggedIn(loginCount);
         emf.createEntityManager().merge(customer);
     }
+    
+    /**
+     * 
+     * @param keyword
+     * @param type
+     * @return 
+     */
+    public Movie[] search(String keyword, String type) {
+        TypedQuery<Movie> query;
+        List<Movie> searchResults = null;
+        if (!keyword.equals("null")) {
+            if (type.equals("genre")) {
+                query = emf.createEntityManager().createQuery("SELECT m FROM Movie m WHERE m.genre LIKE :genre", Movie.class);
+                searchResults = query.setParameter("genre","%" + keyword + "%").getResultList();
+            }
+            else if (type.equals("title")) {
+                query = emf.createEntityManager().createQuery("SELECT m FROM Movie m WHERE m.title LIKE :title", Movie.class);
+                searchResults = query.setParameter("title","%" + keyword + "%").getResultList();
+            }
+            else if (type.equals("keyword")) {
+                query = emf.createEntityManager().createQuery("SELECT m FROM Movie m WHERE m.title LIKE :title", Movie.class);
+                searchResults = query.setParameter("title","%" + keyword + "%").getResultList();
+            }
+        }
+        else {
+            query = emf.createEntityManager().createQuery("SELECT m FROM Movie m ORDER BY m.title", Movie.class);
+            searchResults = query.getResultList();
+        }
+        return searchResults.toArray(new Movie[searchResults.size()]);
+    }
 }
