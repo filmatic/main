@@ -40,7 +40,9 @@ public class GenerateAllMovieServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            Movie[] movies = filmaticBean.getAllMovies();
+            Person person = (Person) request.getSession().getAttribute("person");
+            
+            Movie[] movies = filmaticBean.getAllMoviesNotInQueue(person);
             request.getSession().setAttribute("movieList", movies);
             
             RequestDispatcher rd = request.getRequestDispatcher("customer_movies.jsp");

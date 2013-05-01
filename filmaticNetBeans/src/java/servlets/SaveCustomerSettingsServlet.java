@@ -66,6 +66,8 @@ public class SaveCustomerSettingsServlet extends HttpServlet {
             currentUser.setEmail(newEmail);
             currentCustomer.setCreditCardNumber(newCardNumber);
             
+            System.out.println(currentCustomer.getCreditCardNumber());
+            
             //request.setAttribute("person", currentUser);
             //request.setAttribute("customer", currentCustomer);
             

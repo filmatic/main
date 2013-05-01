@@ -112,8 +112,48 @@ public class filmaticSessionBean {
      * @return 
      */
     public Movie[] getAllMovies() {
-        List<Movie> searchResults = emf.createEntityManager().createQuery("SELECT m FROM Movie m ORDER BY m.title").getResultList();
+        List<Movie> searchResults = emf.createEntityManager().createQuery("SELECT m FROM Movie m ORDER BY m.title").getResultList();   
         return searchResults.toArray(new Movie[searchResults.size()]);
+    }
+    
+    /**
+     * 
+     * @param person
+     * @return 
+     */
+    public Movie[] getAllMoviesNotInQueue(Person person) {
+        
+        List<Movie> searchResults = emf.createEntityManager().createQuery("SELECT m FROM Movie m ORDER BY m.title").getResultList();
+        Movie[] newSearchResults = new Movie[searchResults.size()];
+        
+        Integer personId = person.getPersonId();
+        String personIdString = personId + "";
+        int counter = 0;
+        
+        for (int i = 0; i < searchResults.size(); i++) {
+            if (!existsInQueue(personIdString, searchResults.get(i).getMovieId())) {
+                newSearchResults[counter] = (searchResults.get(i));
+                counter++;
+            }
+        }
+        
+        int newCounter = 0;
+        for (int i = 0; i < newSearchResults.length; i++) {
+            if (newSearchResults[i] != null) {
+                newCounter++;
+            } 
+        }
+        
+        System.out.println(newCounter);
+        
+        Movie[] finalResults = new Movie[newCounter];
+        for (int i = 0; i < finalResults.length; i++) {
+            finalResults[i] = newSearchResults[i];
+        }
+        
+        
+        
+        return finalResults; 
     }
     
     /**
@@ -204,5 +244,17 @@ public class filmaticSessionBean {
         } else {
             return null;
         }
+    }
+    
+    /**
+     * 
+     * @param customer 
+     */
+    public void increaseLoginCount(Customer customer) {
+        String queryToRun = "SELECT c.timesLoggedIn FROM Customer c WHERE c.customerId=" + customer.getCustomerId();
+        Integer loginCount = (Integer) emf.createEntityManager().createNativeQuery(queryToRun).getSingleResult();
+        loginCount++;
+        customer.setTimesLoggedIn(loginCount);
+        emf.createEntityManager().merge(customer);
     }
 }
