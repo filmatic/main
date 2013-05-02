@@ -4,29 +4,42 @@
 		<title>Filmatic - Home</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+                
+                
                 <link href="css/customer_settings_style.css" rel="stylesheet" media="screen" />
                 <script src="http://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
                 
+                
+                <link href="css/bootstrap-select.css" rel="stylesheet" media="screen" />
+                <script src="js/bootstrap-select.js"></script>
+                
                 <script>
+                    $(document).ready( function() {
+                        $('.selectpicker').selectpicker();
+                    });
+                    
                     // MAKE SURE EVERYTHING IS LOADED BEFORE YOU ACCESS IT
                     $(document).ready( function() {
                         
                         // Function that checks whether a differnet plan was selected
                         $("#plan").change(function() {
-//                          // FIRST PLAN WAS SELECTED
-                            if($(this)[0].value=="1") {
-                                alert ("yolo");
+                            
+                            var planSelected = $("#plan option:selected").val();
+                            
+                            if (planSelected=="1") {
+                                $("#numofmovies").val("2");
+                                $("#price").val("$10");
                             }
-                            // SECOND PLAN
-                            else if($(this)[1].value=="2") {
-                                
+                            else if (planSelected=="2") {
+                                $("#numofmovies").val("100");
+                                $("#price").val("$40");
                             }
-                            // THIRD PLAN
-                            else if($(this)[2].value=="3") {
-                                
-                               
+                            else if (planSelected=="3") {
+                                $("#numofmovies").val("Unlimited");
+                                $("#price").val("$50");
                             }
+                            
                         });
                         
                     });
@@ -99,18 +112,18 @@
                 <dl class="dl-horizontal">
                 	<dt>Plan:</dt>
                 	<dd>
-                            <select class="selectpicker" name="plan" id="plan" style="">
-                                <option value="1">1/month</option>
+                            <select class="selectpicker" name="plan" id="plan">
+                                <option selected value="1">1/month</option>
                                 <option value="2">2/month</option>
                                 <option value="3">Unlimited</option>
                             </select>
                         </dd>
                     
                     <dt># Movies/month:</dt>
-                	<dd><input class="input-medium" type="text" value="Unlimited"></dd>
+                	<dd><input id="numofmovies" class="input-medium" disabled type="text" value="10"></dd>
                     
                     <dt>Price/month:</dt>
-                	<dd><input class="input-medium" type="text" value="$15"></dd>
+                	<dd><input id="price" class="input-medium" disabled type="text" value="$30"></dd>
                     
                     <dt></dt>
                     <dd><button class="btn btn-success" type="button">Save</button></dd>
