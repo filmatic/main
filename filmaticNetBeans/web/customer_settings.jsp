@@ -4,12 +4,37 @@
 		<title>Filmatic - Home</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
-        <link href="css/customer_settings_style.css" rel="stylesheet" media="screen" />
+                <link href="css/customer_settings_style.css" rel="stylesheet" media="screen" />
+                <script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+                
+                <script>
+                    // MAKE SURE EVERYTHING IS LOADED BEFORE YOU ACCESS IT
+                    $(document).ready( function() {
+                        
+                        // Function that checks whether a differnet plan was selected
+                        $("#plan").change(function() {
+//                          // FIRST PLAN WAS SELECTED
+                            if($(this)[0].value=="1") {
+                                alert ("yolo");
+                            }
+                            // SECOND PLAN
+                            else if($(this)[1].value=="2") {
+                                
+                            }
+                            // THIRD PLAN
+                            else if($(this)[2].value=="3") {
+                                
+                               
+                            }
+                        });
+                        
+                    });
+                </script>
 	</head>
 
 <body>
-		<script src="http://code.jquery.com/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+
 
 		<div id="wrapper" class="center-horizontal">
         	
@@ -73,7 +98,13 @@
 				
                 <dl class="dl-horizontal">
                 	<dt>Plan:</dt>
-                	<dd><input class="input-medium" type="text" value="John Smith"></dd>
+                	<dd>
+                            <select class="selectpicker" name="plan" id="plan" style="">
+                                <option value="1">1/month</option>
+                                <option value="2">2/month</option>
+                                <option value="3">Unlimited</option>
+                            </select>
+                        </dd>
                     
                     <dt># Movies/month:</dt>
                 	<dd><input class="input-medium" type="text" value="Unlimited"></dd>

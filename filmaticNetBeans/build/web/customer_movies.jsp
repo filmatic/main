@@ -118,7 +118,7 @@
                         <input class="span3" id="appendedPrependedDropdownButton" placeholder="Search Movies" name="searchKeyword" type="text">
                         
                         <div class="btn-group">
-                            <select class="selectpicker" name="searchType">
+                            <select class="selectpicker" name="searchType" style="width:100px">
                                 <option value="keyword">Keyword</option>
                                 <option value="title">Title</option>
                                 <option value="genre">Genre</option>
