@@ -83,7 +83,13 @@
                         <c:forEach var="movie" items="${movieList}">
                             <tr>
                                 <td>${movie.movieId}</td>
-                                <td>${movie.title}</td>
+                                <td>
+                                    <a href="GenerateMovieDetailServlet?movieToDetail=${movie.movieId}">
+                                        <input type="hidden" name="movieToDetail" value="${movie.movieId}">
+                                            ${movie.title}
+                                        </input>
+                                    </a>
+                                </td>
                                 <td>${movie.genre}</td>
                                 <td>
                                     <c:choose>

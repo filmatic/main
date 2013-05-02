@@ -32,6 +32,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Movie.findByTimesRated", query = "SELECT m FROM Movie m WHERE m.timesRated = :timesRated"),
     @NamedQuery(name = "Movie.findByImageLocation", query = "SELECT m FROM Movie m WHERE m.imageLocation = :imageLocation")})
 public class Movie implements Serializable {
+    @Size(max = 2000)
+    @Column(name = "Summary")
+    private String summary;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -193,6 +196,14 @@ public class Movie implements Serializable {
     @Override
     public String toString() {
         return "entities.Movie[ movieId=" + movieId + " ]";
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
     
 }
