@@ -287,4 +287,5 @@ public class filmaticSessionBean {
         }
         return searchResults.toArray(new Movie[searchResults.size()]);
     }
+    
 }

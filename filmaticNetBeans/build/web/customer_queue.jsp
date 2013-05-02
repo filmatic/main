@@ -60,11 +60,50 @@
                               <td>${movie.title}</td>
                               <td>${movie.genre}</td>
                               <td>
-                                    <i class="icon-search icon-star"></i>
-                                    <i class="icon-search icon-star"></i>
-                                    <i class="icon-search icon-star"></i>
-                                    <i class="icon-search icon-star-empty"></i>
-                                    <i class="icon-search icon-star-empty"></i>
+                                    <c:choose>
+                                        <c:when test="${movie.rating == '5'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                        </c:when>
+                                        <c:when test="${movie.rating == '4'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${movie.rating == '3'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${movie.rating == '2'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${movie.rating == '1'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${movie.rating == '0'}">
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                    </c:choose>
                                 </td>
                               <td>
                                   <form action="AskToRentServlet" method="post">
