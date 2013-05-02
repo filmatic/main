@@ -28,18 +28,25 @@
                             var planSelected = $("#plan option:selected").val();
                             
                             if (planSelected=="1") {
-                                $("#numofmovies").val("2");
-                                $("#price").val("$10");
+                                $("#moviespermonth").val("2");
+                                $("#maxmoviesout").val("1");
+                                $("#price").val("$10.00");
                             }
                             else if (planSelected=="2") {
-                                $("#numofmovies").val("100");
-                                $("#price").val("$40");
+                                $("#moviespermonth").val("Unlimited");
+                                $("#maxmoviesout").val("1");
+                                $("#price").val("$15.00");
                             }
                             else if (planSelected=="3") {
-                                $("#numofmovies").val("Unlimited");
-                                $("#price").val("$50");
+                                $("#moviespermonth").val("Unlimited");
+                                $("#maxmoviesout").val("2");
+                                $("#price").val("$25.00");
                             }
-                            
+                            else if (planSelected=="4") {
+                                $("#moviespermonth").val("Unlimited");
+                                $("#maxmoviesout").val("Unlimited");
+                                $("#price").val("$25.00");
+                            }
                         });
                         
                     });
@@ -113,17 +120,21 @@
                 	<dt>Plan:</dt>
                 	<dd>
                             <select class="selectpicker" name="plan" id="plan">
-                                <option selected value="1">1/month</option>
-                                <option value="2">2/month</option>
-                                <option value="3">Unlimited</option>
+                                <option selected value="1">Bronze</option>
+                                <option value="2">Silver</option>
+                                <option value="3">Gold</option>
+                                <option value="4">Platinum</option>
                             </select>
                         </dd>
                     
                     <dt># Movies/month:</dt>
-                	<dd><input id="numofmovies" class="input-medium" disabled type="text" value="10"></dd>
+                	<dd><input id="moviespermonth" class="input-medium" disabled type="text" value="2"></dd>
+                        
+                    <dt>Max Movies Out:</dt>
+                	<dd><input id="maxmoviesout" class="input-medium" disabled type="text" value="1"></dd>
                     
                     <dt>Price/month:</dt>
-                	<dd><input id="price" class="input-medium" disabled type="text" value="$30"></dd>
+                	<dd><input id="price" class="input-medium" disabled type="text" value="$10.00"></dd>
                     
                     <dt></dt>
                     <dd><button class="btn btn-success" type="button">Save</button></dd>
