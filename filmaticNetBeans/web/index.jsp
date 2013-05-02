@@ -38,6 +38,7 @@
                                name="password" type="password" placeholder="Password"><br />
                         </div>
                         <button id="login" type="submit" class="btn btn-warning">Login</button><br />
+                        <div id="signup"><p>Not a member? Sign up here!</p></div>
                     </form>
                 </div>
             </div>
