@@ -28,15 +28,15 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Customer.findByRating", query = "SELECT c FROM Customer c WHERE c.rating = :rating"),
     @NamedQuery(name = "Customer.findByTimesLoggedIn", query = "SELECT c FROM Customer c WHERE c.timesLoggedIn = :timesLoggedIn")})
 public class Customer implements Serializable {
+    @Column(name = "AccountCreationDate")
+    @Temporal(TemporalType.DATE)
+    private Date accountCreationDate;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "CustomerId")
     private Integer customerId;
-    @Column(name = "AccountCreationDate")
-    @Temporal(TemporalType.DATE)
-    private Date accountCreationDate;
     @Size(max = 16)
     @Column(name = "CreditCardNumber")
     private String creditCardNumber;
@@ -66,14 +66,6 @@ public class Customer implements Serializable {
 
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
-    }
-
-    public Date getAccountCreationDate() {
-        return accountCreationDate;
-    }
-
-    public void setAccountCreationDate(Date accountCreationDate) {
-        this.accountCreationDate = accountCreationDate;
     }
 
     public String getCreditCardNumber() {
@@ -148,6 +140,14 @@ public class Customer implements Serializable {
     @Override
     public String toString() {
         return "entities.Customer[ customerId=" + customerId + " ]";
+    }
+
+    public Date getAccountCreationDate() {
+        return accountCreationDate;
+    }
+
+    public void setAccountCreationDate(Date accountCreationDate) {
+        this.accountCreationDate = accountCreationDate;
     }
     
 }
