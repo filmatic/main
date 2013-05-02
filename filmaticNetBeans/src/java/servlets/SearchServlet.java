@@ -47,17 +47,19 @@ public class SearchServlet extends HttpServlet {
                 keyword = "null";
             }
             
-            System.out.println("Touched");
+            //System.out.println("Touched");
             
             Movie[] results = filmaticBean.search(keyword, searchType);
             
-            System.out.println("Touched again");
+            //System.out.println("Touched again");
             
             for (int i = 0; i < results.length; i++) {
                 System.out.println(results[i].getTitle());
             }
             
             request.getSession().setAttribute("searchResults", results);
+            RequestDispatcher rd = request.getRequestDispatcher("customer_movies.jsp");
+            rd.forward(request, response);
   
         } finally {            
             out.close();
