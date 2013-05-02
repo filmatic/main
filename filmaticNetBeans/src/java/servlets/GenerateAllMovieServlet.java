@@ -45,6 +45,9 @@ public class GenerateAllMovieServlet extends HttpServlet {
             Movie[] movies = filmaticBean.getAllMoviesNotInQueue(person);
             request.getSession().setAttribute("movieList", movies);
             
+            Movie[] empty = null;
+            request.getSession().setAttribute("searchResults", empty);
+            
             RequestDispatcher rd = request.getRequestDispatcher("customer_movies.jsp");
             rd.forward(request, response);
             
