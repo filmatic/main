@@ -38,9 +38,35 @@
                                name="password" type="password" placeholder="Password"><br />
                         </div>
                         <button id="login" type="submit" class="btn btn-warning">Login</button><br />
-                        <div id="signup"><p>Not a member? Sign up here!</p></div>
+                        
+                        <div id="signup">
+                            <a href="#myModal" role="button" data-toggle="modal">Not a member? Sign up here!</a>
+                        </div>
                     </form>
                 </div>
             </div>
+                               
+            <!-- Modal -->
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Register Form</h3>
+                </div>
+                
+                <div id="regbody" class="modal-body">
+                    <input id="username" value="${requestScope.username}"
+                               name="regusername" type="text" placeholder="Username"><br />   
+                    <input id="password"
+                           name="regpassword" type="password" placeholder="Password"><br />
+                </div>
+                               
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                    <button class="btn btn-warning">Register</button>
+                
+                </div>
+            </div>
+            
 	</body>
 </html>

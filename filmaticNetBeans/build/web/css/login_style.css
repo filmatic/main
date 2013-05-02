@@ -83,3 +83,9 @@ div#signup {
 	color:#a0a0a0;
 	font-size:11px;	
 }
+
+div#myModal {
+    width:300px;
+    left:50%;
+    margin-left:-150px;
+}
