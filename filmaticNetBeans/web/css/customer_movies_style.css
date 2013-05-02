@@ -35,6 +35,10 @@ button#search-button {
 	width: 60px;
 }
 
+#searchpick {
+    width:100px;
+}
+
 /* CUSTOMIZE NAV BAR (DON'T TOUCH)
 ---------------------------*/
 

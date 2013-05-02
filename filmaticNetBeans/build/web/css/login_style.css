@@ -85,7 +85,19 @@ div#signup {
 }
 
 div#myModal {
-    width:300px;
+    width:420px;
     left:50%;
-    margin-left:-150px;
+    margin-left:-210px;
+}
+
+#plan {
+    width:164px;
+}
+
+#modal-footerz {
+    margin-bottom:0px;
+}
+
+form#RegisterForm {
+    margin:0px;
 }

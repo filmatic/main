@@ -40,7 +40,7 @@
                             else if (planSelected=="3") {
                                 $("#moviespermonth").val("Unlimited");
                                 $("#maxmoviesout").val("2");
-                                $("#price").val("$25.00");
+                                $("#price").val("$20.00");
                             }
                             else if (planSelected=="4") {
                                 $("#moviespermonth").val("Unlimited");

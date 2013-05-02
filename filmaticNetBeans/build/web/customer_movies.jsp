@@ -3,42 +3,30 @@
 	<head>
 		<title>Filmatic - Home</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                
+                <script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+                <script src="js/bootstrap-select.js"></script>
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
-        <link href="css/customer_movies_style.css" rel="stylesheet" media="screen" />
-        <link href="css/bootstrap-select.css" rel="stylesheet" media="screen" />
+                <link href="css/customer_movies_style.css" rel="stylesheet" media="screen" />
+                <link href="css/bootstrap-select.css" rel="stylesheet" media="screen" />
+                
+                <script src="js/bootstrap-select.js"></script>
         
-        <script type="text/javascript">
-            function change(type) {
-                
-                //var search_types = document.getElementById("search_type");
-                //var search_list = search_types.getElementsByTagName("li");
-                var type_button = document.getElementById("search_type_button");
-                //var keyword = search_list[0];
-                //var title = search_list[1];
-                //var genre = search_list[2];
-                
-                if (type=='keyword') {
-                    type_button.innerHTML = 'Keyword <span class=\"caret\">';
-                }
-                else if (type=='title') {
-                    type_button.innerHTML = "Title <span class=\"caret\">";
-                }
-                else if (type='genre') {
-                    type_button.innerHTML = 'Genre <span class=\"caret\">';
-                }
-                
-                // Reset the class
-                
-            }
-        </script> 
-        
+                <script>
+                    // Enable select style
+                    /*
+                    $(document).ready( function() {
+                        $('.selectpicker').selectpicker();
+                    });
+                    */
+                </script> 
+
 	</head>
 
 <body>
                 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-		<script src="http://code.jquery.com/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-                <script src="js/bootstrap-select.js"></script>
+
 
 		<div id="wrapper" class="center-horizontal">
         	<!-- logo -->
@@ -162,7 +150,7 @@
                         <input class="span3" id="appendedPrependedDropdownButton" placeholder="Search Movies" name="searchKeyword" type="text">
                         
                         <div class="btn-group">
-                            <select class="selectpicker" name="searchType" style="width:100px">
+                            <select id="searchpick" class="selectpicker" name="searchType">
                                 <option value="keyword">Keyword</option>
                                 <option value="title">Title</option>
                                 <option value="genre">Genre</option>
