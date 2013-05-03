@@ -12,11 +12,20 @@
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 
-		<div id="wrapper" class="center-horizontal">
-        	
+       <div id="wrapper" class="center-horizontal">
+            <!-- logoffbutton -->
+            <div id="logoff-frame">
+                <p>
+                    <a href="LogoutServlet">
+                    <button id="logoff" style="" action="" class="btn btn-warning"><i class="icon-off icon-white"></i></button>
+                    </a>
+                </p>
+            </div>
+                
+                
             
             <!-- logo -->
-        	<div id="logo" class="center-horizontal">
+            <div id="logo" class="center-horizontal">
             	<a class="brand" href="#"><img src="img/login_logo.jpg" id="logo" alt="login"/></a>
             </div>
             

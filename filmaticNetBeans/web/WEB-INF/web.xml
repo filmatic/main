@@ -53,17 +53,16 @@
         <servlet-class>servlets.GenerateMovieDetailServlet</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>RegisterNewUserServlet</servlet-name>
         <servlet-class>servlets.RegisterNewUserServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>GenerateStateServlet</servlet-name>
         <servlet-class>servlets.GenerateStateServlet</servlet-class>
-=======
+    </servlet>
+    <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>servlets.LogoutServlet</servlet-class>
->>>>>>> b130c362662746923898d39fdeded7855eaf0885
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -109,27 +108,32 @@
         <servlet-name>SearchServlet</servlet-name>
         <url-pattern>/SearchServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>ForgotPasswordServlet</servlet-name>
         <url-pattern>/ForgotPasswordServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>GenerateMovieDetailServlet</servlet-name>
         <url-pattern>/GenerateMovieDetailServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>RegisterNewUserServlet</servlet-name>
         <url-pattern>/RegisterNewUserServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>GenerateStateServlet</servlet-name>
         <url-pattern>/GenerateStateServlet</url-pattern>
-=======
+    </servlet-mapping>
+    
+    <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
->>>>>>> b130c362662746923898d39fdeded7855eaf0885
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
