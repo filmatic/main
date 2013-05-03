@@ -260,6 +260,16 @@ public class filmaticSessionBean {
     
     /**
      * 
+     * @return 
+     */
+    public States[] getStateAcronyms() {
+        String queryToRun = "SELECT s FROM State s";
+        List<States> searchResults = emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
+        return searchResults.toArray(new States[searchResults.size()]);
+    }
+    
+    /**
+     * 
      * @param keyword
      * @param type
      * @return 
