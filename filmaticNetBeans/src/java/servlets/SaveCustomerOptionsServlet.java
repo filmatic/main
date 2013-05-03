@@ -50,9 +50,9 @@ public class SaveCustomerOptionsServlet extends HttpServlet {
             } else if (customerPlan.equals("2")) {
                 currentCustomer.setAccountType(new Accounttype(2));
             } else if (customerPlan.equals("3")) {
-                currentCustomer.setAccountType(new Accounttype(2));
+                currentCustomer.setAccountType(new Accounttype(3));
             } else if (customerPlan.equals("4")) {
-                currentCustomer.setAccountType(new Accounttype(2));
+                currentCustomer.setAccountType(new Accounttype(4));
             }
             
             String customerCardNumber = (String) request.getParameter("customerCardNumber");

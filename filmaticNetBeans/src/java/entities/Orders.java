@@ -25,10 +25,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Orders.findByReturnDate", query = "SELECT o FROM Orders o WHERE o.returnDate = :returnDate"),
     @NamedQuery(name = "Orders.findByPending", query = "SELECT o FROM Orders o WHERE o.pending = :pending")})
 public class Orders implements Serializable {
-    @Column(name = "DateTime")
+    @Column(name =     "DateTime")
     @Temporal(TemporalType.DATE)
     private Date dateTime;
-    @Column(name = "ReturnDate")
+    @Column(name =     "ReturnDate")
     @Temporal(TemporalType.DATE)
     private Date returnDate;
     private static final long serialVersionUID = 1L;

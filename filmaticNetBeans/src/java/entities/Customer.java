@@ -28,9 +28,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Customer.findByRating", query = "SELECT c FROM Customer c WHERE c.rating = :rating"),
     @NamedQuery(name = "Customer.findByTimesLoggedIn", query = "SELECT c FROM Customer c WHERE c.timesLoggedIn = :timesLoggedIn")})
 public class Customer implements Serializable {
+    @Size(max =     10)
     @Column(name = "AccountCreationDate")
-    @Temporal(TemporalType.DATE)
-    private Date accountCreationDate;
+    private String accountCreationDate;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -142,11 +142,11 @@ public class Customer implements Serializable {
         return "entities.Customer[ customerId=" + customerId + " ]";
     }
 
-    public Date getAccountCreationDate() {
+    public String getAccountCreationDate() {
         return accountCreationDate;
     }
 
-    public void setAccountCreationDate(Date accountCreationDate) {
+    public void setAccountCreationDate(String accountCreationDate) {
         this.accountCreationDate = accountCreationDate;
     }
     

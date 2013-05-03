@@ -11,12 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.*;
+import java.util.Calendar;
+import javax.servlet.RequestDispatcher;
+import sessionBean.filmaticSessionBean;
+import javax.ejb.EJB;
+
 /**
  *
  * @author Jonathan
  */
 public class RegisterNewUserServlet extends HttpServlet {
 
+    @EJB filmaticSessionBean filmaticBean;
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -32,17 +40,71 @@ public class RegisterNewUserServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /*
-             * TODO output your page here. You may use following sample code.
-             */
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RegisterNewUserServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RegisterNewUserServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            Person person = new Person();
+            Customer customer = new Customer();
+            
+            java.util.Date dt = new java.util.Date();
+
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+            String currentTime = sdf.format(dt);
+            System.out.println(currentTime);
+            
+            Long accountId = filmaticBean.getNextAvailablePersonId();
+            Integer id = accountId.intValue();
+            
+            person.setPersonId(id);
+            customer.setCustomerId(id);
+            
+            String email = request.getParameter("customerEmail");
+            person.setEmail(email);
+            
+            String password = request.getParameter("customerPassword");
+            person.setPassword(password);
+            
+            String firstName = request.getParameter("customerFirstName");
+            person.setFirstName(firstName);
+            
+            String lastName = request.getParameter("customerLastName");
+            person.setLastName(lastName);
+            
+            String phone = request.getParameter("customerPhone");
+            person.setTelephone(phone);
+            
+            String address = request.getParameter("customerAddress");
+            person.setAddress(address);
+            
+            String state = request.getParameter("customerState");
+            States states = filmaticBean.getState(state);
+            person.setStateAbrv(states);
+            
+            String zipCode = request.getParameter("customerZipCode");
+            person.setZipCode(zipCode);
+            
+            person.setAccessLevel(0);
+            
+            String creditCardNumber = request.getParameter("customerCreditCardNumber");
+            customer.setCreditCardNumber(creditCardNumber);
+            
+            customer.setRating(0);
+            customer.setTimesLoggedIn(0);
+             
+            String plan = request.getParameter("plan");
+            if (plan.equals("1")) {
+                customer.setAccountType(new Accounttype(1));
+            } else if (plan.equals("2")) {
+                customer.setAccountType(new Accounttype(2));
+            } else if (plan.equals("3")) {
+                customer.setAccountType(new Accounttype(3));
+            } else if (plan.equals("4")) {
+                customer.setAccountType(new Accounttype(4));
+            }
+            
+            customer.setAccountCreationDate(currentTime);
+            
+            filmaticBean.save(person);
+            filmaticBean.save(customer);
+                   
         } finally {            
             out.close();
         }

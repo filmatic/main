@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Employee.findByHourlyRate", query = "SELECT e FROM Employee e WHERE e.hourlyRate = :hourlyRate"),
     @NamedQuery(name = "Employee.findByTransactionsManaged", query = "SELECT e FROM Employee e WHERE e.transactionsManaged = :transactionsManaged")})
 public class Employee implements Serializable {
-    @Column(name = "StartDate")
+    @Column(name =     "StartDate")
     @Temporal(TemporalType.DATE)
     private Date startDate;
     private static final long serialVersionUID = 1L;

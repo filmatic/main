@@ -209,6 +209,16 @@ public class filmaticSessionBean {
     
     /**
      * 
+     * @return 
+     */
+    public Long getNextAvailablePersonId() {
+        String queryToRun = "SELECT MAX(PersonId) + 1 FROM Person";
+        Long nextSlot = (Long) emf.createEntityManager().createNativeQuery(queryToRun).getSingleResult();
+        return nextSlot;
+    }
+    
+    /**
+     * 
      * @param personId
      * @param movieId 
      */
