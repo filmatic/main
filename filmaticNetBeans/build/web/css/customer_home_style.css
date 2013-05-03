@@ -63,6 +63,18 @@ div#navigationbar {
 	margin-top:10px;
 }
 
+#logoff-frame {
+    width:800px;
+    text-align:right;
+    margin-top:-3px;
+}
+
+button#logoff {
+    width:70px;
+    height:25px;
+}
+    
+
 /* CUSTOMIZE NAV BAR
 ---------------------------*/
 .navbar .navbar-inner {
