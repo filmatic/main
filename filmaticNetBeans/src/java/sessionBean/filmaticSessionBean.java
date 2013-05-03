@@ -263,9 +263,23 @@ public class filmaticSessionBean {
      * @return 
      */
     public States[] getStateAcronyms() {
-        String queryToRun = "SELECT s FROM State s";
+        String queryToRun = "SELECT s FROM States s";
         List<States> searchResults = emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
         return searchResults.toArray(new States[searchResults.size()]);
+    }
+    
+    /**
+     * 
+     * @param state
+     * @return 
+     */
+    public States getState(String state) {
+        States states = (States) emf.createEntityManager().find(States.class, state);
+        if (states != null) {
+            return states;
+        } else {
+            return null;
+        }
     }
     
     /**

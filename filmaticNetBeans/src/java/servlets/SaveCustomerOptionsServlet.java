@@ -20,10 +20,10 @@ import javax.ejb.EJB;
  *
  * @author Jonathan
  */
-public class SaveCustomerSettingsServlet extends HttpServlet {
-
-    @EJB filmaticSessionBean filmaticBean;
+public class SaveCustomerOptionsServlet extends HttpServlet {
     
+    @EJB filmaticSessionBean filmaticBean;
+
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -40,38 +40,25 @@ public class SaveCustomerSettingsServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            Person currentUser = (Person) request.getSession().getAttribute("person");
-            //Customer currentCustomer = (Customer) request.getSession().getAttribute("customer");
-            //Customer currentCustomer = filmaticBean.getCustomer(currentUser.getPersonId());
+            Customer currentCustomer = (Customer) request.getSession().getAttribute("customer");
+            //Customer customer = (Customer) filmaticBean.getCustomer(currentCustomer.getCustomerId());
             
-            String newFirstName = (String) request.getParameter("customerFirstName");
-            String newLastName = (String) request.getParameter("customerLastName");
-            String newEmail = (String) request.getParameter("customerEmail");
-            String newPassword = (String) request.getParameter("customerPassword");
-            String newAddress = (String) request.getParameter("customerAddress");
-            String newCity = (String) request.getParameter("customerCity");
+            String customerPlan = (String) request.getParameter("plan");
             
-            String stateTemp = (String) request.getParameter("customerState");
-            States newState = filmaticBean.getState(stateTemp);
+            if (customerPlan.equals("1")) {
+                currentCustomer.setAccountType(new Accounttype(1));
+            } else if (customerPlan.equals("2")) {
+                currentCustomer.setAccountType(new Accounttype(2));
+            } else if (customerPlan.equals("3")) {
+                currentCustomer.setAccountType(new Accounttype(2));
+            } else if (customerPlan.equals("4")) {
+                currentCustomer.setAccountType(new Accounttype(2));
+            }
             
-            String newZipcode = (String) request.getParameter("customerZipCode");
-            String newTelephone = (String) request.getParameter("customerPhone");
+            String customerCardNumber = (String) request.getParameter("customerCardNumber");
+            currentCustomer.setCreditCardNumber(customerCardNumber);
             
-            currentUser.setFirstName(newFirstName);
-            currentUser.setLastName(newLastName);
-            currentUser.setEmail(newEmail);
-            currentUser.setPassword(newPassword);
-            currentUser.setAddress(newAddress);
-            currentUser.setStateAbrv(newState);
-            currentUser.setCity(newCity);
-            currentUser.setZipCode(newZipcode);
-            currentUser.setTelephone(newTelephone);
-
-            filmaticBean.update(currentUser);
-            
-            RequestDispatcher rd = request.getRequestDispatcher("customer_settings.jsp");
-            rd.forward(request, response);
-            
+            filmaticBean.update(currentCustomer);
             
         } finally {            
             out.close();

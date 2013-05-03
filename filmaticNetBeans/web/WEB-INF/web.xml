@@ -64,6 +64,10 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>servlets.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SaveCustomerOptionsServlet</servlet-name>
+        <servlet-class>servlets.SaveCustomerOptionsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -108,32 +112,30 @@
         <servlet-name>SearchServlet</servlet-name>
         <url-pattern>/SearchServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>ForgotPasswordServlet</servlet-name>
         <url-pattern>/ForgotPasswordServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>GenerateMovieDetailServlet</servlet-name>
         <url-pattern>/GenerateMovieDetailServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>RegisterNewUserServlet</servlet-name>
         <url-pattern>/RegisterNewUserServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>GenerateStateServlet</servlet-name>
         <url-pattern>/GenerateStateServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>SaveCustomerOptionsServlet</servlet-name>
+        <url-pattern>/SaveCustomerOptionsServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
