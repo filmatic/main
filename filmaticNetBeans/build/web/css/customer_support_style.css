@@ -1,25 +1,24 @@
 @charset "utf-8";
 /* CSS Document */
 
-div#personal-info-frame {
+div#queue-frame {
 	
 }
 
-
-div#account-type-frame {
-	
+.number-column {
+	width:36px;	
 }
 
-.featurette-divider {
-	margin-top:30px;
+.genre-column {
+	width:120px;	
 }
 
-#plan {
-    width:164px;
+.rating-column {
+	width:88px;
 }
 
-#zipcode {
-    width:164px;
+.order-date-column {
+	width: 105px;
 }
 
 

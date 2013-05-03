@@ -85,12 +85,16 @@ div#signup {
 }
 
 div#myModal {
-    width:420px;
+    width:430px;
     left:50%;
-    margin-left:-210px;
+    margin-left:-215px;
 }
 
 #plan {
+    width:164px;
+}
+
+#zipcode {
     width:164px;
 }
 

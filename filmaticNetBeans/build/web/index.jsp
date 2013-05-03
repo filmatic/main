@@ -78,6 +78,8 @@
                 </div>
             </div>
                                
+                               
+                               
             <!-- Modal -->
             <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 
@@ -90,17 +92,37 @@
                 <div id="regbody" class="modal-body">
                     <dl class="dl-horizontal">
                         
-                         <dt>E-mail (Login):</dt>
+                        <dt>E-mail (Login):</dt>
                             <dd><input class="input-medium" type="text" name="customerEmail" value=""></dd>
                          
-                         <dt>Password:</dt>
-                            <dd><input class="input-medium" type="text" name="customerPassword" value=""></dd>
-
-
-                         <dt>Name:</dt>
+                        <dt>Password:</dt>
+                            <dd><input class="input-medium" type="password" name="customerPassword" value=""></dd>
+                            
+                        <dt>First Name:</dt>
+                            <dd><input class="input-medium" type="text" name="customerName" value=""></dd>
+                            
+                        <dt>Last Name:</dt>
                             <dd><input class="input-medium" type="text" name="customerName" value=""></dd>
 
+                        <dt>Phone:</dt>
+                            <dd><input class="input-medium" type="text" name="customerPhone" value=""></dd>
+                            
+                        <dt>Address:</dt>
+                            <dd><input class="input-medium" type="text" name="customerAddress" value=""></dd>
+                            
+                        <dt>City:</dt>
+                            <dd><input class="input-medium" type="text" name="customerCity" value=""></dd>
 
+                        <dt>State:</dt>
+                            <dd><input class="input-medium" type="text" name="customerState" value=""></dd>    
+                            
+                        <dt>Zip Code:</dt>
+                	<dd>
+                            <select class="selectpicker" name="customerZipCode" id="zipcode">
+                                <option selected value="1">RI</option>
+                            </select>
+                        </dd>                           
+                            
                         <dt>Credit Card Number:</dt>
                             <dd><input class="input-medium" type="text" name="customerCardNumber" value=""></dd>
 

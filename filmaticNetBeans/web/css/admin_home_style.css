@@ -1,32 +1,23 @@
 @charset "utf-8";
 /* CSS Document */
 
-div#personal-info-frame {
-	
-}
+/* width must not be 100% */
 
 
-div#account-type-frame {
-	
+div#held-movies {
 }
 
 .featurette-divider {
 	margin-top:30px;
-}
-
-#plan {
-    width:164px;
-}
-
-#zipcode {
-    width:164px;
+	margin-bottom:30px;	
 }
 
 
 
 
-/* CUSTOMIZE NAV BAR (DON'T TOUCH)
----------------------------*/
+/**
+DONT EDIT
+*/
 
 .center-horizontal {
 	margin-left:auto;
@@ -34,9 +25,9 @@ div#account-type-frame {
 }
 
 body {
-	margin-bottom:100px;
+        height: 100%;
 	_overflow:auto;
-	overflow:scroll;
+        overflow:scroll;
 }
 
 div#wrapper {
@@ -59,6 +50,8 @@ div#navigationbar {
 	margin-top:10px;
 }
 
+/* CUSTOMIZE NAV BAR
+---------------------------*/
 .navbar .navbar-inner {
 padding: 0;
 }
@@ -86,11 +79,4 @@ border-radius: 3px 0 0 3px;
 border-right: 0;
 border-radius: 0 3px 3px 0;
 }
-
-/* modify stuff here */
-
-
-
-
-
 

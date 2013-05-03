@@ -89,12 +89,37 @@
 
                     <dl class="dl-horizontal">
 
-                            <dt>Name:</dt>
-                            <dd><input class="input-medium" type="text" name="customerName" value="${person.firstName} ${person.lastName}"></dd>
+                        <dt>First Name:</dt>
+                            <dd><input class="input-medium" type="text" name="customerName" value="${person.firstName}"></dd>
+                            
+                        <dt>Last Name:</dt>
+                            <dd><input class="input-medium" type="text" name="customerName" value="${person.lastName}"></dd>
 
                         <dt>E-mail:</dt>
                             <dd><input class="input-medium" type="text" name="customerEmail" value="${person.email}"></dd>
+                            
+                        <dt>Password:</dt>
+                            <dd><input class="input-medium" type="password" name="customerPassword" value="password"></dd>
+                            
+                        <dt>Phone:</dt>
+                            <dd><input class="input-medium" type="text" name="customerPhone" value="Phone"></dd>
+                            
+                        <dt>Address:</dt>
+                            <dd><input class="input-medium" type="text" name="customerAddress" value="Address"></dd>
+                            
+                        <dt>City:</dt>
+                            <dd><input class="input-medium" type="text" name="customerCity" value="City"></dd>
 
+                        <dt>State:</dt>
+                            <dd><input class="input-medium" type="text" name="customerState" value="State"></dd>    
+                            
+                        <dt>Zip Code:</dt>
+                	<dd>
+                            <select class="selectpicker" name="customerZipCode" id="zipcode">
+                                <option selected value="1">RI</option>
+                            </select>
+                        </dd>                           
+                            
                         <dt>Credit Card Number:</dt>
                             <dd><input class="input-medium" type="text" name="customerCardNumber" value="${customer.creditCardNumber}"></dd>
 
