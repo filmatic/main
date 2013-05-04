@@ -17,7 +17,7 @@ div#held-movies {
 }
 
 
-.customerid-column {
+.employeeid-column {
 	width:100px;
 }
 
@@ -27,6 +27,10 @@ div#held-movies {
 
 .queue-column {
 	width: 60px;
+}
+
+td button {
+	height:40px;
 }
 
 

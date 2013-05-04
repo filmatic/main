@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Filmatic - Admin Edit Employee</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+
+        <script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+        <link href="css/admin_edit_employee_style.css" rel="stylesheet" media="screen" />
+		<link href="css/bootstrap-select.css" rel="stylesheet" media="screen" />
+        <script src="js/bootstrap-select.js"></script>
+
+        
+        <script>
+            $(document).ready( function() {
+                $('.selectpicker').selectpicker();
+            });
+		</script>
+	</head>
+
+<body>
+	
+        <div id="wrapper" class="center-horizontal">
+            
+            <!-- logoff frame -->
+            <div id="logoff-frame">
+                <p>
+                    <a href="LogoutServlet">
+                    <button id="logoff" style="" action="" class="btn btn-warning"><i class="icon-off icon-white"></i></button>
+                    </a>
+                </p>
+            </div>
+            
+            
+            <!-- logo -->
+            <div id="logo" class="center-horizontal">
+            	<a class="brand" href="#"><img src="img/login_logo.jpg" id="logo" alt="login"/></a>
+            </div>
+            
+            
+            
+            <!-- navigation bar -->
+            <div id="navigationbar" class="navbar center-horizontal">
+                <div class="navbar-inner">
+                    <ul class="nav">
+                        <li class=""><a href="AdminHomeServlet">Home</a></li>
+                        <li class=""><a href="AdminSalesServlet">Sales</a></li>
+                        <li class="active"><a href="">Employees</a></li>
+                        <li class=""><a href="AdminRentalsServlet">Rentals</a></li>
+                        <li class=""><a href="AdminMoviesServlet">Movies</a></li>
+                        <li class=""><a href="AdminActorsServlet">Actors</a></li>
+                  </ul>
+              </div>
+            </div> 
+            
+            
+           <!-- EMPLOYEE INFO -->
+           <div id="personal-info-frame">
+               <form action="SaveemployeeSettingsServlet" method="post">
+                    <h3>Edit Employee</h3>
+
+                    <dl class="dl-horizontal">
+
+                        <dt>First Name:</dt>
+                            <dd><input class="input-medium" type="text" name="employeeFirstName" value="${person.firstName}"></dd>
+                            
+                        <dt>Last Name:</dt>
+                            <dd><input class="input-medium" type="text" name="employeeLastName" value="${person.lastName}"></dd>
+
+                        <dt>E-mail:</dt>
+                            <dd><input class="input-medium" type="text" name="employeeEmail" value="${person.email}"></dd>
+                            
+                        <dt>Password:</dt>
+                            <dd><input class="input-medium" type="password" name="employeePassword" value="${person.password}"></dd>
+                            
+                        <dt>Phone:</dt>
+                            <dd><input class="input-medium" type="text" name="employeePhone" value="${person.telephone}"></dd>
+                            
+                        <dt>Address:</dt>
+                            <dd><input class="input-medium" type="text" name="employeeAddress" value="${person.address}"></dd>
+                            
+                        <dt>City:</dt>
+                            <dd><input class="input-medium" type="text" name="employeeCity" value="${person.city}"></dd>
+
+                        <dt>State:</dt>
+                            <dd>
+                                <select class="selectpicker" data-width="164px" name="employeeState" id="state">
+                                    <option value="AL" selected=${person.stateAbrv == "AL" ? "selected" : ""}>Alabama</option>
+                                    <option value="AK" selected=${person.stateAbrv == "AK" ? "selected" : ""}>Alaska</option>
+                                    <option value="AZ" selected=${person.stateAbrv == "AZ" ? "selected" : ""}>Arizona</option>
+                                    <option value="AR" selected=${person.stateAbrv == "AR" ? "selected" : ""}>Arkansas</option>
+                                    <option value="CA" selected=${person.stateAbrv == "CA" ? "selected" : ""}>California</option>
+                                    <option value="CO" selected=${person.stateAbrv == "CO" ? "selected" : ""}>Colorado</option>
+                                    <option value="CT" selected=${person.stateAbrv == "CT" ? "selected" : ""}>Connecticut</option>
+                                    <option value="DE" selected=${person.stateAbrv == "DE" ? "selected" : ""}>Delaware</option>
+                                    <option value="DC" selected=${person.stateAbrv == "DC" ? "selected" : ""}>District Of Columbia</option>
+                                    <option value="FL" selected=${person.stateAbrv == "FL" ? "selected" : ""}>Florida</option>
+                                    <option value="GA" selected=${person.stateAbrv == "GA" ? "selected" : ""}>Georgia</option>
+                                    <option value="HI" selected=${person.stateAbrv == "HI" ? "selected" : ""}>Hawaii</option>
+                                    <option value="ID" selected=${person.stateAbrv == "ID" ? "selected" : ""}>Idaho</option>
+                                    <option value="IL" selected=${person.stateAbrv == "IL" ? "selected" : ""}>Illinois</option>
+                                    <option value="IN" selected=${person.stateAbrv == "IN" ? "selected" : ""}>Indiana</option>
+                                    <option value="IA" selected=${person.stateAbrv == "IA" ? "selected" : ""}>Iowa</option>
+                                    <option value="KS" selected=${person.stateAbrv == "KS" ? "selected" : ""}>Kansas</option>
+                                    <option value="KY" selected=${person.stateAbrv == "KY" ? "selected" : ""}>Kentucky</option>
+                                    <option value="LA" selected=${person.stateAbrv == "LA" ? "selected" : ""}>Louisiana</option>
+                                    <option value="ME" selected=${person.stateAbrv == "ME" ? "selected" : ""}>Maine</option>
+                                    <option value="MD" selected=${person.stateAbrv == "MD" ? "selected" : ""}>Maryland</option>
+                                    <option value="MA" selected=${person.stateAbrv == "MA" ? "selected" : ""}>Massachusetts</option>
+                                    <option value="MI" selected=${person.stateAbrv == "MI" ? "selected" : ""}>Michigan</option>
+                                    <option value="MN" selected=${person.stateAbrv == "MN" ? "selected" : ""}>Minnesota</option>
+                                    <option value="MS" selected=${person.stateAbrv == "MS" ? "selected" : ""}>Mississippi</option>
+                                    <option value="MO" selected=${person.stateAbrv == "MO" ? "selected" : ""}>Missouri</option>
+                                    <option value="MT" selected=${person.stateAbrv == "MT" ? "selected" : ""}>Montana</option>
+                                    <option value="NE" selected=${person.stateAbrv == "NE" ? "selected" : ""}>Nebraska</option>
+                                    <option value="NV" selected=${person.stateAbrv == "NV" ? "selected" : ""}>Nevada</option>
+                                    <option value="NH" selected=${person.stateAbrv == "NH" ? "selected" : ""}>New Hampshire</option>
+                                    <option value="NJ" selected=${person.stateAbrv == "NJ" ? "selected" : ""}>New Jersey</option>
+                                    <option value="NM" selected=${person.stateAbrv == "NM" ? "selected" : ""}>New Mexico</option>
+                                    <option value="NY" selected=${person.stateAbrv == "NY" ? "selected" : ""}>New York</option>
+                                    <option value="NC" selected=${person.stateAbrv == "NC" ? "selected" : ""}>North Carolina</option>
+                                    <option value="ND" selected=${person.stateAbrv == "ND" ? "selected" : ""}>North Dakota</option>
+                                    <option value="OH" selected=${person.stateAbrv == "OH" ? "selected" : ""}>Ohio</option>
+                                    <option value="OK" selected=${person.stateAbrv == "OK" ? "selected" : ""}>Oklahoma</option>
+                                    <option value="OR" selected=${person.stateAbrv == "OR" ? "selected" : ""}>Oregon</option>
+                                    <option value="PA" selected=${person.stateAbrv == "PA" ? "selected" : ""}>Pennsylvania</option>
+                                    <option value="RI" selected=${person.stateAbrv == "RI" ? "selected" : ""}>Rhode Island</option>
+                                    <option value="SC" selected=${person.stateAbrv == "SC" ? "selected" : ""}>South Carolina</option>
+                                    <option value="SD" selected=${person.stateAbrv == "SD" ? "selected" : ""}>South Dakota</option>
+                                    <option value="TN" selected=${person.stateAbrv == "TN" ? "selected" : ""}>Tennessee</option>
+                                    <option value="TX" selected=${person.stateAbrv == "TX" ? "selected" : ""}>Texas</option>
+                                    <option value="UT" selected=${person.stateAbrv == "UT" ? "selected" : ""}>Utah</option>
+                                    <option value="VT" selected=${person.stateAbrv == "VT" ? "selected" : ""}>Vermont</option>
+                                    <option value="VA" selected=${person.stateAbrv == "VA" ? "selected" : ""}>Virginia</option>
+                                    <option value="WA" selected=${person.stateAbrv == "WA" ? "selected" : ""}>Washington</option>
+                                    <option value="WV" selected=${person.stateAbrv == "WV" ? "selected" : ""}>West Virginia</option>
+                                    <option value="WI" selected=${person.stateAbrv == "WI" ? "selected" : ""}>Wisconsin</option>
+                                    <option value="WY" selected=${person.stateAbrv == "WY" ? "selected" : ""}>Wyoming</option>
+                                </select>
+                            </dd>      
+                            
+                        <dt>Zip Code:</dt>
+                			<dd><input class="input-medium" type="text" name="employeeZipCode" value="${person.zipCode}"></dd>
+                            
+                        <dt>Start Date:</dt>
+                			<dd><input class="input-medium" type="text" name="employeeStartDate" value="07-15-13"></dd>    
+                            
+                        <dt>Employee Type:</dt>
+                			<dd>
+                            	<select class="selectpicker" data-width="164px"  name="employeeState" id="state">
+                                    <option value="Admin">Admin</option>
+                                    <option value="Rep">Customer Rep</option>
+                                </select>
+                            </dd>     
+                            
+                        <dt>Hourly Wage:</dt>
+                			<dd><input class="input-medium" type="text" name="employeeHourlyWage" value="$10.00"></dd>      
+                            
+                        <dt></dt>
+                        <dd><button class="btn btn-success" type="submit">Save</button></dd>
+
+                    </dl>
+               </form>
+           </div>
+            
+        </div> <!-- container div end -->
+	</body>
+</html>

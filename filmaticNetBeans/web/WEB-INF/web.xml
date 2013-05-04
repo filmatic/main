@@ -68,6 +68,30 @@
         <servlet-name>SaveCustomerOptionsServlet</servlet-name>
         <servlet-class>servlets.SaveCustomerOptionsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminHomeServlet</servlet-name>
+        <servlet-class>servlets.AdminHomeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminSalesServlet</servlet-name>
+        <servlet-class>servlets.AdminSalesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminEmployeesServlet</servlet-name>
+        <servlet-class>servlets.AdminEmployeesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminRentalsServlet</servlet-name>
+        <servlet-class>servlets.AdminRentalsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminMoviesServlet</servlet-name>
+        <servlet-class>servlets.AdminMoviesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminActorsServlet</servlet-name>
+        <servlet-class>servlets.AdminActorsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -135,6 +159,30 @@
     <servlet-mapping>
         <servlet-name>SaveCustomerOptionsServlet</servlet-name>
         <url-pattern>/SaveCustomerOptionsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminHomeServlet</servlet-name>
+        <url-pattern>/AdminHomeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminSalesServlet</servlet-name>
+        <url-pattern>/AdminSalesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminEmployeesServlet</servlet-name>
+        <url-pattern>/AdminEmployeesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminRentalsServlet</servlet-name>
+        <url-pattern>/AdminRentalsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminMoviesServlet</servlet-name>
+        <url-pattern>/AdminMoviesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminActorsServlet</servlet-name>
+        <url-pattern>/AdminActorsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

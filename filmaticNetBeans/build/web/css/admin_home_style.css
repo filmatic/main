@@ -8,10 +8,26 @@ div#held-movies {
 }
 
 .featurette-divider {
-	margin-top:30px;
+	margin-top:40px;
 	margin-bottom:30px;	
 }
 
+.number-column {
+	width:36px;	
+}
+
+
+.customerid-column {
+	width:100px;
+}
+
+.timeslogedin-column {
+	width:120px;
+}
+
+.queue-column {
+	width: 60px;
+}
 
 
 
@@ -48,6 +64,17 @@ img#logo {
 div#navigationbar {
 	width:800px;
 	margin-top:10px;
+}
+
+#logoff-frame {
+    width:800px;
+    text-align:right;
+    margin-top:-3px;
+}
+
+button#logoff {
+    width:70px;
+    height:25px;
 }
 
 /* CUSTOMIZE NAV BAR
