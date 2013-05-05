@@ -69,9 +69,8 @@ public class LoginServlet extends HttpServlet {
                 else if (person.getAccessLevel() == 1) {
                     employee = filmaticBean.getEmployee(person.getPersonId());
                     request.getSession().setAttribute("employee", employee);
-                    //RequestDispatcher rd = request.getRequestDispatcher("admin_home.jsp");
-                    //rd.forward(request, response);
-                    response.sendRedirect("AdminHomeServlet");
+                    RequestDispatcher rd = request.getRequestDispatcher("AdminHomeServlet");
+                    rd.forward(request, response);
                 }           
                 else {
                     RequestDispatcher rd = request.getRequestDispatcher("index.jsp");

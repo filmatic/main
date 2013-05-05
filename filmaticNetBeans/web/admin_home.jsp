@@ -8,6 +8,7 @@
 	</head>
 
 <body>
+                <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 
@@ -54,19 +55,19 @@
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>
                     <tr>
-                      <th class="number-column">#</th>
                       <th class="customerid-column">Customer Id</th>
                       <th>Name</th>
                       <th class="timeslogedin-column">Times Logged In</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>123213</td>
-                      <td>Ducky Dukz</td>
-                      <td>5</td>
-                    </tr>
+                    <c:forEach items="${activePersons}" var="person">  
+                        <tr>
+                        <td>${person.personId}</td>
+                        <td>${person.firstName} ${person.lastName}</td>
+                        <td>${person.customer.timesLoggedIn}</td>
+                        </tr>
+                    </c:forEach>
                   </tbody>
                 </table>
                 
@@ -87,7 +88,6 @@
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>
                     <tr>
-                      <th class="number-column">#</th>
                       <th class="customerid-column">Movie Id</th>
                       <th>Title</th>
                       <th class="genre-column">Genre</th>
@@ -95,13 +95,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>123213</td>
-                      <td>The Super Man</td>
-                      <td>Comedy</td>
-                      <td>5</td>
-                    </tr>
+                      <c:forEach items="${mostRentedMovies}" var="movie">
+                        <tr>
+                            <td>${movie.movieId}</td>
+                            <td>${movie.title}</td>
+                            <td>${movie.genre}</td>
+                            <td>${movie.timesRented}</td>
+                        </tr>
+                      </c:forEach>
                   </tbody>
                 </table>
                 

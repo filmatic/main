@@ -116,6 +116,41 @@ public class filmaticSessionBean {
         return searchResults.toArray(new Movie[searchResults.size()]);
     }
     
+    public Movie[] getAllMovies(String sortType) {
+        String queryToRun = null;
+        List<Movie> searchResults = null;
+        if (sortType.equals("title")) {
+            queryToRun = "SELECT m FROM Movie m ORDER BY m.title";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        else if (sortType.equals("genre")) {
+            queryToRun = "SELECT m FROM Movie m ORDER BY m.genre";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        else if (sortType.equals("movieId")) {
+            queryToRun = "SELECT m FROM Movie m ORDER BY m.movieId";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        else if (sortType.equals("numberOfCopies")) {
+            queryToRun = "SELECT m FROM Movie m ORDER BY m.numberCopies";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        else if (sortType.equals("timesRated")) {
+            queryToRun = "SELECT m FROM Movie m ORDER BY m.timesRated";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        return searchResults.toArray(new Movie[searchResults.size()]);
+    }
+    
+        /**
+     * 
+     * @return 
+     */
+    public States[] getStateAcronyms() {
+        List<States> searchResults = emf.createEntityManager().createQuery("SELECT s FROM States s").getResultList();
+        return searchResults.toArray(new States[searchResults.size()]);
+    }
+    
     /**
      * 
      * @param person
@@ -270,16 +305,6 @@ public class filmaticSessionBean {
     
     /**
      * 
-     * @return 
-     */
-    public States[] getStateAcronyms() {
-        String queryToRun = "SELECT s FROM States s";
-        List<States> searchResults = emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
-        return searchResults.toArray(new States[searchResults.size()]);
-    }
-    
-    /**
-     * 
      * @param state
      * @return 
      */
@@ -291,6 +316,15 @@ public class filmaticSessionBean {
             return null;
         }
     }
+    
+    /**
+     * 
+     * @return 
+     
+    public States[] getStates() {
+        List<States> searchResults = emf.createEntityManager().createNativeQuery("SELECT s FROM States").getResultList();
+        return searchResults.toArray(new States[searchResults.size()]);
+    }*/
     
     /**
      * 
@@ -320,6 +354,49 @@ public class filmaticSessionBean {
             searchResults = query.getResultList();
         }
         return searchResults.toArray(new Movie[searchResults.size()]);
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Customer[] getMostActiveCustomers() {
+        List<Customer> searchResults = emf.createEntityManager().createQuery("SELECT c FROM Customer c ORDER BY c.timesLoggedIn DESC").getResultList();
+        if (searchResults.size() <= 10) {
+            return searchResults.toArray(new Customer[searchResults.size()]);
+        } else {
+            return searchResults.toArray(new Customer[10]);
+        }
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Movie[] getMostRentedMovies() {
+        List<Customer> searchResults = emf.createEntityManager().createQuery("SELECT m FROM Movie m ORDER BY m.timesRented DESC").getResultList();
+        if (searchResults.size() < 10) {
+            return searchResults.toArray(new Movie[searchResults.size()]);
+        } else {
+            return searchResults.toArray(new Movie[10]);
+        }
+    }
+    
+    public Person convertCustomerToPerson(String customerId) {
+        String queryToRun = "SELECT p FROM Person p WHERE p.personId='" + customerId + "'";
+        Person person = (Person) emf.createEntityManager().createQuery(queryToRun).getSingleResult();
+        return person;
+    }
+    
+    public Person convertEmployeeToPerson(String employeeId) {
+        String queryToRun = "SELECT p FROM Person p WHERE p.personId='" + employeeId + "'";
+        Person person = (Person) emf.createEntityManager().createQuery(queryToRun).getSingleResult();
+        return person;
+    }
+    
+    public Employee[] getEmployees() {
+        List<Employee> searchResults = emf.createEntityManager().createQuery("SELECT e FROM Employee e").getResultList();
+        return searchResults.toArray(new Employee[searchResults.size()]);
     }
     
 }

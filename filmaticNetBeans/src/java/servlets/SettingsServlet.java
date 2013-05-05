@@ -12,12 +12,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.*;
+import java.util.Calendar;
+import javax.servlet.RequestDispatcher;
+import sessionBean.filmaticSessionBean;
+import javax.ejb.EJB;
+
 /**
  *
  * @author kris
  */
 public class SettingsServlet extends HttpServlet {
 
+    @EJB filmaticSessionBean filmaticBean;
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -34,7 +42,9 @@ public class SettingsServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
            
-            // FORWARD TO QUEUE
+            States[] states = filmaticBean.getStateAcronyms();
+            request.getSession().setAttribute("statesList", states);
+            
             RequestDispatcher rd = request.getRequestDispatcher("customer_settings.jsp");
             rd.forward(request, response);
         } finally {            

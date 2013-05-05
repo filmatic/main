@@ -12,12 +12,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.*;
+import javax.servlet.RequestDispatcher;
+import sessionBean.filmaticSessionBean;
+import javax.ejb.EJB;
+
 /**
  *
  * @author kris
  */
 public class AdminHomeServlet extends HttpServlet {
 
+    @EJB filmaticSessionBean filmaticBean;
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -34,6 +41,20 @@ public class AdminHomeServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
+            Customer[] activeCustomers = filmaticBean.getMostActiveCustomers();
+            Movie[] mostRentedMovies = filmaticBean.getMostRentedMovies();
+
+            Person[] activePerson = new Person[activeCustomers.length];
+            String temp = null;
+            
+            for (int i = 0; i < activeCustomers.length; i++) {
+                temp = "";
+                temp += activeCustomers[i].getCustomerId();
+                activePerson[i] = filmaticBean.convertCustomerToPerson(temp);
+            }
+            
+            request.getSession().setAttribute("activePersons", activePerson);
+            request.getSession().setAttribute("mostRentedMovies", mostRentedMovies);
             
             RequestDispatcher rd = request.getRequestDispatcher("admin_home.jsp");
             rd.forward(request, response);

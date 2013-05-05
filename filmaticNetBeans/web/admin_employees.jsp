@@ -20,7 +20,7 @@
 	</head>
 
 <body>
-	
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <div id="wrapper" class="center-horizontal">
             
             <!-- logoff frame -->
@@ -63,7 +63,6 @@
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>
                     <tr>
-                      <th class="number-column">#</th>
                       <th class="employeeid-column">Employee Id</th>
                       <th>Employee Type</th>
                       <th>Name</th>
@@ -74,16 +73,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>2222</td>
-                      <td>Customer Representative</td>
-                      <td>McDoodle Toodle</td>
-                      <td>123-456-7890</td>
-                      <td>$10.00</td>
-                      <td>Add Movies</td>
-                      <td><button class="btn btn-danger" type="submit" name="employeeToRemove" value="2"><i class="icon-remove icon-white"></i></button></td>
-                    </tr>
+                    <c:forEach items="${employeeList}" var="person">
+                        <tr>
+                        <td>${person.personId}</td>
+                        <td>${person.employee.employeeType == "Customer Rep" ? "Customer Representative" : "Manager"}</td>
+                        <td>${person.firstName} ${person.lastName}</td>
+                        <td>${person.employee.ssn}</td>
+                        <td>$${person.employee.hourlyRate}</td>
+                        <td>${person.employee.transactionsManaged}</td>
+                        <td><button class="btn btn-danger" type="submit" name="employeeToRemove" value="${person.personId}"><i class="icon-remove icon-white"></i></button></td>
+                        </tr>
+                    </c:forEach>
                   </tbody>
                 </table>
                 

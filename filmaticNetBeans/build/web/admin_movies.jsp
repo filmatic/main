@@ -20,7 +20,7 @@
 	</head>
 
 <body>
-	
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <div id="wrapper" class="center-horizontal">
             
             <!-- logoff frame -->
@@ -66,7 +66,6 @@
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>
                     <tr>
-                      <th class="number-column">#</th>
                       <th class="movieid-column">Movie Id</th>
                       <th>Title</th>
                       <th class="genre-column">Genre</th>
@@ -78,18 +77,19 @@
                   </thead>
                   
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>2222</td>
-                      <td>Super TRoopers</td>
-                      <td>Comedy</td>
-                      <td>$10.00</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>
-                      	<button class="btn btn-danger" type="submit" name="movieToRemove" value="2"><i class="icon-remove icon-white"></i></button>
-                      </td>
-                    </tr>
+                      <c:forEach items="${movieList}" var="movie">
+                        <tr>
+                            <td>${movie.movieId}</td>
+                            <td>${movie.title}</td>
+                            <td>${movie.genre}</td>
+                            <td>$${movie.distributionFee}</td>
+                            <td>${movie.numberCopies}</td>
+                            <td>${movie.timesRated}</td>
+                            <td>
+                                <button class="btn btn-danger" type="submit" name="movieToRemove" value="${movie.movieId}"><i class="icon-remove icon-white"></i></button>
+                            </td>
+                        </tr>
+                      </c:forEach>
                   </tbody>
                   
                 </table>

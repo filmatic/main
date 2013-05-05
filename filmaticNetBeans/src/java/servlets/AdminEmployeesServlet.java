@@ -12,12 +12,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.*;
+import javax.servlet.RequestDispatcher;
+import sessionBean.filmaticSessionBean;
+import javax.ejb.EJB;
+
 /**
  *
  * @author kris
  */
 public class AdminEmployeesServlet extends HttpServlet {
 
+    @EJB filmaticSessionBean filmaticBean;
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -33,7 +40,19 @@ public class AdminEmployeesServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
+            
+            Employee[] employee = filmaticBean.getEmployees();
+            Person[] employees = new Person[employee.length];
+            String temp = null;
+            
+            for (int i = 0; i < employee.length; i++) {
+                temp = "";
+                temp += employee[i].getEmployeeId();
+                employees[i] = filmaticBean.convertEmployeeToPerson(temp);
+            }
+ 
+            request.getSession().setAttribute("employeeList", employees);
+            
             RequestDispatcher rd = request.getRequestDispatcher("admin_employees.jsp");
             rd.forward(request, response);
         } finally {            
