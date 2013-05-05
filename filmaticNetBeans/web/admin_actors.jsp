@@ -20,7 +20,7 @@
 	</head>
 
 <body>
-	
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <div id="wrapper" class="center-horizontal">
             
             <!-- logoff frame -->
@@ -64,30 +64,73 @@
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>
                     <tr>
-                      <th class="number-column">#</th>
-                      <th class="movieid-column">Movie Id</th>
-                      <th>Title</th>
-                      <th class="genre-column">Genre</th>
-                      <th class="distfee-column">Dist. Fee</th>
-                      <th class="numcopies-column"># Copies</th>
-                      <th class="timesrated-column">Times Rated</th>
+                      <th class="movieid-column">Actor Id</th>
+                      <th>Name</th>
+                      <th class="genre-column">Gender</th>
+                      <th class="distfee-column">Age</th>
+                      <th class="rating-column">Rating</th>
                       <th class="remove-column"><!-- Remove Button --></th>
                     </tr>
                   </thead>
                   
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>2222</td>
-                      <td>Super TRoopers</td>
-                      <td>Comedy</td>
-                      <td>$10.00</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>
-                      	<button class="btn btn-danger" type="submit" name="movieToRemove" value="2"><i class="icon-remove icon-white"></i></button>
-                      </td>
-                    </tr>
+                      <c:forEach items="${actorList}" var="actor">
+                        <tr>
+                            <td>${actor.actorId}</td>
+                            <td>${actor.actorName}</td>
+                            <td>${actor.gender == "M" ? "Male" : "Female"}</td>
+                            <td>${actor.age}</td>
+                            <td>
+                                <c:choose>
+                                        <c:when test="${actor.rating == '5'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                        </c:when>
+                                        <c:when test="${actor.rating == '4'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${actor.rating == '3'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${actor.rating == '2'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${actor.rating == '1'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${actor.rating == '0'}">
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                    </c:choose>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger" type="submit" name="actorToRemove" value="${actor.actorId}"><i class="icon-remove icon-white"></i></button>
+                            </td>
+                        </tr>
+                      </c:forEach>
                   </tbody>
                   
                 </table>

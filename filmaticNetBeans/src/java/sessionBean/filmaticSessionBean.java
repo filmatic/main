@@ -107,6 +107,11 @@ public class filmaticSessionBean {
         }
     }
     
+    public Actor[] getAllActors() {
+        List<Actor> searchResults = emf.createEntityManager().createQuery("SELECT a FROM Actor a ORDER BY a.actorName").getResultList();
+        return searchResults.toArray(new Actor[searchResults.size()]);
+    }
+    
     /**
      * 
      * @return 
