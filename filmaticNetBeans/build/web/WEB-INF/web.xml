@@ -92,6 +92,10 @@
         <servlet-name>AdminActorsServlet</servlet-name>
         <servlet-class>servlets.AdminActorsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SortMoviesServlet</servlet-name>
+        <servlet-class>servlets.SortMoviesServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -183,6 +187,10 @@
     <servlet-mapping>
         <servlet-name>AdminActorsServlet</servlet-name>
         <url-pattern>/AdminActorsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SortMoviesServlet</servlet-name>
+        <url-pattern>/SortMoviesServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -61,7 +61,21 @@
             
             	<h3>Movies</h3>
                 
-                <p>Sort by: title,, movie type, customer name </p>
+                <form method="post" action="SortMoviesServlet">
+                    <div class="input-prepend input-append">
+                        <div class="btn-group">
+                                    <select id="searchpick" class="selectpicker" name="sortType">
+                                        <option value="movieId">Movie Id</option>
+                                        <option value="title">Title</option>
+                                        <option value="genre">Genre</option>
+                                        <option value="numberOfCopies">Number of Copies</option>
+                                        <option value="timesRated">Times Rated</option>
+                                    </select>
+
+                                    <button id="search-button" type="submit" class="btn btn-warning"><i class="icon-search icon-white"></i></button>
+                                </div>
+                    </div>
+                </form>
                 
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>

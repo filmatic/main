@@ -133,15 +133,15 @@ public class filmaticSessionBean {
             searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
         }
         else if (sortType.equals("movieId")) {
-            queryToRun = "SELECT m FROM Movie m ORDER BY m.movieId";
+            queryToRun = "SELECT m FROM Movie m ORDER BY m.movieId ASC";
             searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
         }
         else if (sortType.equals("numberOfCopies")) {
-            queryToRun = "SELECT m FROM Movie m ORDER BY m.numberCopies";
+            queryToRun = "SELECT m FROM Movie m ORDER BY m.numberCopies DESC";
             searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
         }
         else if (sortType.equals("timesRated")) {
-            queryToRun = "SELECT m FROM Movie m ORDER BY m.timesRated";
+            queryToRun = "SELECT m FROM Movie m ORDER BY m.timesRated DESC";
             searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
         }
         return searchResults.toArray(new Movie[searchResults.size()]);

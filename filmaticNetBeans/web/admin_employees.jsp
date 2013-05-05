@@ -64,8 +64,8 @@
                   <thead>
                     <tr>
                       <th class="employeeid-column">Employee Id</th>
-                      <th>Employee Type</th>
                       <th>Name</th>
+                      <th>Employee Type</th>
                       <th>SSN</th>
                       <th>Hourly Wage</th>
                       <th>Transactions Managed</th> <!-- Have to be able to sort by this -->
@@ -76,8 +76,8 @@
                     <c:forEach items="${employeeList}" var="person">
                         <tr>
                         <td>${person.personId}</td>
-                        <td>${person.employee.employeeType == "Customer Rep" ? "Customer Representative" : "Manager"}</td>
                         <td>${person.firstName} ${person.lastName}</td>
+                        <td>${person.employee.employeeType == "Customer Rep" ? "Customer Representative" : "Manager"}</td>
                         <td>${person.employee.ssn}</td>
                         <td>$${person.employee.hourlyRate}</td>
                         <td>${person.employee.transactionsManaged}</td>
