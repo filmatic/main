@@ -53,6 +53,8 @@
                 <h4><a href="#sec2">How old are you?</a></h4>
                 <h4><a href="#sec3">Question is super long whats up?</a></h4>
 
+                
+                
                 <!-- DIVIDER -->
                 <hr class="featurette-divider">
                 
@@ -63,8 +65,11 @@
                 <p>Starting tomorrow morning (Monday May 6, 2013) at 9am, you can signup online for a 30-minute demo slot with one of the three TAs.  Please see the course link below for the online signup sheet.  Only one team member can sign up for a demo slot, so look at the available times and coordinate with your teammates.  Try to sign up as soon as possible in order to secure a demo slot to you liking.
 
 Please do not be late for your demo. Points will be deducted for lateness. Actually, you should show up in the transaction lab at least 15 minutes before your assigned demo slot to ensure that your demo is ready to go when your scheduled demo time arrives. Please note that during your demo, you may be asked to execute some of the transactions included in the demo data (see, for example, the Rental History data).  You may also be asked to execute completely new transactions.  So please be ready for both of these situatuons. </p>
+                <p style="text-align:right;"><a href="#">Back to top</a></p>
+               
                 
-               <!-- DIVIDER -->
+                
+                <!-- DIVIDER -->
                 <hr class="featurette-divider">
                 
                 <h4>
@@ -74,7 +79,10 @@ Please do not be late for your demo. Points will be deducted for lateness. Actua
                 <p>Starting tomorrow morning (Monday May 6, 2013) at 9am, you can signup online for a 30-minute demo slot with one of the three TAs.  Please see the course link below for the online signup sheet.  Only one team member can sign up for a demo slot, so look at the available times and coordinate with your teammates.  Try to sign up as soon as possible in order to secure a demo slot to you liking.
 
 Please do not be late for your demo. Points will be deducted for lateness. Actually, you should show up in the transaction lab at least 15 minutes before your assigned demo slot to ensure that your demo is ready to go when your scheduled demo time arrives. Please note that during your demo, you may be asked to execute some of the transactions included in the demo data (see, for example, the Rental History data).  You may also be asked to execute completely new transactions.  So please be ready for both of these situatuons. </p>
-                 
+                <p style="text-align:right;"><a href="#">Back to top</a></p>
+                
+                
+                
                 <!-- DIVIDER -->
                 <hr class="featurette-divider">
                 
@@ -85,11 +93,28 @@ Please do not be late for your demo. Points will be deducted for lateness. Actua
                 <p>Starting tomorrow morning (Monday May 6, 2013) at 9am, you can signup online for a 30-minute demo slot with one of the three TAs.  Please see the course link below for the online signup sheet.  Only one team member can sign up for a demo slot, so look at the available times and coordinate with your teammates.  Try to sign up as soon as possible in order to secure a demo slot to you liking.
 
 Please do not be late for your demo. Points will be deducted for lateness. Actually, you should show up in the transaction lab at least 15 minutes before your assigned demo slot to ensure that your demo is ready to go when your scheduled demo time arrives. Please note that during your demo, you may be asked to execute some of the transactions included in the demo data (see, for example, the Rental History data).  You may also be asked to execute completely new transactions.  So please be ready for both of these situatuons. </p>
-                 
+                 <p style="text-align:right;"><a href="#">Back to top</a></p>
                  
                   
            	
-              
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
            </div>
            
             </div>
