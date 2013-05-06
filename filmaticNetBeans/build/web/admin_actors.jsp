@@ -126,9 +126,11 @@
                                         </c:when>
                                     </c:choose>
                             </td>
-                            <td>
-                                <button class="btn btn-danger" type="submit" name="actorToRemove" value="${actor.actorId}"><i class="icon-remove icon-white"></i></button>
-                            </td>
+                            <form method="post" action="RemoveActorFromDatabaseServlet">
+                                <td>
+                                    <button class="btn btn-danger" type="submit" name="actorToRemove" value="${actor.actorId}"><i class="icon-remove icon-white"></i></button>
+                                </td>
+                            </form>
                         </tr>
                       </c:forEach>
                   </tbody>

@@ -445,4 +445,16 @@ public class filmaticSessionBean {
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
+    
+    public void removeActorFromActsin(String actorId) {
+        String queryToRun = "DELETE FROM Actsin WHERE actorId="+actorId;
+        Query query = emf.createEntityManager().createNativeQuery(queryToRun);
+        query.executeUpdate();
+    }
+    
+    public void removeActorFromActor(String actorId) {
+        String queryToRun = "DELETE FROM Actor WHERE actorId="+actorId;
+        Query query = emf.createEntityManager().createNativeQuery(queryToRun);
+        query.executeUpdate();
+    }
 }
