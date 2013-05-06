@@ -116,6 +116,10 @@
         <servlet-name>RemoveMovieFromDatabaseServlet</servlet-name>
         <servlet-class>servlets.RemoveMovieFromDatabaseServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RemoveEmployeeFromDatabaseServlet</servlet-name>
+        <servlet-class>servlets.RemoveEmployeeFromDatabaseServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -231,6 +235,10 @@
     <servlet-mapping>
         <servlet-name>RemoveMovieFromDatabaseServlet</servlet-name>
         <url-pattern>/RemoveMovieFromDatabaseServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveEmployeeFromDatabaseServlet</servlet-name>
+        <url-pattern>/RemoveEmployeeFromDatabaseServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

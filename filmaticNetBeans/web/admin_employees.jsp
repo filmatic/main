@@ -81,7 +81,11 @@
                         <td>${person.employee.ssn}</td>
                         <td>$${person.employee.hourlyRate}</td>
                         <td>${person.employee.transactionsManaged}</td>
-                        <td><button class="btn btn-danger" type="submit" name="employeeToRemove" value="${person.personId}"><i class="icon-remove icon-white"></i></button></td>
+                        <form action="RemoveEmployeeFromDatabaseServlet" method="post">
+                            <td>
+                                <button class="btn btn-danger" type="submit" name="employeeToRemove" value="${person.personId}"><i class="icon-remove icon-white"></i></button>
+                            </td>
+                        </form>
                         </tr>
                     </c:forEach>
                   </tbody>

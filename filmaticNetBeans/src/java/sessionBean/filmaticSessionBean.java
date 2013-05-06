@@ -405,26 +405,44 @@ public class filmaticSessionBean {
     }
     
     public void removeMovieFromActsIn(String movieId) {
-        String removeFromActsIn = "DELETE FROM Actsin WHERE movieId="+movieId;
-        Query query = emf.createEntityManager().createNativeQuery(removeFromActsIn);
+        String queryToRun = "DELETE FROM Actsin WHERE movieId="+movieId;
+        Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
     public void removeMovieFromOrders(String movieId) {
-        String removeFromOrders = "DELETE FROM Orders WHERE movieId="+movieId;
-        Query query = emf.createEntityManager().createNativeQuery(removeFromOrders);
+        String queryToRun = "DELETE FROM Orders WHERE movieId="+movieId;
+        Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
     public void removeMovieFromMovieQueue(String movieId) {
-        String removeFromMovieQueue = "DELETE FROM Moviequeue WHERE movieId="+movieId;
-        Query query = emf.createEntityManager().createNativeQuery(removeFromMovieQueue);
+        String queryToRun = "DELETE FROM Moviequeue WHERE movieId="+movieId;
+        Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
     public void removeMovieFromMovie(String movieId) {
-        String removeFromMovie = "DELETE FROM Movie WHERE movieId="+movieId;
-        Query query = emf.createEntityManager().createNativeQuery(removeFromMovie);
+        String queryToRun = "DELETE FROM Movie WHERE movieId="+movieId;
+        Query query = emf.createEntityManager().createNativeQuery(queryToRun);
+        query.executeUpdate();
+    }
+    
+    public void removeEmployeeFromOrders(String employeeId) {
+        String queryToRun = "DELETE FROM Orders WHERE employeeId="+employeeId;
+        Query query = emf.createEntityManager().createNativeQuery(queryToRun);
+        query.executeUpdate();
+    }
+    
+    public void removeEmployeeFromEmployee(String employeeId) {
+        String queryToRun = "DELETE FROM Employee WHERE employeeId="+employeeId;
+        Query query = emf.createEntityManager().createNativeQuery(queryToRun);
+        query.executeUpdate();
+    }
+    
+    public void removeEmployeeFromPerson(String employeeId) {
+        String queryToRun = "DELETE FROM Person WHERE personId="+employeeId;
+        Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
 }
