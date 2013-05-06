@@ -164,6 +164,7 @@
                                 <option value="keyword">Keyword</option>
                                 <option value="title">Title</option>
                                 <option value="genre">Genre</option>
+                                <option value="actor">Actor</option>
                             </select>
                             
                             <button id="search-button" type="submit" class="btn btn-warning"><i class="icon-search icon-white"></i></button>
@@ -177,6 +178,7 @@
                     <tr>
                       <th class="number-column">#</th>
                       <th>Title</th>
+                      <th>Actor(s)</th>
                       <th class="genre-column">Genre</th>
                       <th class="rating-column">Rating</th>
                       <th class="queue-column"><!-- QUEUE BUTTONS --></th>
@@ -189,6 +191,7 @@
                                 <tr>
                                     <td>${movie.movieId}</td>
                                     <td>${movie.title}</td>
+                                    <th><!-- ACTOR STUFF --></th>
                                     <td>${movie.genre}</td>
                                     <td>
                                         <c:choose>
