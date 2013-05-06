@@ -47,8 +47,49 @@
             
            <!-- CUSTOMER HISTORY -->
            <div id="queue-frame">
-           		<h3>Support</h3>
-           		
+           	<h3>Support</h3>
+                <h4></h4>
+                <h4><a href="#sec1">How are you?</a></h4>
+                <h4><a href="#sec2">How old are you?</a></h4>
+                <h4><a href="#sec3">Question is super long whats up?</a></h4>
+
+                <!-- DIVIDER -->
+                <hr class="featurette-divider">
+                
+                <h4>
+                    <a name="sec1"></a>
+                    How are you?
+                </h4>
+                <p>Starting tomorrow morning (Monday May 6, 2013) at 9am, you can signup online for a 30-minute demo slot with one of the three TAs.  Please see the course link below for the online signup sheet.  Only one team member can sign up for a demo slot, so look at the available times and coordinate with your teammates.  Try to sign up as soon as possible in order to secure a demo slot to you liking.
+
+Please do not be late for your demo. Points will be deducted for lateness. Actually, you should show up in the transaction lab at least 15 minutes before your assigned demo slot to ensure that your demo is ready to go when your scheduled demo time arrives. Please note that during your demo, you may be asked to execute some of the transactions included in the demo data (see, for example, the Rental History data).  You may also be asked to execute completely new transactions.  So please be ready for both of these situatuons. </p>
+                
+               <!-- DIVIDER -->
+                <hr class="featurette-divider">
+                
+                <h4>
+                    <a name="sec2"></a>
+                    How old are you?
+                </h4>
+                <p>Starting tomorrow morning (Monday May 6, 2013) at 9am, you can signup online for a 30-minute demo slot with one of the three TAs.  Please see the course link below for the online signup sheet.  Only one team member can sign up for a demo slot, so look at the available times and coordinate with your teammates.  Try to sign up as soon as possible in order to secure a demo slot to you liking.
+
+Please do not be late for your demo. Points will be deducted for lateness. Actually, you should show up in the transaction lab at least 15 minutes before your assigned demo slot to ensure that your demo is ready to go when your scheduled demo time arrives. Please note that during your demo, you may be asked to execute some of the transactions included in the demo data (see, for example, the Rental History data).  You may also be asked to execute completely new transactions.  So please be ready for both of these situatuons. </p>
+                 
+                <!-- DIVIDER -->
+                <hr class="featurette-divider">
+                
+                <h4>
+                    <a name="sec3"></a>
+                    Question is super long whats up?
+                </h4>
+                <p>Starting tomorrow morning (Monday May 6, 2013) at 9am, you can signup online for a 30-minute demo slot with one of the three TAs.  Please see the course link below for the online signup sheet.  Only one team member can sign up for a demo slot, so look at the available times and coordinate with your teammates.  Try to sign up as soon as possible in order to secure a demo slot to you liking.
+
+Please do not be late for your demo. Points will be deducted for lateness. Actually, you should show up in the transaction lab at least 15 minutes before your assigned demo slot to ensure that your demo is ready to go when your scheduled demo time arrives. Please note that during your demo, you may be asked to execute some of the transactions included in the demo data (see, for example, the Rental History data).  You may also be asked to execute completely new transactions.  So please be ready for both of these situatuons. </p>
+                 
+                 
+                  
+           	
+              
            </div>
            
             </div>
