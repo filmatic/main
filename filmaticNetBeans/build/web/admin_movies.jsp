@@ -99,9 +99,11 @@
                             <td>$${movie.distributionFee}</td>
                             <td>${movie.numberCopies}</td>
                             <td>${movie.timesRated}</td>
-                            <td>
-                                <button class="btn btn-danger" type="submit" name="movieToRemove" value="${movie.movieId}"><i class="icon-remove icon-white"></i></button>
-                            </td>
+                            <form action="RemoveMovieFromDatabaseServlet" method="post">
+                                <td>
+                                    <button class="btn btn-danger" type="submit" name="movieToRemove" value="${movie.movieId}"><i class="icon-remove icon-white"></i></button>
+                                </td>
+                            </form>
                         </tr>
                       </c:forEach>
                   </tbody>

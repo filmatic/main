@@ -112,6 +112,10 @@
         <servlet-name>CustRepMailingListServlet</servlet-name>
         <servlet-class>servlets.CustRepMailingListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RemoveMovieFromDatabaseServlet</servlet-name>
+        <servlet-class>servlets.RemoveMovieFromDatabaseServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -223,6 +227,10 @@
     <servlet-mapping>
         <servlet-name>CustRepMailingListServlet</servlet-name>
         <url-pattern>/CustRepMailingListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveMovieFromDatabaseServlet</servlet-name>
+        <url-pattern>/RemoveMovieFromDatabaseServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

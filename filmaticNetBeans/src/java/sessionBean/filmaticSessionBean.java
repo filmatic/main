@@ -404,4 +404,27 @@ public class filmaticSessionBean {
         return searchResults.toArray(new Employee[searchResults.size()]);
     }
     
+    public void removeMovieFromActsIn(String movieId) {
+        String removeFromActsIn = "DELETE FROM Actsin WHERE movieId="+movieId;
+        Query query = emf.createEntityManager().createNativeQuery(removeFromActsIn);
+        query.executeUpdate();
+    }
+    
+    public void removeMovieFromOrders(String movieId) {
+        String removeFromOrders = "DELETE FROM Orders WHERE movieId="+movieId;
+        Query query = emf.createEntityManager().createNativeQuery(removeFromOrders);
+        query.executeUpdate();
+    }
+    
+    public void removeMovieFromMovieQueue(String movieId) {
+        String removeFromMovieQueue = "DELETE FROM Moviequeue WHERE movieId="+movieId;
+        Query query = emf.createEntityManager().createNativeQuery(removeFromMovieQueue);
+        query.executeUpdate();
+    }
+    
+    public void removeMovieFromMovie(String movieId) {
+        String removeFromMovie = "DELETE FROM Movie WHERE movieId="+movieId;
+        Query query = emf.createEntityManager().createNativeQuery(removeFromMovie);
+        query.executeUpdate();
+    }
 }
