@@ -57,8 +57,15 @@
             
             <!-- EMPLOYEES TABLE -->
             <div>
-            
-            	<h3>Employees</h3>
+                
+                <div style="overflow: hidden; margin-top:10px;">
+                    <div style="float: left;">
+                    	<h3>Employees</h3>
+                    </div>
+                    <div style="float: right;">
+                    	<button style="height:30px; margin-top:16px;" class="btn btn-inverse" name="approve" value="1" type="submit">Add Employee</button>
+                    </div>
+		</div>
                 
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>

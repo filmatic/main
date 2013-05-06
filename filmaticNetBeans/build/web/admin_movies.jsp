@@ -59,7 +59,14 @@
             <!-- MOVIE RENTALS TABLE -->
             <div>
             
-            	<h3>Movies</h3>
+                <div style="overflow: hidden; margin-top:10px;">
+                    <div style="float: left;">
+                    	<h3>Movies</h3>
+                    </div>
+                    <div style="float: right;">
+                    	<button style="height:30px; margin-top:16px;" class="btn btn-inverse" name="approve" value="1" type="submit">Add Movie</button>
+                    </div>
+		</div>
                 
                 <form method="post" action="SortMoviesServlet">
                     <div class="input-prepend input-append">

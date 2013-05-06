@@ -79,6 +79,7 @@ img#logo {
 div#navigationbar {
 	width:800px;
 	margin-top:10px;
+        margin-bottom:10px;
 }
 
 #logoff-frame {
