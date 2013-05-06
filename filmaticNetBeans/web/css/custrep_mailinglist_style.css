@@ -3,6 +3,11 @@
 
 /* width must not be 100% */
 
+                      <th class="number-column">#</th>
+                      <th class="timeplaced-column">Time Placed</th>
+                      <th class="orderid-column">Order Id</th>
+                      <th class="movieid-column">Movie Id</th>
+
 
 div#held-movies {
 }
@@ -16,18 +21,26 @@ div#held-movies {
 	width:36px;	
 }
 
+.email-column {
+	width:140px;
+}
+
+.timeplaced-column {
+	width:100px;	
+}
+
 .customerid-column {
 	width:100px;
 }
 
-.timeslogedin-column {
-	width:120px;
+
+.name-column {
+	width:170px;
 }
 
-.queue-column {
-	width: 60px;
+.approve-column {
+	width:76px;
 }
-
 
 
 /**

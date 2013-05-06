@@ -96,6 +96,22 @@
         <servlet-name>SortMoviesServlet</servlet-name>
         <servlet-class>servlets.SortMoviesServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustRepHomeServlet</servlet-name>
+        <servlet-class>servlets.CustRepHomeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustRepOrdersServlet</servlet-name>
+        <servlet-class>servlets.CustRepOrdersServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustRepCustomersServlet</servlet-name>
+        <servlet-class>servlets.CustRepCustomersServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustRepMailingListServlet</servlet-name>
+        <servlet-class>servlets.CustRepMailingListServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -191,6 +207,22 @@
     <servlet-mapping>
         <servlet-name>SortMoviesServlet</servlet-name>
         <url-pattern>/SortMoviesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustRepHomeServlet</servlet-name>
+        <url-pattern>/CustRepHomeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustRepOrdersServlet</servlet-name>
+        <url-pattern>/CustRepOrdersServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustRepCustomersServlet</servlet-name>
+        <url-pattern>/CustRepCustomersServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustRepMailingListServlet</servlet-name>
+        <url-pattern>/CustRepMailingListServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

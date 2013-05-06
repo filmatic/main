@@ -3,6 +3,11 @@
 
 /* width must not be 100% */
 
+                      <th class="number-column">#</th>
+                      <th class="timeplaced-column">Time Placed</th>
+                      <th class="orderid-column">Order Id</th>
+                      <th class="movieid-column">Movie Id</th>
+
 
 div#held-movies {
 }
@@ -12,20 +17,10 @@ div#held-movies {
 	margin-bottom:30px;	
 }
 
-.number-column {
-	width:36px;	
-}
 
-.customerid-column {
-	width:100px;
-}
 
-.timeslogedin-column {
-	width:120px;
-}
-
-.queue-column {
-	width: 60px;
+td button {
+	height:30px;
 }
 
 
