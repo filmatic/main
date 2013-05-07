@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -52,18 +53,19 @@
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>
                     <tr>
-                      <th class="number-column">#</th>
-                      <th class="customerid-column">Customer Id</th>
+                      <th class="customerid-column">Customer ID</th>
                       <th class="">Name</th>
                       <th class="">E-mail</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>123213</td>
-                      <td>Super Doper</td>
-                      <td>superduper@hotmail.com</td>
+                    <c:forEach items="${mailingList}" var="person">
+                        <tr>
+                            <td>${person.personId}</td>
+                            <td>${person.firstName} ${person.lastName}</td>
+                            <td>${person.email}</td>
+                        </tr>
+                    </c:forEach>
                   </tbody>
                 </table>
                 

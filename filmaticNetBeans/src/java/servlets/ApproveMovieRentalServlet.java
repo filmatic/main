@@ -6,7 +6,6 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +18,9 @@ import javax.ejb.EJB;
 
 /**
  *
- * @author kris
+ * @author Jonathan
  */
-public class CustRepCustomersServlet extends HttpServlet {
+public class ApproveMovieRentalServlet extends HttpServlet {
 
     @EJB filmaticSessionBean filmaticBean;
     
@@ -41,11 +40,8 @@ public class CustRepCustomersServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            Customer[] customers = filmaticBean.getCustomers();
-            request.getSession().setAttribute("customerList", customers);
             
-            RequestDispatcher rd = request.getRequestDispatcher("custrep_customers.jsp");
-            rd.forward(request, response);
+            
         } finally {            
             out.close();
         }

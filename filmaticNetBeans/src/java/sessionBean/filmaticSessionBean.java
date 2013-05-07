@@ -93,6 +93,18 @@ public class filmaticSessionBean {
         }
     }
     
+    public Person[] getCustomersFromPerson() {
+        String queryToRun = "SELECT p FROM Person p, Customer c WHERE p.personId = c.customerId";
+        List<Person> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Person[searchResults.size()]);
+    }
+    
+    public Customer[] getCustomers() {
+        String queryToRun = "SELECT c FROM Customer c, Person p WHERE p.personId = c.customerId";
+        List<Customer> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Customer[searchResults.size()]);
+    }
+    
     /**
      * 
      * @param movieId
@@ -403,6 +415,16 @@ public class filmaticSessionBean {
         String queryToRun = "SELECT m.movieId, m.title, m.genre, e.employeeId, c.customerId, o.dateTime FROM Movie m, Employee e, Customer c, Orders o WHERE o.movieId = m.movieId AND c.customerId = o.customerId AND e.employeeId = o.employeeId";
         List<Object> searchResults = (List<Object>) emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
         return searchResults.toArray(new Object[searchResults.size()]);
+    }
+    
+    public boolean checkAvailability() {
+        return true;
+    }
+    
+    public Orders[] getPendingOrders() {
+        String queryToRun = "SELECT o FROM Orders o WHERE o.pending=1";
+        List<Orders> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Orders[searchResults.size()]);
     }
     
     public Orders[] getOrders() {

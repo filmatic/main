@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -52,23 +53,33 @@
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>
                     <tr>
-                      <th class="number-column">#</th>
-                      <th class="orderid-column">Order Id</th>
+                      <th class="orderid-column">Order ID</th>
                       <th class="timeplaced-column">Time Placed</th>
-                      <th class="movieid-column">Movie Id</th>
+                      <th class="movieid-column">Movie ID</th>
                       <th>Title</th>
+                      <th class="approve-column"></th>
                       <th class="approve-column"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>123213</td>
-                      <td>03-05-13</td>
-                      <td>12345</td>
-                      <td>Super DUper Movie</td>
-                      <td><button class="btn btn-success" name="approve" value="1" type="submit">Approve</button></td>
-                    </tr>
+                    <c:forEach items="${pendingList}" var="order">
+                      <tr>
+                        <td>${order.orderId}</td>
+                        <td>${order.dateTime}</td>
+                        <td>${order.movieId.movieId}</td>
+                        <td>${order.movieId.title}</td>
+                        <td>
+                            <form method="post" action="ApproveMovieRentalServlet">
+                                <button class="btn btn-success" name="approve" value="${order.orderId}" type="submit">Approve</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" action="DenyMovieRentalServlet">
+                                <button class="btn btn-success" name="deny" value="${order.orderId}" type="submit">Deny</button>
+                            </form>
+                        </td>
+                      </tr>
+                    </c:forEach>
                   </tbody>
                 </table>
                 

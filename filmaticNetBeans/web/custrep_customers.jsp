@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -61,8 +62,7 @@
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>
                     <tr>
-                      <th class="number-column">#</th>
-                      <th class="customerid-column">Customer Id</th>
+                      <th class="customerid-column">Customer ID</th>
                       <th class="">Name</th>
                       <th class="accttypeid-column">Account Type</th>
                       <th class="createdon-column">Created On</th>
@@ -71,15 +71,20 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>123213</td>
-                      <td>My Super name</td>
-                      <td>12345</td>
-                      <td></td>
-					  <td><button class="btn btn-info" name="approve" value="1" type="submit">Recommendations</button></td>
-                      <td><button class="btn btn-danger" name="approve" value="1" type="submit"><i class="icon-remove icon-white"></i></button></td>
-                    </tr>
+                      <c:forEach items="${customerList}" var="customer">
+                      <tr>
+                        <td>${customer.customerId}</td>
+                        <td>${customer.customerId.firstName} ${customer.customerId.lastName}</td>
+                        <td>${customer.accountType}</td>
+                        <td>${customer.accountCreationDate}</td>
+                        <td>
+                            <button class="btn btn-info" name="approve" value="${customer.customerId}" type="submit">Recommendations</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" name="approve" value="${customer.customerId}" type="submit"><i class="icon-remove icon-white"></i></button>
+                        </td>
+                      </tr>
+                      </c:forEach>
                   </tbody>
                 </table>
                 
