@@ -411,6 +411,28 @@ public class filmaticSessionBean {
         return searchResults.toArray(new Orders[searchResults.size()]);
     }
     
+    public Orders[] getOrders(String sortType) {
+        String queryToRun = null;
+        List<Orders> searchResults = null;
+        if (sortType.equals("movieId")) {
+            queryToRun = "SELECT o FROM Orders o ORDER BY o.movieId.movieId ASC";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        else if (sortType.equals("genre")) {
+            queryToRun = "SELECT o FROM Orders o ORDER BY o.customerId.customerId";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        else if (sortType.equals("movieId")) {
+            queryToRun = "SELECT o FROM Orders o ORDER BY o.employeeId.employeeId";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        else if (sortType.equals("date")) {
+            queryToRun = "SELECT o FROM Orders o ORDER BY o.dateTime";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        return searchResults.toArray(new Orders[searchResults.size()]);
+    }
+    
     public Employee[] getEmployees() {
         List<Employee> searchResults = emf.createEntityManager().createQuery("SELECT e FROM Employee e").getResultList();
         return searchResults.toArray(new Employee[searchResults.size()]);

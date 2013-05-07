@@ -132,6 +132,10 @@
         <servlet-name>GenerateRentalsServlet</servlet-name>
         <servlet-class>servlets.GenerateRentalsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SortRentalsServlet</servlet-name>
+        <servlet-class>servlets.SortRentalsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -263,6 +267,10 @@
     <servlet-mapping>
         <servlet-name>GenerateRentalsServlet</servlet-name>
         <url-pattern>/GenerateRentalsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SortRentalsServlet</servlet-name>
+        <url-pattern>/SortRentalsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

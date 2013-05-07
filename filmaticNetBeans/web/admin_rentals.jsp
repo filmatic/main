@@ -60,7 +60,20 @@
             
             	<h3>Movie Rentals</h3>
                 
-                <p>Sort by: title,, movie type, customer name </p>
+                <form method="post" action="SortRentalsServlet">
+                    <div class="input-prepend input-append">
+                        <div class="btn-group">
+                                    <select id="searchpick" class="selectpicker" name="sortType">
+                                        <option value="date">Date</option>
+                                        <option value="movieId">Movie ID</option>
+                                        <option value="customerId">Customer ID</option>
+                                        <option value="employeeId">Employee ID</option>
+                                    </select>
+
+                                    <button id="search-button" type="submit" class="btn btn-warning"><i class="icon-search icon-white"></i></button>
+                                </div>
+                    </div>
+                </form>
                 
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>

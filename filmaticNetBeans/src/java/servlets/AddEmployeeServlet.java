@@ -101,7 +101,19 @@ public class AddEmployeeServlet extends HttpServlet {
             filmaticBean.save(person);
             filmaticBean.save(employee);
             
-            RequestDispatcher rd = request.getRequestDispatcher("AdminEmployeesServlet");
+            Employee[] employee2 = filmaticBean.getEmployees();
+            Person[] employees = new Person[employee2.length];
+            String temp = null;
+            
+            for (int i = 0; i < employee2.length; i++) {
+                temp = "";
+                temp += employee2[i].getEmployeeId();
+                employees[i] = filmaticBean.convertEmployeeToPerson(temp);
+            }
+ 
+            request.getSession().setAttribute("employeeList", employees);
+            
+            RequestDispatcher rd = request.getRequestDispatcher("admin_employees.jsp");
             rd.forward(request, response);
             
         } finally {            
