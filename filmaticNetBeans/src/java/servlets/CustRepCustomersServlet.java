@@ -41,7 +41,7 @@ public class CustRepCustomersServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            Customer[] customers = filmaticBean.getCustomers();
+            Person[] customers = filmaticBean.getCustomersFromPerson();
             request.getSession().setAttribute("customerList", customers);
             
             RequestDispatcher rd = request.getRequestDispatcher("custrep_customers.jsp");

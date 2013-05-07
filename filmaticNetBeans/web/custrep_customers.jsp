@@ -71,12 +71,12 @@
                     </tr>
                   </thead>
                   <tbody>
-                      <c:forEach items="${customerList}" var="customer">
+                      <c:forEach items="${customerList}" var="person">
                       <tr>
-                        <td>${customer.customerId}</td>
-                        <td>${customer.customerId.firstName} ${customer.customerId.lastName}</td>
-                        <td>${customer.accountType}</td>
-                        <td>${customer.accountCreationDate}</td>
+                        <td>${person.personId}</td>
+                        <td>${person.firstName} ${person.lastName}</td>
+                        <td>${person.customer.accountType.accountType}</td>
+                        <td>${person.customer.accountCreationDate}</td>
                         <td>
                             <button class="btn btn-info" name="approve" value="${customer.customerId}" type="submit">Recommendations</button>
                         </td>
