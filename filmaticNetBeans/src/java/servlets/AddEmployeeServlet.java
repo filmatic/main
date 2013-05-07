@@ -85,7 +85,11 @@ public class AddEmployeeServlet extends HttpServlet {
             person.setStateAbrv(states);
            
             employee.setEmployeeId(id);
-            employee.setEmployeeType(type);
+            if (type.equals("Rep"))
+                employee.setEmployeeType("Customer Rep");
+            else if (type.equals("Admin"))
+                employee.setEmployeeType("Manager");
+            
             employee.setSsn(ssn);
             
             Double wage = Double.parseDouble(hourlyWage);

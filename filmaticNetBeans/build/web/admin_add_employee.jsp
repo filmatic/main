@@ -146,14 +146,11 @@
                             
                         <dt>Zip Code:</dt>
                 			<dd><input class="input-medium" type="text" name="newEmployeeZipCode"></dd>
-                            
-                        <dt>Start Date:</dt>
-                			<dd><input class="input-medium" type="text" name="newEmployeeStartDate"></dd>    
-                            
+                        
                         <dt>Employee Type:</dt>
                 			<dd>
                             	<select class="selectpicker" data-width="164px"  name="newEmployeeType" id="type">
-                                    <option value="Admin">Admin</option>
+                                    <option value="Admin">Manager</option>
                                     <option value="Rep">Customer Rep</option>
                                 </select>
                             </dd>     
