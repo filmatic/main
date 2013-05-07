@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -25,9 +26,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Orders.findByReturnDate", query = "SELECT o FROM Orders o WHERE o.returnDate = :returnDate"),
     @NamedQuery(name = "Orders.findByPending", query = "SELECT o FROM Orders o WHERE o.pending = :pending")})
 public class Orders implements Serializable {
-    @Column(name =     "DateTime")
-    @Temporal(TemporalType.DATE)
-    private Date dateTime;
+    @Size(max =     10)
+    @Column(name = "DateTime")
+    private String dateTime;
     @Column(name =     "ReturnDate")
     @Temporal(TemporalType.DATE)
     private Date returnDate;
@@ -131,11 +132,11 @@ public class Orders implements Serializable {
         return "entities.Orders[ orderId=" + orderId + " ]";
     }
 
-    public Date getDateTime() {
+    public String getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Date dateTime) {
+    public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
 

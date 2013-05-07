@@ -20,7 +20,7 @@
 	</head>
 
 <body>
-	
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <div id="wrapper" class="center-horizontal">
             
             <!-- logoff frame -->
@@ -65,25 +65,25 @@
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>
                     <tr>
-                      <th class="number-column">#</th>
                       <th>Date</th>
-                      <th class="movieid-column">Movie Id</th>
+                      <th class="movieid-column">Movie ID</th>
                       <th>Title</th>
                       <th class="genre-column">Genre</th>
-                      <th class="customerid-column">Customer Id</th>
-                      <th>Customer Name</th>
+                      <th class="customerid-column">Customer ID</th>
+                      <th>Employee ID</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>04-12-13</td>
-                      <td>2222</td>
-                      <td>Customer Representative</td>
-                      <td>McDoodle Toodle</td>
-                      <td>123-456-7890</td>
-                      <td>$10.00</td>
-                    </tr>
+                  <c:forEach items="${rentalList}" var="rental">  
+                      <tr>
+                        <td>${rental.dateTime}</td>
+                        <td>${rental.movieId.movieId}</td>
+                        <td>${rental.movieId.title}</td>
+                        <td>${rental.movieId.genre}</td>
+                        <td>${rental.customerId.customerId}</td>
+                        <td>${rental.employeeId.employeeId}</td>
+                      </tr>
+                  </c:forEach>
                   </tbody>
                 </table>
                 

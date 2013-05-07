@@ -399,6 +399,18 @@ public class filmaticSessionBean {
         return person;
     }
     
+    public Object[] getOrdersObject() {
+        String queryToRun = "SELECT m.movieId, m.title, m.genre, e.employeeId, c.customerId, o.dateTime FROM Movie m, Employee e, Customer c, Orders o WHERE o.movieId = m.movieId AND c.customerId = o.customerId AND e.employeeId = o.employeeId";
+        List<Object> searchResults = (List<Object>) emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Object[searchResults.size()]);
+    }
+    
+    public Orders[] getOrders() {
+        String queryToRun = "SELECT o FROM Orders o";
+        List<Orders> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Orders[searchResults.size()]);
+    }
+    
     public Employee[] getEmployees() {
         List<Employee> searchResults = emf.createEntityManager().createQuery("SELECT e FROM Employee e").getResultList();
         return searchResults.toArray(new Employee[searchResults.size()]);
