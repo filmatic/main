@@ -66,14 +66,14 @@ public class LoginServlet extends HttpServlet {
                 }
                 
                 // PERSON IS AN ADMIN
-                else if (person.getAccessLevel() == 1) {
+                else if (person.getAccessLevel() == 2) {
                     employee = filmaticBean.getEmployee(person.getPersonId());
                     request.getSession().setAttribute("employee", employee);
                     RequestDispatcher rd = request.getRequestDispatcher("AdminHomeServlet");
                     rd.forward(request, response);
                 }           
                 // PERSON IS A CUSTOMER REPRESENTATIVE
-                else if (person.getAccessLevel() == 2) {
+                else if (person.getAccessLevel() == 1) {
                     employee = filmaticBean.getEmployee(person.getPersonId());
                     request.getSession().setAttribute("employee", employee);
                     RequestDispatcher rd = request.getRequestDispatcher("CustRepHomeServlet");

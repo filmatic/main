@@ -91,7 +91,7 @@
                 <form method="POST" action="RegisterNewUserServlet" name="RegisterForm" id="RegisterForm">
                 <div id="regbody" class="modal-body">
                     <dl class="dl-horizontal">
-                        
+                        <input type="hidden" name="accessLevel" value="0"></input>
                         <dt>E-mail (Login):</dt>
                             <dd><input class="input-medium" type="text" name="customerEmail" value=""></dd>
                          

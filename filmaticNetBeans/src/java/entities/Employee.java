@@ -30,9 +30,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Employee.findByHourlyRate", query = "SELECT e FROM Employee e WHERE e.hourlyRate = :hourlyRate"),
     @NamedQuery(name = "Employee.findByTransactionsManaged", query = "SELECT e FROM Employee e WHERE e.transactionsManaged = :transactionsManaged")})
 public class Employee implements Serializable {
-    @Column(name =     "StartDate")
-    @Temporal(TemporalType.DATE)
-    private Date startDate;
+    @Size(max =     10)
+    @Column(name = "StartDate")
+    private String startDate;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -145,11 +145,11 @@ public class Employee implements Serializable {
         return "entities.Employee[ employeeId=" + employeeId + " ]";
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
     

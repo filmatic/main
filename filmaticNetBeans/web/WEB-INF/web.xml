@@ -124,6 +124,10 @@
         <servlet-name>RemoveActorFromDatabaseServlet</servlet-name>
         <servlet-class>servlets.RemoveActorFromDatabaseServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <servlet-class>servlets.AddEmployeeServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -247,6 +251,10 @@
     <servlet-mapping>
         <servlet-name>RemoveActorFromDatabaseServlet</servlet-name>
         <url-pattern>/RemoveActorFromDatabaseServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <url-pattern>/AddEmployeeServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

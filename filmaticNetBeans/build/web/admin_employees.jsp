@@ -63,7 +63,9 @@
                     	<h3>Employees</h3>
                     </div>
                     <div style="float: right;">
-                    	<button style="height:30px; margin-top:16px;" class="btn btn-inverse" name="approve" value="1" type="submit">Add Employee</button>
+                        <form method="post" action="admin_add_employee.jsp">
+                            <button style="height:30px; margin-top:16px;" class="btn btn-inverse" name="approve" value="1" type="submit">Add Employee</button>
+                        </form>
                     </div>
 		</div>
                 
