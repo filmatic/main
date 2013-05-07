@@ -418,11 +418,11 @@ public class filmaticSessionBean {
             queryToRun = "SELECT o FROM Orders o ORDER BY o.movieId.movieId ASC";
             searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
         }
-        else if (sortType.equals("genre")) {
+        else if (sortType.equals("customerId")) {
             queryToRun = "SELECT o FROM Orders o ORDER BY o.customerId.customerId";
             searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
         }
-        else if (sortType.equals("movieId")) {
+        else if (sortType.equals("employeeId")) {
             queryToRun = "SELECT o FROM Orders o ORDER BY o.employeeId.employeeId";
             searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
         }
