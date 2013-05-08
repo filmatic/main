@@ -51,7 +51,7 @@ public class AskToRentServlet extends HttpServlet {
             java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
             String currentTime = sdf.format(dt);
             
-            Orders newOrder = null;
+            Orders newOrder = new Orders();
             
             Movie movie = filmaticBean.getMovie(Integer.parseInt(movieToRent));
             boolean available = filmaticBean.checkAvailability(movie);
