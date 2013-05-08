@@ -70,7 +70,7 @@
                         <td>${order.movieId.title}</td>
                         <td>
                             <form method="post" action="ApproveMovieRentalServlet">
-                                <button class="btn btn-success" name="approve" value="${order.orderId}" type="submit">Approve</button>
+                                <button class="btn btn-success" name="orderToApprove" value="${order.orderId}" type="submit">Approve</button>
                             </form>
                         </td>
                         <td>

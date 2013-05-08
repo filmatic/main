@@ -40,7 +40,98 @@ public class ApproveMovieRentalServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
+            String orderId = request.getParameter("orderToApprove");
+            Orders order = filmaticBean.getOrder(orderId);
             
+            // Get the Customer from the orderId, which holds customerId
+            Customer customer = order.getCustomerId();
+            Integer customerId = customer.getCustomerId();
+            
+            // Get the Accounttype from customer, which holds accountType
+            Accounttype accountType = customer.getAccountType();
+            
+            // Get the Movie from the orderId, which holds movieId
+            Movie movie = order.getMovieId();
+            boolean available = filmaticBean.checkAvailability(movie);
+            if (available) {
+                if (accountType.getAccountType() == 1) {
+                    if (filmaticBean.checkCustomerLimit(customerId) < 1) {
+                        order.setCurrentlyOut(1);
+                        order.setPending(0);
+                        movie.setNumberCopies(movie.getNumberCopies() - 1);
+                        movie.setTimesRented(movie.getTimesRented() + 1);
+                        
+                        // Re-populate rental list
+                        Orders[] orders = filmaticBean.getPendingOrders();
+                        request.getSession().setAttribute("pendingList", orders);
+                        
+                        RequestDispatcher rd = request.getRequestDispatcher("custrep_orders.jsp");
+                        rd.forward(request, response);
+                    }
+                    else {
+                        RequestDispatcher rd = request.getRequestDispatcher("custrep_orders.jsp");
+                        rd.forward(request, response);
+                    }
+                }
+                else if (accountType.getAccountType() == 2) {
+                    if (filmaticBean.checkCustomerLimit(customerId) < 1) {
+                        order.setCurrentlyOut(1);
+                        order.setPending(0);
+                        movie.setNumberCopies(movie.getNumberCopies() - 1);
+                        movie.setTimesRented(movie.getTimesRented() + 1);
+                        
+                        // Re-populate rental list
+                        Orders[] orders = filmaticBean.getPendingOrders();
+                        request.getSession().setAttribute("pendingList", orders);
+                        
+                        RequestDispatcher rd = request.getRequestDispatcher("custrep_orders.jsp");
+                        rd.forward(request, response);
+                    }
+                    else {
+                        RequestDispatcher rd = request.getRequestDispatcher("custrep_orders.jsp");
+                        rd.forward(request, response);
+                    }
+                }
+                else if (accountType.getAccountType() == 3) {
+                    if (filmaticBean.checkCustomerLimit(customerId) < 2) {
+                        order.setCurrentlyOut(1);
+                        order.setPending(0);
+                        movie.setNumberCopies(movie.getNumberCopies() - 1);
+                        movie.setTimesRented(movie.getTimesRented() + 1);
+                        
+                        // Re-populate rental list
+                        Orders[] orders = filmaticBean.getPendingOrders();
+                        request.getSession().setAttribute("pendingList", orders);
+                        
+                        RequestDispatcher rd = request.getRequestDispatcher("custrep_orders.jsp");
+                        rd.forward(request, response);
+                    }
+                    else {
+                        RequestDispatcher rd = request.getRequestDispatcher("custrep_orders.jsp");
+                        rd.forward(request, response);
+                    }
+                }
+                else if (accountType.getAccountType() == 4) {
+                    order.setCurrentlyOut(1);
+                    order.setPending(0);
+                    movie.setNumberCopies(movie.getNumberCopies() - 1);
+                    movie.setTimesRented(movie.getTimesRented() + 1);
+                    
+                    // Re-populate rental list
+                    Orders[] orders = filmaticBean.getPendingOrders();
+                    request.getSession().setAttribute("pendingList", orders);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("custrep_orders.jsp");
+                    rd.forward(request, response);
+                }
+                else {
+                    RequestDispatcher rd = request.getRequestDispatcher("custrep_orders.jsp");
+                    rd.forward(request, response);
+                }
+            } else {
+                RequestDispatcher rd = request.getRequestDispatcher("custrep_orders.jsp");
+                rd.forward(request, response);
+            }
             
         } finally {            
             out.close();
