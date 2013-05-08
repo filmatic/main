@@ -8,6 +8,7 @@
 	</head>
 
 <body>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 
@@ -55,7 +56,6 @@
                 
                   <thead>
                     <tr>
-                      <th class="number-column">#</th>
                       <th>Title</th>
                       <th class="genre-column">Genre</th>
                       <th class="rating-column">Rating</th>
@@ -64,33 +64,59 @@
                   </thead>
                   
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Trouble in the Movie Queue</td>
-                      <td>Documentary</td>
-                      <td>
-                          <i class="icon-search icon-star"></i>
-                          <i class="icon-search icon-star"></i>
-                          <i class="icon-search icon-star"></i>
-                          <i class="icon-search icon-star-empty"></i>
-                          <i class="icon-search icon-star-empty"></i>
-                      </td>
-                      <td>07/15/03</td>
-                    </tr>
-                    
-                    <tr>
-                      <td>2</td>
-                      <td>Random Movie</td>
-                      <td>Action</td>
-                      <td>
-                          <i class="icon-search icon-star"></i>
-                          <i class="icon-search icon-star"></i>
-                          <i class="icon-search icon-star"></i>
-                          <i class="icon-search icon-star-empty"></i>
-                          <i class="icon-search icon-star-empty"></i>
-                      </td>
-                      <td>07/15/03</td>
-                    </tr>
+                      <c:forEach items="${customerHistoryList}" var="order">
+                        <tr>
+                            <td>${order.movieId.title}</td>
+                            <td>${order.movieId.genre}</td>
+                            <td>
+                                <c:choose>
+                                        <c:when test="${order.movieId.rating == '5'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                        </c:when>
+                                        <c:when test="${order.movieId.rating == '4'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${order.movieId.rating == '3'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${order.movieId.rating == '2'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${order.movieId.rating == '1'}">
+                                            <i class="icon-search icon-star"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                        <c:when test="${order.movieId.rating == '0'}">
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                            <i class="icon-search icon-star-empty"></i>
+                                        </c:when>
+                                    </c:choose>
+                            </td>
+                            <td>${order.dateTime}</td>
+                        </tr>
+                      </c:forEach>
                   </tbody>
                   
                 </table>

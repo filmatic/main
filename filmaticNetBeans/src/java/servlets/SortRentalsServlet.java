@@ -6,7 +6,6 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +18,9 @@ import javax.ejb.EJB;
 
 /**
  *
- * @author kris
+ * @author Jonathan
  */
-public class HistoryServlet extends HttpServlet {
+public class SortRentalsServlet extends HttpServlet {
 
     @EJB filmaticSessionBean filmaticBean;
     
@@ -41,14 +40,15 @@ public class HistoryServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            //Person person = (Person) request.getSession().getAttribute("customer");
-            Customer customer = (Customer) request.getSession().getAttribute("customer");
-            Orders[] orders = filmaticBean.getHistory(customer.getCustomerId());
+            request.getSession().removeAttribute("rentalList");
             
-            request.getSession().setAttribute("customerHistoryList", orders);
+            String sortType = (String) request.getParameter("sortType");
+            Orders[] order = filmaticBean.getOrders(sortType);
+            request.getSession().setAttribute("rentalList", order);
             
-            RequestDispatcher rd = request.getRequestDispatcher("customer_history.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("admin_rentals.jsp");
             rd.forward(request, response);
+            
         } finally {            
             out.close();
         }

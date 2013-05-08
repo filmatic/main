@@ -12,12 +12,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.*;
+import javax.servlet.RequestDispatcher;
+import sessionBean.filmaticSessionBean;
+import javax.ejb.EJB;
+
 /**
  *
  * @author kris
  */
 public class CustRepMailingListServlet extends HttpServlet {
 
+    @EJB filmaticSessionBean filmaticBean;
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -33,8 +40,9 @@ public class CustRepMailingListServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
-
+            
+            Person[] people = filmaticBean.getCustomersFromPerson();
+            request.getSession().setAttribute("mailingList", people);
             
             RequestDispatcher rd = request.getRequestDispatcher("custrep_mailinglist.jsp");
             rd.forward(request, response);

@@ -12,12 +12,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.*;
+import java.math.BigDecimal;
+import javax.servlet.RequestDispatcher;
+import sessionBean.filmaticSessionBean;
+import javax.ejb.EJB;
+
 /**
  *
  * @author kris
  */
 public class AdminRentalsServlet extends HttpServlet {
 
+    @EJB filmaticSessionBean filmaticBean;
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -33,7 +41,10 @@ public class AdminRentalsServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
+            
+            Orders[] rentals = filmaticBean.getOrders();
+            request.setAttribute("rentalList", rentals);
+            
             RequestDispatcher rd = request.getRequestDispatcher("admin_rentals.jsp");
             rd.forward(request, response);
         } finally {            

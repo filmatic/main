@@ -124,6 +124,26 @@
         <servlet-name>RemoveActorFromDatabaseServlet</servlet-name>
         <servlet-class>servlets.RemoveActorFromDatabaseServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <servlet-class>servlets.AddEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GenerateRentalsServlet</servlet-name>
+        <servlet-class>servlets.GenerateRentalsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SortRentalsServlet</servlet-name>
+        <servlet-class>servlets.SortRentalsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ApproveMovieRentalServlet</servlet-name>
+        <servlet-class>servlets.ApproveMovieRentalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AskToRentServlet</servlet-name>
+        <servlet-class>servlets.AskToRentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -247,6 +267,26 @@
     <servlet-mapping>
         <servlet-name>RemoveActorFromDatabaseServlet</servlet-name>
         <url-pattern>/RemoveActorFromDatabaseServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <url-pattern>/AddEmployeeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GenerateRentalsServlet</servlet-name>
+        <url-pattern>/GenerateRentalsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SortRentalsServlet</servlet-name>
+        <url-pattern>/SortRentalsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ApproveMovieRentalServlet</servlet-name>
+        <url-pattern>/ApproveMovieRentalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AskToRentServlet</servlet-name>
+        <url-pattern>/AskToRentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

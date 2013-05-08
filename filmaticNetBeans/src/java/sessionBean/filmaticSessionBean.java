@@ -94,6 +94,26 @@ public class filmaticSessionBean {
     }
     
     /**
+     * Converts a Person to a Customer
+     * @return Person[]
+     */
+    public Person[] getCustomersFromPerson() {
+        String queryToRun = "SELECT p FROM Person p, Customer c WHERE p.personId = c.customerId";
+        List<Person> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Person[searchResults.size()]);
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Customer[] getCustomers() {
+        String queryToRun = "SELECT c FROM Customer c, Person p WHERE p.personId = c.customerId";
+        List<Customer> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Customer[searchResults.size()]);
+    }
+    
+    /**
      * 
      * @param movieId
      * @return 
@@ -107,6 +127,10 @@ public class filmaticSessionBean {
         }
     }
     
+    /**
+     * 
+     * @return 
+     */
     public Actor[] getAllActors() {
         List<Actor> searchResults = emf.createEntityManager().createQuery("SELECT a FROM Actor a ORDER BY a.actorName").getResultList();
         return searchResults.toArray(new Actor[searchResults.size()]);
@@ -246,6 +270,13 @@ public class filmaticSessionBean {
             itemid++;
             return itemid;
         }
+    }
+    
+    public Long getNextOrdersId() {
+        String queryToRun = "SELECT MAX(OrderId) + 1 FROM Orders";
+        Long nextSlot = (Long) emf.createEntityManager().createNativeQuery(queryToRun).getSingleResult();
+        System.out.println(nextSlot);
+        return nextSlot;
     }
     
     /**
@@ -388,71 +419,224 @@ public class filmaticSessionBean {
         }
     }
     
+    /**
+     * 
+     * @param customerId
+     * @return 
+     */
     public Person convertCustomerToPerson(String customerId) {
         String queryToRun = "SELECT p FROM Person p WHERE p.personId='" + customerId + "'";
         Person person = (Person) emf.createEntityManager().createQuery(queryToRun).getSingleResult();
         return person;
     }
     
+    /**
+     * 
+     * @param employeeId
+     * @return 
+     */
     public Person convertEmployeeToPerson(String employeeId) {
         String queryToRun = "SELECT p FROM Person p WHERE p.personId='" + employeeId + "'";
         Person person = (Person) emf.createEntityManager().createQuery(queryToRun).getSingleResult();
         return person;
     }
     
+    /**
+     * 
+     * @return 
+     */
+    public Object[] getOrdersObject() {
+        String queryToRun = "SELECT m.movieId, m.title, m.genre, e.employeeId, c.customerId, o.dateTime FROM Movie m, Employee e, Customer c, Orders o WHERE o.movieId = m.movieId AND c.customerId = o.customerId AND e.employeeId = o.employeeId";
+        List<Object> searchResults = (List<Object>) emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Object[searchResults.size()]);
+    }
+    
+    /**
+     * 
+     * @param orderId
+     * @return 
+     */
+    public Orders getOrder(String orderId) {
+        String queryToRun = "SELECT o FROM Orders o WHERE o.orderId="+orderId;
+        Orders order = (Orders) emf.createEntityManager().createQuery(queryToRun).getSingleResult();
+        return order;
+    }
+    
+    /**
+     * 
+     * @param movie
+     * @return 
+     */
+    public boolean checkAvailability(Movie movie) {
+        if (movie.getNumberCopies() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /**
+     * 
+     * @param customerId
+     * @return 
+     */
+    public Integer checkCustomerLimit(Integer customerId) {
+        String queryToRun = "SELECT * FROM Orders WHERE pending=0 AND currentlyOut=1 AND customerId="+customerId;
+        List<Orders> searchResults = emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
+        return (searchResults.size());
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Orders[] getPendingOrders() {
+        String queryToRun = "SELECT o FROM Orders o WHERE o.pending=1";
+        List<Orders> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Orders[searchResults.size()]);
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Orders[] getOrders() {
+        String queryToRun = "SELECT o FROM Orders o";
+        List<Orders> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Orders[searchResults.size()]);
+    }
+    
+    /**
+     * 
+     * @param customerId
+     * @return 
+     */
+    public Orders[] getHistory(Integer customerId) {
+        String queryToRun = "SELECT o FROM Orders o WHERE o.pending='0' AND o.customerId.customerId='" + customerId+"'";
+        List<Orders> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Orders[searchResults.size()]);
+    }
+    
+    /**
+     * 
+     * @param sortType
+     * @return 
+     */
+    public Orders[] getOrders(String sortType) {
+        String queryToRun = null;
+        List<Orders> searchResults = null;
+        if (sortType.equals("movieId")) {
+            queryToRun = "SELECT o FROM Orders o ORDER BY o.movieId.movieId ASC";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        else if (sortType.equals("customerId")) {
+            queryToRun = "SELECT o FROM Orders o ORDER BY o.customerId.customerId";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        else if (sortType.equals("employeeId")) {
+            queryToRun = "SELECT o FROM Orders o ORDER BY o.employeeId.employeeId";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        else if (sortType.equals("date")) {
+            queryToRun = "SELECT o FROM Orders o ORDER BY o.dateTime";
+            searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        }
+        return searchResults.toArray(new Orders[searchResults.size()]);
+    }
+    
+    /**
+     * 
+     * @return 
+     */
     public Employee[] getEmployees() {
         List<Employee> searchResults = emf.createEntityManager().createQuery("SELECT e FROM Employee e").getResultList();
         return searchResults.toArray(new Employee[searchResults.size()]);
     }
     
+    /**
+     * 
+     * @param movieId 
+     */
     public void removeMovieFromActsIn(String movieId) {
         String queryToRun = "DELETE FROM Actsin WHERE movieId="+movieId;
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
+    /**
+     * 
+     * @param movieId 
+     */
     public void removeMovieFromOrders(String movieId) {
         String queryToRun = "DELETE FROM Orders WHERE movieId="+movieId;
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
+    /**
+     * 
+     * @param movieId 
+     */
     public void removeMovieFromMovieQueue(String movieId) {
         String queryToRun = "DELETE FROM Moviequeue WHERE movieId="+movieId;
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
+    /**
+     * 
+     * @param movieId 
+     */
     public void removeMovieFromMovie(String movieId) {
         String queryToRun = "DELETE FROM Movie WHERE movieId="+movieId;
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
+    /**
+     * 
+     * @param employeeId 
+     */
     public void removeEmployeeFromOrders(String employeeId) {
         String queryToRun = "DELETE FROM Orders WHERE employeeId="+employeeId;
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
+    /**
+     * 
+     * @param employeeId 
+     */
     public void removeEmployeeFromEmployee(String employeeId) {
         String queryToRun = "DELETE FROM Employee WHERE employeeId="+employeeId;
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
+    /**
+     * 
+     * @param employeeId 
+     */
     public void removeEmployeeFromPerson(String employeeId) {
         String queryToRun = "DELETE FROM Person WHERE personId="+employeeId;
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
+    /**
+     * 
+     * @param actorId 
+     */
     public void removeActorFromActsin(String actorId) {
         String queryToRun = "DELETE FROM Actsin WHERE actorId="+actorId;
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
     }
     
+    /**
+     * 
+     * @param actorId 
+     */
     public void removeActorFromActor(String actorId) {
         String queryToRun = "DELETE FROM Actor WHERE actorId="+actorId;
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
