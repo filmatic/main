@@ -271,6 +271,12 @@ public class filmaticSessionBean {
         }
     }
     
+    public Long getNextOrdersId() {
+        String queryToRun = "SELECT MAX(OrderId) + 1 FROM Orders";
+        Long nextSlot = (Long) emf.createEntityManager().createNativeQuery(queryToRun).getSingleResult();
+        return nextSlot;
+    }
+    
     /**
      * 
      * @return 

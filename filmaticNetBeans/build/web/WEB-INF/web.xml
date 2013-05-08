@@ -140,6 +140,10 @@
         <servlet-name>ApproveMovieRentalServlet</servlet-name>
         <servlet-class>servlets.ApproveMovieRentalServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AskToRentServlet</servlet-name>
+        <servlet-class>servlets.AskToRentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -279,6 +283,10 @@
     <servlet-mapping>
         <servlet-name>ApproveMovieRentalServlet</servlet-name>
         <url-pattern>/ApproveMovieRentalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AskToRentServlet</servlet-name>
+        <url-pattern>/AskToRentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
