@@ -473,8 +473,8 @@ public class filmaticSessionBean {
      * @return 
      */
     public Integer checkCustomerLimit(Integer customerId) {
-        String queryToRun = "SELECT o FROM Orders o WHERE o.customerId="+customerId+" AND o.pending=0 AND o.currentlyOut=1";
-        List<Orders> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        String queryToRun = "SELECT * FROM Orders WHERE pending=0 AND currentlyOut=1 AND customerId="+customerId;
+        List<Orders> searchResults = emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
         return (searchResults.size());
     }
     

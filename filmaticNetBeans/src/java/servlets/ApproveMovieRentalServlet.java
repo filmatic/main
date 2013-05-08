@@ -40,6 +40,10 @@ public class ApproveMovieRentalServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
+            // Get Employee dealing with transaction
+            Employee employee = (Employee) request.getAttribute("employee");
+            //Integer employeeId = employee.getEmployeeId();
+            
             String orderId = request.getParameter("orderToApprove");
             Orders order = filmaticBean.getOrder(orderId);
             
@@ -53,13 +57,18 @@ public class ApproveMovieRentalServlet extends HttpServlet {
             // Get the Movie from the orderId, which holds movieId
             Movie movie = order.getMovieId();
             boolean available = filmaticBean.checkAvailability(movie);
+            
             if (available) {
                 if (accountType.getAccountType() == 1) {
                     if (filmaticBean.checkCustomerLimit(customerId) < 1) {
                         order.setCurrentlyOut(1);
                         order.setPending(0);
+                        order.setEmployeeId(employee);
                         movie.setNumberCopies(movie.getNumberCopies() - 1);
                         movie.setTimesRented(movie.getTimesRented() + 1);
+                        
+                        filmaticBean.update(order);
+                        filmaticBean.update(movie);
                         
                         // Re-populate rental list
                         Orders[] orders = filmaticBean.getPendingOrders();
@@ -77,8 +86,12 @@ public class ApproveMovieRentalServlet extends HttpServlet {
                     if (filmaticBean.checkCustomerLimit(customerId) < 1) {
                         order.setCurrentlyOut(1);
                         order.setPending(0);
+                        order.setEmployeeId(employee);
                         movie.setNumberCopies(movie.getNumberCopies() - 1);
                         movie.setTimesRented(movie.getTimesRented() + 1);
+                        
+                        filmaticBean.update(order);
+                        filmaticBean.update(movie);
                         
                         // Re-populate rental list
                         Orders[] orders = filmaticBean.getPendingOrders();
@@ -96,8 +109,12 @@ public class ApproveMovieRentalServlet extends HttpServlet {
                     if (filmaticBean.checkCustomerLimit(customerId) < 2) {
                         order.setCurrentlyOut(1);
                         order.setPending(0);
+                        order.setEmployeeId(employee);
                         movie.setNumberCopies(movie.getNumberCopies() - 1);
                         movie.setTimesRented(movie.getTimesRented() + 1);
+                        
+                        filmaticBean.update(order);
+                        filmaticBean.update(movie);
                         
                         // Re-populate rental list
                         Orders[] orders = filmaticBean.getPendingOrders();
@@ -114,8 +131,12 @@ public class ApproveMovieRentalServlet extends HttpServlet {
                 else if (accountType.getAccountType() == 4) {
                     order.setCurrentlyOut(1);
                     order.setPending(0);
+                    order.setEmployeeId(employee);
                     movie.setNumberCopies(movie.getNumberCopies() - 1);
                     movie.setTimesRented(movie.getTimesRented() + 1);
+                    
+                    filmaticBean.update(order);
+                    filmaticBean.update(movie);
                     
                     // Re-populate rental list
                     Orders[] orders = filmaticBean.getPendingOrders();
