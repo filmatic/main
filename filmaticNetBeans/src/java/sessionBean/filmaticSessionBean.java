@@ -112,6 +112,7 @@ public class filmaticSessionBean {
         return searchResults.toArray(new Actor[searchResults.size()]);
     }
     
+    
     /**
      * 
      * @return 
@@ -456,5 +457,46 @@ public class filmaticSessionBean {
         String queryToRun = "DELETE FROM Actor WHERE actorId="+actorId;
         Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         query.executeUpdate();
+    }
+    
+    
+    public String[] getCustomerRecommendation(String customerId) {
+        //customerId = ""
+        
+        String queryToRun = ""
+                + "SELECT MovieId "
+                + "FROM Movie M "
+                + "NATURAL JOIN "
+                + "( "
+                //-- SELECT THE MOST COMMON GENRE WATCHED
+                + "SELECT Genre FROM "
+                + "( " 
+                + "SELECT M.MovieId, M.Genre, COUNT(*) AS \"count\" "
+                + "FROM Movie M "
+                + "WHERE M.MovieId IN "
+                + "( "
+                // -- SELECT ALL THE MOVIES THE CUSTOMER HAS WATCHED
+                + "SELECT O.MovieId "
+                + "FROM Orders O "
+                + "WHERE O.CustomerId = " + customerId 
+                + " )"
+                + "GROUP BY M.Genre "
+                + "ORDER BY \"count\" DESC "
+                + ") AS GenreCount "
+                + "LIMIT 1 "
+                + ") AS TopGenre ";
+        
+        //Query query = emf.createEntityManager().createNativeQuery(queryToRun);
+        //query.executeUpdate();
+
+        List<String> searchResults = emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
+        
+        System.out.println("MovieId iz " + searchResults.toString());
+        /*
+        for (String s : searchResults) {
+            
+        }*/
+        
+        return null;//(String[])searchResults.toArray();
     }
 }
