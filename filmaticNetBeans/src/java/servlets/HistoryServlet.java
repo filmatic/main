@@ -12,12 +12,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.*;
+import javax.servlet.RequestDispatcher;
+import sessionBean.filmaticSessionBean;
+import javax.ejb.EJB;
+
 /**
  *
  * @author kris
  */
 public class HistoryServlet extends HttpServlet {
 
+    @EJB filmaticSessionBean filmaticBean;
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -34,7 +41,12 @@ public class HistoryServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            // FORWARD TO HISTORY
+            //Person person = (Person) request.getSession().getAttribute("customer");
+            Customer customer = (Customer) request.getSession().getAttribute("customer");
+            Orders[] orders = filmaticBean.getHistory(customer.getCustomerId());
+            
+            request.getSession().setAttribute("customerHistoryList", orders);
+            
             RequestDispatcher rd = request.getRequestDispatcher("customer_history.jsp");
             rd.forward(request, response);
         } finally {            

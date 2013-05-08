@@ -500,6 +500,17 @@ public class filmaticSessionBean {
     
     /**
      * 
+     * @param customerId
+     * @return 
+     */
+    public Orders[] getHistory(Integer customerId) {
+        String queryToRun = "SELECT o FROM Orders o WHERE o.pending='0' AND o.customerId.customerId='" + customerId+"'";
+        List<Orders> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Orders[searchResults.size()]);
+    }
+    
+    /**
+     * 
      * @param sortType
      * @return 
      */
