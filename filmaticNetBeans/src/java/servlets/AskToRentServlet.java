@@ -67,6 +67,7 @@ public class AskToRentServlet extends HttpServlet {
                         newOrder.setPending(1);
                         newOrder.setDateTime(currentTime);
                         
+                        
                         filmaticBean.save(newOrder);
                         RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
                         rd.forward(request, response);

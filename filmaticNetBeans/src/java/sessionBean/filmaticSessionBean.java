@@ -196,7 +196,7 @@ public class filmaticSessionBean {
         int counter = 0;
         
         for (int i = 0; i < searchResults.size(); i++) {
-            if (!existsInQueue(personIdString, searchResults.get(i).getMovieId())) {
+            if ((!existsInQueue(personIdString, searchResults.get(i).getMovieId())) && (!existsInOrders(person, searchResults.get(i)))) {
                 newSearchResults[counter] = (searchResults.get(i));
                 counter++;
             }
@@ -239,6 +239,21 @@ public class filmaticSessionBean {
                 }
             }
             return false;
+        }
+    }
+    
+    public boolean existsInOrders(Person person, Movie movie) {
+        Query query = emf.createEntityManager().createQuery("SELECT o FROM Orders o WHERE o.pending = 0 AND o.currentlyOut = 1 AND o.customerId = :personId");
+        List<Orders> searchResults = query.setParameter("personId", person).getResultList();
+        if (searchResults == null) {
+            return true;
+        } else {
+            for (int i = 0; i < searchResults.size(); i++) {
+                if (searchResults.get(i).getMovieId() == movie) {
+                    return false;
+                }
+            }
+            return true;
         }
     }
     
@@ -683,4 +698,6 @@ public class filmaticSessionBean {
         
         return null;//(String[])searchResults.toArray();
     }
+    
+    
 }
