@@ -84,7 +84,7 @@ public class filmaticSessionBean {
      * @param personId
      * @return 
      */
-    public Person getPerson(String personId) {
+    public Person getPerson(Integer personId) {
         Person person = (Person) emf.createEntityManager().find(Person.class, personId);
         if (person != null) {
             return person;

@@ -84,7 +84,12 @@
                   <tbody>
                     <c:forEach items="${employeeList}" var="person">
                         <tr>
-                        <td>${person.personId}</td>
+                        <td><a href="EditEmployeeServlet?employeeToEdit=${person.personId}">
+                                        <input type="hidden" name="employeeToEdit" value="${person.personId}">
+                                            ${person.personId}
+                                        </input>
+                                    </a>
+                        </td>
                         <td>${person.firstName} ${person.lastName}</td>
                         <td>${person.employee.employeeType == "Customer Rep" ? "Customer Representative" : "Manager"}</td>
                         <td>${person.employee.ssn}</td>
