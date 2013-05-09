@@ -60,6 +60,9 @@ public class SaveCustomerOptionsServlet extends HttpServlet {
             
             filmaticBean.update(currentCustomer);
             
+            RequestDispatcher rd = request.getRequestDispatcher("SettingsServlet");
+            rd.forward(request, response);
+            
         } finally {            
             out.close();
         }

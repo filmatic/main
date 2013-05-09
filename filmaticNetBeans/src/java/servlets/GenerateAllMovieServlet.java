@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entities.*;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import sessionBean.filmaticSessionBean;
 import javax.ejb.EJB;
@@ -42,7 +43,22 @@ public class GenerateAllMovieServlet extends HttpServlet {
             
             Person person = (Person) request.getSession().getAttribute("person");
             
-            Movie[] movies = filmaticBean.getAllMoviesNotInQueue(person);
+            Movie[] movies = filmaticBean.getAllMovies();//getAllMoviesNotInQueue(person);
+            
+            
+            // SORT BY TIMES RENTED
+            for (int i=0;i<movies.length-1;i++) {
+                for (int j=i+1;j<movies.length;j++) {
+                    if (movies[i].getTimesRented()<movies[j].getTimesRented()) {
+                        // SWAP
+                        Movie temp = movies[i];
+                        movies[i] = movies[j];
+                        movies[j] = temp;
+                    }
+                }
+            }
+            
+            
             request.getSession().setAttribute("movieList", movies);
             
             Movie[] empty = null;

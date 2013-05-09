@@ -72,13 +72,12 @@
                       <th>Title</th>
                       <th class="genre-column">Genre</th>
                       <th class="rating-column">Rating</th>
-                      <th class="queue-column"><!-- QUEUE BUTTONS --></th>
                     </tr>
                   </thead>
                   
-                  <form action="AddToQueueServlet" method="post">
+                  <form action="AddToQueueServlet" method="post" >
                     <tbody>
-                        <c:forEach var="movie" items="${movieList}">
+                        <c:forEach var="movie" items="${movieList}" begin="0" end="4">
                             <tr>
                                 <td>${movie.movieId}</td>
                                 <td>
@@ -134,9 +133,6 @@
                                             <i class="icon-search icon-star-empty"></i>
                                         </c:when>
                                     </c:choose>
-                                </td>
-                                <td>
-                                    <button class="btn btn-success" name="movieToQueue" value="${movie.movieId}" type="submit">Queue</button>
                                 </td>
                             </tr>
                         </c:forEach>
