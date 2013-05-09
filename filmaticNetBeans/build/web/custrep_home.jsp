@@ -47,7 +47,8 @@
             <!-- MOST ACTIVE CUSTOMERS -->
             <div>
             
-            	<h3>Customer Representative Home - I dUNNO wut GOezz H3R3</h3>
+            	<h3>Welcome Customer Representative!</h3>
+                <h4>Click on "Orders" to approve incoming orders that customers have requested.</h4>
                 
             </div>
             

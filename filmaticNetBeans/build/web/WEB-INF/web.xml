@@ -144,6 +144,10 @@
         <servlet-name>AskToRentServlet</servlet-name>
         <servlet-class>servlets.AskToRentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustRepCustomerRecServlet</servlet-name>
+        <servlet-class>servlets.CustRepCustomerRecServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -287,6 +291,10 @@
     <servlet-mapping>
         <servlet-name>AskToRentServlet</servlet-name>
         <url-pattern>/AskToRentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustRepCustomerRecServlet</servlet-name>
+        <url-pattern>/CustRepCustomerRecServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

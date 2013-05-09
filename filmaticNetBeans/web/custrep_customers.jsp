@@ -78,7 +78,7 @@
                         <td>${person.customer.accountType.accountType}</td>
                         <td>${person.customer.accountCreationDate}</td>
                         <td>
-                            <button class="btn btn-info" name="approve" value="${customer.customerId}" type="submit">Recommendations</button>
+                            <a href="CustRepCustomerRecServlet?customerId=${person.customer.customerId}"><button class="btn btn-info" name="approve" value="" type="submit">Recommendations</button>
                         </td>
                         <td>
                             <button class="btn btn-danger" name="approve" value="${customer.customerId}" type="submit"><i class="icon-remove icon-white"></i></button>
