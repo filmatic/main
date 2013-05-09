@@ -392,20 +392,20 @@ public class filmaticSessionBean {
         List<Movie> searchResults = null;
         if (!keyword.equals("null")) {
             if (type.equals("genre")) {
-                query = emf.createEntityManager().createQuery("SELECT m FROM Movie m WHERE m.genre LIKE :genre", Movie.class);
+                query = emf.createEntityManager().createQuery("SELECT m FROM Movie m WHERE m.numberCopies > 0 AND m.genre LIKE :genre", Movie.class);
                 searchResults = query.setParameter("genre","%" + keyword + "%").getResultList();
             }
             else if (type.equals("title")) {
-                query = emf.createEntityManager().createQuery("SELECT m FROM Movie m WHERE m.title LIKE :title", Movie.class);
+                query = emf.createEntityManager().createQuery("SELECT m FROM Movie m WHERE m.numberCopies > 0 AND m.title LIKE :title", Movie.class);
                 searchResults = query.setParameter("title","%" + keyword + "%").getResultList();
             }
             else if (type.equals("keyword")) {
-                query = emf.createEntityManager().createQuery("SELECT m FROM Movie m WHERE m.title LIKE :title", Movie.class);
+                query = emf.createEntityManager().createQuery("SELECT m FROM Movie m WHERE m.numberCopies > 0 AND m.title LIKE :title", Movie.class);
                 searchResults = query.setParameter("title","%" + keyword + "%").getResultList();
             }
         }
         else {
-            query = emf.createEntityManager().createQuery("SELECT m FROM Movie m ORDER BY m.title", Movie.class);
+            query = emf.createEntityManager().createQuery("SELECT m FROM Movie m WHERE m.numberCopies > 0 ORDER BY m.title", Movie.class);
             searchResults = query.getResultList();
         }
         return searchResults.toArray(new Movie[searchResults.size()]);
