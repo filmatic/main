@@ -4,6 +4,8 @@
  */
 package servlets;
 
+import entities.Movie;
+import entities.Person;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -39,12 +41,24 @@ public class HomeServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            //String[] movieIds = 
-            filmaticBean.getCustomerRecommendation("2");
+                        // GET THE PERSON CREDENTIALS
+            Person person = (Person) request.getSession().getAttribute("person");
+            
+            // GET MOVIES BASED OFF PERSON ID
+            Movie recMovies[] = filmaticBean.getCustomerRecommendation(person.getPersonId().toString());
+            
+            for (Movie m : recMovies) {
+                System.out.println(m.getTitle());
+            }
+            
+            // SET THE SESSION TO CONTAIN THE RECOMMENDED MOVIE LIST
+            request.getSession().setAttribute("recMovieList", recMovies);
+            
             
             // FORWARD TO HOME
             RequestDispatcher rd = request.getRequestDispatcher("customer_home.jsp");
             rd.forward(request, response);
+            
             
         } finally {            
             out.close();

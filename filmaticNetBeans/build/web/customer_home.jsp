@@ -8,9 +8,10 @@
 	</head>
 
 <body>
-		<script src="http://code.jquery.com/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+       
        <div id="wrapper" class="center-horizontal">
             <div id="logoff-frame">
                 <p>
@@ -24,8 +25,6 @@
             <!-- logo -->
             <div id="logo" >
             	<a class="brand" href="#"><img src="img/login_logo.jpg" id="logo" alt="login"/></a>
-                
-                
                 
             </div>
             
@@ -60,40 +59,50 @@
                 <!-- Carousel items -->
                 <div class="carousel-inner" id="carousel-items">
                 
-                	<!-- first item -->
+                    <!-- first item -->
                     <div class="active item">  
                     	<div class="row-fluid">
-                        
+                            
+                            <c:forEach items="${recMovieList}" varStatus="status" var="recMovie" begin="0" end="2">
+                                    
                                 <div class="span3 movie-heading">
-                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
-                                </div>
-                                
-                                <div class="span3 movie-heading">
-                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
-                                </div>
-                                
-                                <div class="span3 movie-heading">
-                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
+                                   
+                                    <c:choose>
+                                        <c:when test="${empty recMovie}">
+                                            <a href="GenerateMovieDetailServlet?movieToDetail=${recMovie.movieId}"> <img src="img/placeholder.jpg" alt="" class="img-polaroid movie-logo"> </a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="GenerateMovieDetailServlet?movieToDetail=${recMovie.movieId}"> <img src="${recMovie.imageLocation}" alt="" onError="this.onerror=null;this.src='img/placeholder.jpg';" class="img-polaroid movie-logo"> </a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                              
                                 </div>
                             
+                            </c:forEach>
+                            
                         </div>
-                	</div>
+                    </div>
                   	
                   	<!-- second item -->
                     <div class="item">  
                      	 <div class="row-fluid">
                     
+                            <c:forEach items="${recMovieList}" varStatus="status" var="recMovie" begin="3" end="5">
+                                    
                                 <div class="span3 movie-heading">
-                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
+                                   
+                                    <c:choose>
+                                        <c:when test="${empty recMovie}">
+                                            <a href="GenerateMovieDetailServlet?movieToDetail=${recMovie.movieId}"> <img src="img/placeholder.jpg" alt="" class="img-polaroid movie-logo"> </a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="GenerateMovieDetailServlet?movieToDetail=${recMovie.movieId}"> <img src="${recMovie.imageLocation}" onError="this.onerror=null;this.src='img/placeholder.jpg';" alt="" class="img-polaroid movie-logo"> </a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                              
                                 </div>
-                                
-                                <div class="span3 movie-heading">
-                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
-                                </div>
-                                
-                                <div class="span3 movie-heading">
-                                    <a href="movie.html"> <img src="img/movie_header.jpg" alt="" class="img-polaroid movie-logo"> </a>
-                                </div>
+                            
+                            </c:forEach>
                      	</div>
                 	</div>
                     

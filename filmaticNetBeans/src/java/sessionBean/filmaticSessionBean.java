@@ -659,7 +659,7 @@ public class filmaticSessionBean {
     }
     
     
-    public String[] getCustomerRecommendation(String customerId) {
+    public Movie[] getCustomerRecommendation(String customerId) {
         //customerId = ""
         
         String queryToRun = ""
@@ -688,15 +688,27 @@ public class filmaticSessionBean {
         //Query query = emf.createEntityManager().createNativeQuery(queryToRun);
         //query.executeUpdate();
 
-        List<String> searchResults = emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
+        // GET MOVIE ID's "SELECT MovieId"
+        //List<Integer> searchResults = emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
+        // 
         
-        System.out.println("MovieId iz " + searchResults.toString());
-        /*
-        for (String s : searchResults) {
+        List<Integer> searchResults = emf.createEntityManager().createNativeQuery(queryToRun).getResultList();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        
+        /*em.createNamedQuery("findAllCustomersWithName")
+            .setParameter("custName", "Smith")
+            .getResultList();
+        */
+        
+        for (Integer i : searchResults) {
+            String query = "SELECT m FROM Movie m WHERE m.movieId = " + i.toString();
+                    
+            Movie m = (Movie)emf.createEntityManager().createQuery(query).getSingleResult();
             
-        }*/
+            movies.add(m);
+        }
         
-        return null;//(String[])searchResults.toArray();
+        return movies.toArray(new Movie[movies.size()]);//(String[])searchResults.toArray();
     }
     
     
