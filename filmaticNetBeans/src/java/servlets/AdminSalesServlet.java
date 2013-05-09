@@ -9,6 +9,7 @@ import entities.Movie;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,21 +44,34 @@ public class AdminSalesServlet extends HttpServlet {
         try {
             
             // CREATE A MAP OF ACCOUNT TYPES
+            HashMap<Integer,String> accountName = new HashMap<Integer,String>();
+            accountName.put(1, "Bronze");
+            accountName.put(2, "Silver");
+            accountName.put(3, "Gold");
+            accountName.put(4, "Platinum");
+            request.setAttribute("accountType", accountName);
             
             // GET MONTH
-            Integer month = Integer.valueOf(request.getParameter("selectmonth"));
-            if (month==null) month = 0;
+            Integer month = 0;
+            if (request.getParameter("selectmonth")!=null) {
+                month = Integer.valueOf(request.getParameter("selectmonth"));
+                if (month==null) { month = 0; }
+            } 
+
             String monthStr = month.toString();
             if (month<10) {
                 monthStr = "0"+month;
             }
             
             // GET YEAR
-            Integer year = Integer.valueOf(request.getParameter("selectyear"));
-            if (year==null) year=1000;
-            
+            Integer year = 1000;
+            if (request.getParameter("selectyear")!=null) {
+               year = Integer.valueOf(request.getParameter("selectyear"));
+                if (year==null) { year=1000; }
+            }
+
             // MAKE A COMPARE OBJECT
-            DateString userSelectedDate = new DateString(year+"-"+monthStr+"-00");
+            DateString userSelectedDate = new DateString(year+"-"+monthStr+"-32");
             System.out.println(userSelectedDate.getDateString());
             
             // GET ALL CUSTOEMRS
@@ -82,11 +96,12 @@ public class AdminSalesServlet extends HttpServlet {
             // CALCULATE TOTAL
             double total = 0;
             for (Customer c : selectedCustomers) {
-                total+=10.00; // c.getAccountType();
+                total+=c.getAccountType().getMonthlyFee().doubleValue(); // c.getAccountType();
             }
             
             // SET THE TOTAL
-            request.getSession().setAttribute("salesTotal", total);
+            String salesTotal = total + "0";
+            request.getSession().setAttribute("salesTotal", salesTotal);
             
             // SET THE CUSTOMER ARRAY
             request.getSession().setAttribute("selectedCustomers", selectedCustomers);
