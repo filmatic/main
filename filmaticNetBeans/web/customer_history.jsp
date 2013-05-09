@@ -4,7 +4,7 @@
 		<title>Filmatic - Home</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
-        <link href="css/customer_history_style.css" rel="stylesheet" media="screen" />
+                <link href="css/customer_history_style.css" rel="stylesheet" media="screen" />
 	</head>
 
 <body>
@@ -60,6 +60,7 @@
                       <th class="genre-column">Genre</th>
                       <th class="rating-column">Rating</th>
                       <th class="order-date-column">Order Date</th>
+                      <th class="rent-column"></th>
                     </tr>
                   </thead>
                   
@@ -115,6 +116,27 @@
                                     </c:choose>
                             </td>
                             <td>${order.dateTime}</td>
+                            <td>
+                                    <c:if test="${order.currentlyOut == 1}">
+                                        <form action="ReturnMovieServlet" method="post">
+                                            <button class="btn btn-warning" type="submit" name="movieToReturn" value="${order.orderId}">Return</button>
+                                        </form>
+                                    </c:if>
+                                    <c:if test="${order.currentlyOut == 0}">
+                                        <form action="RateMovieServlet" method="post">
+                                            <div class="btn-group">
+                                                <select class="selectpicker" name="movieRating" id="rating">
+                                                    <option value="1">1 Star</option>
+                                                    <option value="2">2 Stars</option>
+                                                    <option value="3" selected="selected">3 Stars</option>
+                                                    <option value="4">4 Stars</option>
+                                                    <option value="5">5 Stars</option>
+                                                </select>
+                                                <button class="btn btn-warning" type="submit" name="movieToRate" value="${order.orderId}">Rate</button>
+                                            </div>
+                                        </form>
+                                    </c:if>
+                            </td>
                         </tr>
                       </c:forEach>
                   </tbody>

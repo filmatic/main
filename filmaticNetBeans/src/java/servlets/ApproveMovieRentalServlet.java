@@ -67,6 +67,7 @@ public class ApproveMovieRentalServlet extends HttpServlet {
                         movie.setNumberCopies(movie.getNumberCopies() - 1);
                         movie.setTimesRented(movie.getTimesRented() + 1);
                         
+                        
                         filmaticBean.update(order);
                         filmaticBean.update(movie);
                         
@@ -89,6 +90,7 @@ public class ApproveMovieRentalServlet extends HttpServlet {
                         order.setEmployeeId(employee);
                         movie.setNumberCopies(movie.getNumberCopies() - 1);
                         movie.setTimesRented(movie.getTimesRented() + 1);
+                        
                         
                         filmaticBean.update(order);
                         filmaticBean.update(movie);
@@ -113,6 +115,7 @@ public class ApproveMovieRentalServlet extends HttpServlet {
                         movie.setNumberCopies(movie.getNumberCopies() - 1);
                         movie.setTimesRented(movie.getTimesRented() + 1);
                         
+                        
                         filmaticBean.update(order);
                         filmaticBean.update(movie);
                         
@@ -134,6 +137,7 @@ public class ApproveMovieRentalServlet extends HttpServlet {
                     order.setEmployeeId(employee);
                     movie.setNumberCopies(movie.getNumberCopies() - 1);
                     movie.setTimesRented(movie.getTimesRented() + 1);
+                    
                     
                     filmaticBean.update(order);
                     filmaticBean.update(movie);

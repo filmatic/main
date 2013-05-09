@@ -21,7 +21,13 @@ div#queue-frame {
 	width: 105px;
 }
 
+.rent-column {
+	width: 55px;
+}
 
+.selectpicker {
+        width: 100px;
+}
 
 
 /* CUSTOMIZE NAV BAR (DON'T TOUCH)

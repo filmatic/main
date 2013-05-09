@@ -148,6 +148,14 @@
         <servlet-name>CustRepCustomerRecServlet</servlet-name>
         <servlet-class>servlets.CustRepCustomerRecServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReturnMovieServlet</servlet-name>
+        <servlet-class>servlets.ReturnMovieServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RateMovieServlet</servlet-name>
+        <servlet-class>servlets.RateMovieServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -295,6 +303,14 @@
     <servlet-mapping>
         <servlet-name>CustRepCustomerRecServlet</servlet-name>
         <url-pattern>/CustRepCustomerRecServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReturnMovieServlet</servlet-name>
+        <url-pattern>/ReturnMovieServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RateMovieServlet</servlet-name>
+        <url-pattern>/RateMovieServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

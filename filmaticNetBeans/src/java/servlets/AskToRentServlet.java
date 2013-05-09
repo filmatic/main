@@ -67,8 +67,18 @@ public class AskToRentServlet extends HttpServlet {
                         newOrder.setPending(1);
                         newOrder.setDateTime(currentTime);
                         
-                        
+                        filmaticBean.removeFromCurrentUserQueue(customerId, movie.getMovieId());
                         filmaticBean.save(newOrder);
+                        
+                        Moviequeue[] currentQueue = filmaticBean.getCurrentUserQueue(customerId);
+
+                        Movie[] movieQueueList = new Movie[currentQueue.length];
+                        for (int i = 0; i < movieQueueList.length; i++) {
+                            movieQueueList[i] = filmaticBean.getMovie(currentQueue[i].getMovieId());
+                        }
+
+                        request.getSession().setAttribute("queueList", movieQueueList);
+                        
                         RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
                         rd.forward(request, response);
                         
@@ -88,7 +98,18 @@ public class AskToRentServlet extends HttpServlet {
                         newOrder.setPending(1);
                         newOrder.setDateTime(currentTime);
                         
+                        filmaticBean.removeFromCurrentUserQueue(customerId, movie.getMovieId());
                         filmaticBean.save(newOrder);
+                        
+                        Moviequeue[] currentQueue = filmaticBean.getCurrentUserQueue(customerId);
+
+                        Movie[] movieQueueList = new Movie[currentQueue.length];
+                        for (int i = 0; i < movieQueueList.length; i++) {
+                            movieQueueList[i] = filmaticBean.getMovie(currentQueue[i].getMovieId());
+                        }
+
+                        request.getSession().setAttribute("queueList", movieQueueList);
+                        
                         RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
                         rd.forward(request, response);
                         
@@ -108,7 +129,18 @@ public class AskToRentServlet extends HttpServlet {
                         newOrder.setPending(1);
                         newOrder.setDateTime(currentTime);
                         
+                        filmaticBean.removeFromCurrentUserQueue(customerId, movie.getMovieId());
                         filmaticBean.save(newOrder);
+                        
+                        Moviequeue[] currentQueue = filmaticBean.getCurrentUserQueue(customerId);
+
+                        Movie[] movieQueueList = new Movie[currentQueue.length];
+                        for (int i = 0; i < movieQueueList.length; i++) {
+                            movieQueueList[i] = filmaticBean.getMovie(currentQueue[i].getMovieId());
+                        }
+
+                        request.getSession().setAttribute("queueList", movieQueueList);
+                        
                         RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
                         rd.forward(request, response);
                     } else {
@@ -125,7 +157,18 @@ public class AskToRentServlet extends HttpServlet {
                     newOrder.setPending(1);
                     newOrder.setDateTime(currentTime);
                     
+                    filmaticBean.removeFromCurrentUserQueue(customerId, movie.getMovieId());
                     filmaticBean.save(newOrder);
+                    
+                    Moviequeue[] currentQueue = filmaticBean.getCurrentUserQueue(customerId);
+
+                        Movie[] movieQueueList = new Movie[currentQueue.length];
+                        for (int i = 0; i < movieQueueList.length; i++) {
+                            movieQueueList[i] = filmaticBean.getMovie(currentQueue[i].getMovieId());
+                        }
+
+                        request.getSession().setAttribute("queueList", movieQueueList);
+                    
                     RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
                     rd.forward(request, response);
                 } else {
@@ -133,7 +176,7 @@ public class AskToRentServlet extends HttpServlet {
                     rd.forward(request, response);
                 }
             } else {
-                RequestDispatcher rd = request.getRequestDispatcher("customer_queue.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("QueueServlet");
                 rd.forward(request, response);
             }
             
