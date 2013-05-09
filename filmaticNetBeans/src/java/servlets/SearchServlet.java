@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entities.*;
+import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import sessionBean.filmaticSessionBean;
 import javax.ejb.EJB;
@@ -48,14 +49,50 @@ public class SearchServlet extends HttpServlet {
             }
             
             //System.out.println("Touched");
-            
+            // GET RESULTS
             Movie[] results = filmaticBean.search(keyword, searchType);
             
-            //System.out.println("Touched again");
+            HashMap<Integer,String> actorsMap = new HashMap<Integer,String>();
             
+            // GET ACTORS LOL
+            Actor[] allActors = filmaticBean.getAllActors();
+            //Actsin[] actorActsIn =  allActors[0].getActsinCollection().toArray(new Actsin[allActors[0].getActsinCollection().size()]);
+            
+            //if (actorActsIn.length <=0) System.out.println("EMPTYYYY AS SHIT");
+            
+            //for (Actsin a : actorActsIn) 
+            //    System.out.println((a).getMovieId().getMovieId());
+            //HashMap<
+            
+            for (Movie m : results) {
+                String actorList = "";
+                
+                // GO THROUGH ALL TEH ACTORS
+                for (int i=0;i<allActors.length;i++) {
+
+                    Actor actor = allActors[i];
+
+                    // GET ALL THE ACTS IN STUF
+                    Actsin[] actorActsIn =  actor.getActsinCollection().toArray(new Actsin[actor.getActsinCollection().size()]);
+
+                    for (Actsin a : actorActsIn) {
+                        if (m.getMovieId()==a.getMovieId().getMovieId()) {
+                            actorList = actorList + a.getActorId().getActorName() + "; ";
+                        }
+                        
+                    }
+                }
+                
+                actorsMap.put(m.getMovieId(), actorList);
+            }
+            
+            
+            request.getSession().setAttribute("actorsMap", actorsMap);
+            /*
+            //System.out.println("Touched again");
             for (int i = 0; i < results.length; i++) {
                 System.out.println(results[i].getTitle());
-            }
+            }*/
             
             request.getSession().setAttribute("searchResults", results);
             RequestDispatcher rd = request.getRequestDispatcher("customer_movies.jsp");

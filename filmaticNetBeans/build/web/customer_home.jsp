@@ -136,7 +136,7 @@
                     <c:forEach items="${customerCurrentlyHeld}" var="order">  
                     <tr>
                       <td>${order.movieId.title}</td>
-                      <td>${order.movieId.genre}n</td>
+                      <td>${order.movieId.genre}</td>
                       <td>${order.dateTime}</td>
                       <td>
                           <c:choose>

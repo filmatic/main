@@ -160,7 +160,7 @@
                                 <option value="keyword">Keyword</option>
                                 <option value="title">Title</option>
                                 <option value="genre">Genre</option>
-                                <option value="actor">Actor</option>
+                                <!--<option value="actor">Actor</option>-->
                             </select>
                             
                             <button id="search-button" type="submit" class="btn btn-warning"><i class="icon-search icon-white"></i></button>
@@ -186,8 +186,8 @@
                             <c:forEach var="movie" items="${searchResults}">
                                 <tr>
                                     <td>${movie.movieId}</td>
-                                    <td>${movie.title}</td>
-                                    <th><!-- ACTOR STUFF --></th>
+                                    <td><a href="GenerateMovieDetailServlet?movieToDetail=${movie.movieId}">${movie.title}</a></td>
+                                    <td>${actorsMap[movie.movieId]}</td>
                                     <td>${movie.genre}</td>
                                     <td>
                                         <c:choose>
