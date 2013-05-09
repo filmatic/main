@@ -176,6 +176,22 @@
         <servlet-name>SaveMovieDetailsServlet</servlet-name>
         <servlet-class>servlets.SaveMovieDetailsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddNewCustomerServlet</servlet-name>
+        <servlet-class>servlets.AddNewCustomerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditCustomerDetail</servlet-name>
+        <servlet-class>servlets.EditCustomerDetail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditCustomerDetailServlet</servlet-name>
+        <servlet-class>servlets.EditCustomerDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SaveCustomerDetailsServlet</servlet-name>
+        <servlet-class>servlets.SaveCustomerDetailsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -351,6 +367,22 @@
     <servlet-mapping>
         <servlet-name>SaveMovieDetailsServlet</servlet-name>
         <url-pattern>/SaveMovieDetailsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewCustomerServlet</servlet-name>
+        <url-pattern>/AddNewCustomerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditCustomerDetail</servlet-name>
+        <url-pattern>/EditCustomerDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditCustomerDetailServlet</servlet-name>
+        <url-pattern>/EditCustomerDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SaveCustomerDetailsServlet</servlet-name>
+        <url-pattern>/SaveCustomerDetailsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

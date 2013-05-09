@@ -53,7 +53,9 @@
                     	<h3>Customers</h3>
                     </div>
                     <div style="float: right;">
-                    	<button style="height:30px; margin-top:18px;" class="btn btn-inverse" name="approve" value="1" type="submit">Add Customer</button>
+                        <form method="post" action="custrep_add_customer.jsp">
+                            <button style="height:30px; margin-top:18px;" class="btn btn-inverse" name="approve" value="1" type="submit">Add Customer</button>
+                        </form>
                     </div>
 		</div>
                 
@@ -73,7 +75,13 @@
                   <tbody>
                       <c:forEach items="${customerList}" var="person">
                       <tr>
-                        <td>${person.personId}</td>
+                        <td>
+                            <a href="EditCustomerDetailServlet?customerToEdit=${person.personId}">
+                                        <input type="hidden" name="customerToEdit" value="${person.personId}">
+                                            ${person.personId}
+                                        </input>
+                                    </a>
+                        </td>
                         <td>${person.firstName} ${person.lastName}</td>
                         <td>${person.customer.accountType.accountType}</td>
                         <td>${person.customer.accountCreationDate}</td>
