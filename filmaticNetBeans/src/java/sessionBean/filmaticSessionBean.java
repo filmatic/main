@@ -411,6 +411,12 @@ public class filmaticSessionBean {
         return searchResults.toArray(new Movie[searchResults.size()]);
     }
     
+    public Orders[] getCurrentCustomerMovies(Person person) {
+        String queryToRun = "SELECT o FROM Orders o WHERE o.currentlyOut = 1 AND o.customerId.customerId="+person.getPersonId();
+        List<Orders> searchResults = emf.createEntityManager().createQuery(queryToRun).getResultList();
+        return searchResults.toArray(new Orders[searchResults.size()]);
+    }
+    
     /**
      * 
      * @return 

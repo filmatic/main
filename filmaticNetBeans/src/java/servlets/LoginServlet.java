@@ -61,6 +61,10 @@ public class LoginServlet extends HttpServlet {
                     customer = filmaticBean.getCustomer(person.getPersonId());
                     filmaticBean.increaseLoginCount(customer);
                     request.getSession().setAttribute("customer", customer);
+                    
+                    Orders[] currentlyHeld = filmaticBean.getCurrentCustomerMovies(person);
+                    request.getSession().setAttribute("customerCurrentlyHeld", currentlyHeld);
+                    
                     RequestDispatcher rd = request.getRequestDispatcher("HomeServlet");
                     rd.forward(request, response);
                 }
