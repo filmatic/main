@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>Filmatic - Admin Edit Movie</title>
+		<title>Filmatic - Admin Add Movie</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
 
@@ -58,25 +58,28 @@
             
             <!-- ADD MOVIE -->
            <div id="personal-info-frame">
-               <form action="SaveMovieDetailsServlet" method="post">
-                    <h3>Edit Movie</h3>
+               <form action="AddMovieServlet" method="post">
+                    <h3>Add Movie</h3>
 
                     <dl class="dl-horizontal">
-                        <input type="hidden" name="movieId" value="${sessionScope.editMovie.movieId}"></input>
+
                         <dt>Title:</dt>
-                            <dd><input class="input-medium" type="text" name="movieTitle" value="${sessionScope.editMovie.title}"></dd>
+                            <dd><input class="input-medium" type="text" name="movieTitle"></dd>
                             
                         <dt>Genre:</dt>
-                            <dd><input class="input-medium" type="text" name="movieGenre" value="${sessionScope.editMovie.genre}"></dd>
+                            <dd><input class="input-medium" type="text" name="movieGenre"></dd>
 
                         <dt>Distribution Fee:</dt>
-                            <dd><input class="input-medium" type="text" name="movieDistributionFee" value="${sessionScope.editMovie.distributionFee}"></dd>
+                            <dd><input class="input-medium" type="text" name="movieDistributionFee"></dd>
                             
                         <dt># Copies:</dt>
-                            <dd><input class="input-medium" type="text" name="movieCopies" value="${sessionScope.editMovie.numberCopies}"></dd>
-                                    
+                            <dd><input class="input-medium" type="text" name="movieCopies"></dd>
+                            
+                        <dt>Summary:</dt>
+                            <dd><textarea rows="5" name="movieSummary"></textarea></dd>          
+                            
                         <dt></dt>
-                        	<dd><button class="btn btn-success" type="submit">Save</button></dd>
+                        	<dd><button class="btn btn-success" type="submit">Add Movie</button></dd>
 
                     </dl>
                </form>

@@ -64,7 +64,9 @@
                     	<h3>Movies</h3>
                     </div>
                     <div style="float: right;">
-                    	<button style="height:30px; margin-top:16px;" class="btn btn-inverse" name="approve" value="1" type="submit">Add Movie</button>
+                        <form method="post" action="admin_add_movie.jsp">
+                            <button style="height:30px; margin-top:16px;" class="btn btn-inverse" name="approve" value="1" type="submit">Add Movie</button>
+                        </form>
                     </div>
 		</div>
                 
@@ -100,7 +102,13 @@
                   <tbody>
                       <c:forEach items="${movieList}" var="movie">
                         <tr>
-                            <td>${movie.movieId}</td>
+                            <td>
+                                <a href="EditMovieServlet?movieToEdit=${movie.movieId}">
+                                        <input type="hidden" name="movieToEdit" value="${movie.movieId}">
+                                            ${movie.movieId}
+                                        </input>
+                                    </a>
+                            </td>
                             <td>${movie.title}</td>
                             <td>${movie.genre}</td>
                             <td>$${movie.distributionFee}</td>
