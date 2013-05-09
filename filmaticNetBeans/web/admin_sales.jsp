@@ -10,13 +10,15 @@
         <link href="css/admin_sales_style.css" rel="stylesheet" media="screen" />
 		<link href="css/bootstrap-select.css" rel="stylesheet" media="screen" />
         <script src="js/bootstrap-select.js"></script>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
         
         <script>
+            /*
             $(document).ready( function() {
                 $('.selectpicker').selectpicker();
-            });
-		</script>
+            });*/
+	</script>
 	</head>
 
 <body>
@@ -60,50 +62,57 @@
             
             	<h3>Sales Report</h3>
                     
-				<select class="selectpicker" data-width="100px" name="selectmonth" id="selectmonth">
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                 </select>
-                 
-                 <select class="selectpicker" data-width="75px" name="selectyear" id="selectyear">
-                    <option value="1">2013</option>
-                    <option value="2">2012</option>
-                 </select>
-                
+                <form class="form-search" method="post" action="AdminSalesServlet">
+                    <div class="btn-group">
+                        <select class="selectpicker" style="width:100px;" data-width="100px" name="selectmonth" id="selectmonth">
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                         </select>
+
+                         <select class="selectpicker" style="width:75px;" data-width="75px" name="selectyear" id="selectyear">
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                         </select>
+
+                        <button id="" type="submit" class="btn btn-warning">Generate</button>
+                    </div>
+                </form>
                 
                 <table class="table table-bordered table-condensed table-striped">  
                   <thead>
                     <tr>
-                      <th class="number-column">#</th>
                       <th class="customerid-column">Customer Id</th>
                       <th>Account Type</th>
                       <th class="genre-column">Monthly Fee</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>12321</td>
-                      <td>Bronze</td>
-                      <td>$10.00</td>
-                    </tr>
-                    <tr>
-                      <td><b>Total</b></td>
-                      <td></td>
-                      <td></td>
-                      <td><b>$10.00</b></td>
-                    </tr>
+                    
+                  <tbody>   
+                     
+                    <c:forEach var="customer" items="${selectedCustomers}">
+                       <tr>
+                         <td>${customer.customerId}</td>
+                         <td>${accountName[customer.accountType.accountType]}</td>
+                         <td>$${customer.accountType.monthlyFee}</td>
+                       </tr>
+                    </c:forEach>
+                       <tr>
+                         <td><b>Total</b></td>
+                         <td></td>
+                         <td><b>$${salesTotal}</b></td>
+                       </tr>
                   </tbody>
+                    
                 </table>
                 
             </div>

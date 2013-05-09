@@ -4,13 +4,19 @@
  */
 package servlets;
 
+import entities.Customer;
+import entities.Movie;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import main.DateString;
+import sessionBean.filmaticSessionBean;
 
 /**
  *
@@ -18,6 +24,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class AdminSalesServlet extends HttpServlet {
 
+     @EJB filmaticSessionBean filmaticBean;
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -33,6 +41,55 @@ public class AdminSalesServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            
+            // CREATE A MAP OF ACCOUNT TYPES
+            
+            // GET MONTH
+            Integer month = Integer.valueOf(request.getParameter("selectmonth"));
+            if (month==null) month = 0;
+            String monthStr = month.toString();
+            if (month<10) {
+                monthStr = "0"+month;
+            }
+            
+            // GET YEAR
+            Integer year = Integer.valueOf(request.getParameter("selectyear"));
+            if (year==null) year=1000;
+            
+            // MAKE A COMPARE OBJECT
+            DateString userSelectedDate = new DateString(year+"-"+monthStr+"-00");
+            System.out.println(userSelectedDate.getDateString());
+            
+            // GET ALL CUSTOEMRS
+            Customer[] allCustomers = filmaticBean.getCustomers();
+            
+            // CREATE A SELECTED CUSTOMER LIST
+            ArrayList<Customer> selectedCustomersList = new ArrayList<Customer>();
+            
+            for (Customer c : allCustomers) {
+                
+                DateString customerDate = new DateString(c.getAccountCreationDate());
+                
+                // CUSTOMER DATE IS BIGGER THAN THE SELECTED 
+                if (userSelectedDate.compare(customerDate)) {
+                    selectedCustomersList.add(c);
+                }
+            }
+            
+            // MAKE A CUSTOMER ARRAY
+            Customer[] selectedCustomers = selectedCustomersList.toArray(new Customer[selectedCustomersList.size()]);
+            
+            // CALCULATE TOTAL
+            double total = 0;
+            for (Customer c : selectedCustomers) {
+                total+=10.00; // c.getAccountType();
+            }
+            
+            // SET THE TOTAL
+            request.getSession().setAttribute("salesTotal", total);
+            
+            // SET THE CUSTOMER ARRAY
+            request.getSession().setAttribute("selectedCustomers", selectedCustomers);
             
             RequestDispatcher rd = request.getRequestDispatcher("admin_sales.jsp");
             rd.forward(request, response);
