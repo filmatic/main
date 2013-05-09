@@ -49,22 +49,30 @@
            <div id="queue-frame">
            	<h3>Support</h3>
                 <h4></h4>
-                <h4><a href="#sec1">How are you?</a></h4>
-                <h4><a href="#sec2">How old are you?</a></h4>
-                <h4><a href="#sec3">Question is super long whats up?</a></h4>
-
-                
+                <h4><u>Placing Orders</u></h4>
+                <h4><a href="#sec1">How do I rent a movie?</a></h4>
+                <h4><a href="#sec2">How can I search for movies?</a></h4>
+                <h4><a href="#sec3">How can I add a movie to my queue?</a></h4>
+                <h4><a href="#sec4">How can I view my order history?</a></h4>
+                <h4></h4>
+                <h4><u>Account Settings</u></h4>
+                <h4><a href="#sec5">How can I change my address?</a></h4>
+                <h4><a href="#sec6">How do I change my credit card number?</a></h4>
+                <h4><a href="#sec7">How can I change my monthly subscription type?</a></h4>
                 
                 <!-- DIVIDER -->
                 <hr class="featurette-divider">
                 
                 <h4>
                     <a name="sec1"></a>
-                    How are you?
+                    Q: How do I rent a movie?
                 </h4>
-                <p>Starting tomorrow morning (Monday May 6, 2013) at 9am, you can signup online for a 30-minute demo slot with one of the three TAs.  Please see the course link below for the online signup sheet.  Only one team member can sign up for a demo slot, so look at the available times and coordinate with your teammates.  Try to sign up as soon as possible in order to secure a demo slot to you liking.
+                <p>A: You can rent a movie by first searching for the available movie and clicking the Queue button for the movie you want. Navigate to your Queue page and click the Rent
 
-Please do not be late for your demo. Points will be deducted for lateness. Actually, you should show up in the transaction lab at least 15 minutes before your assigned demo slot to ensure that your demo is ready to go when your scheduled demo time arrives. Please note that during your demo, you may be asked to execute some of the transactions included in the demo data (see, for example, the Rental History data).  You may also be asked to execute completely new transactions.  So please be ready for both of these situatuons. </p>
+button for the movie you want. This will send your request for the movie to a Customer-Representative. Your movie rental request needs to be approved by a representative
+
+before it is sent to you. When your request has been approved, it will be reflected in your order history.
+</p>
                 <p style="text-align:right;"><a href="#">Back to top</a></p>
                
                 
@@ -74,11 +82,9 @@ Please do not be late for your demo. Points will be deducted for lateness. Actua
                 
                 <h4>
                     <a name="sec2"></a>
-                    How old are you?
+                     Q: How can I search for movies?
                 </h4>
-                <p>Starting tomorrow morning (Monday May 6, 2013) at 9am, you can signup online for a 30-minute demo slot with one of the three TAs.  Please see the course link below for the online signup sheet.  Only one team member can sign up for a demo slot, so look at the available times and coordinate with your teammates.  Try to sign up as soon as possible in order to secure a demo slot to you liking.
-
-Please do not be late for your demo. Points will be deducted for lateness. Actually, you should show up in the transaction lab at least 15 minutes before your assigned demo slot to ensure that your demo is ready to go when your scheduled demo time arrives. Please note that during your demo, you may be asked to execute some of the transactions included in the demo data (see, for example, the Rental History data).  You may also be asked to execute completely new transactions.  So please be ready for both of these situatuons. </p>
+                <p>A: You can search for a movie by Title, Genre, or Actor(s). Just navigate to the 'Movie' button in the menu bar and type in the movie, genre, or actor you would like to search by.</p>
                 <p style="text-align:right;"><a href="#">Back to top</a></p>
                 
                 
@@ -88,15 +94,69 @@ Please do not be late for your demo. Points will be deducted for lateness. Actua
                 
                 <h4>
                     <a name="sec3"></a>
-                    Question is super long whats up?
+                     Q: How can I add a movie to my queue?
                 </h4>
-                <p>Starting tomorrow morning (Monday May 6, 2013) at 9am, you can signup online for a 30-minute demo slot with one of the three TAs.  Please see the course link below for the online signup sheet.  Only one team member can sign up for a demo slot, so look at the available times and coordinate with your teammates.  Try to sign up as soon as possible in order to secure a demo slot to you liking.
-
-Please do not be late for your demo. Points will be deducted for lateness. Actually, you should show up in the transaction lab at least 15 minutes before your assigned demo slot to ensure that your demo is ready to go when your scheduled demo time arrives. Please note that during your demo, you may be asked to execute some of the transactions included in the demo data (see, for example, the Rental History data).  You may also be asked to execute completely new transactions.  So please be ready for both of these situatuons. </p>
+                <p>A: You can easily add movies to your queue by clicking the Queue button next to a movie listing after you've searched for it. This will automatically add the movie to your
+queue, which you can then save for a later time. </p>
                  <p style="text-align:right;"><a href="#">Back to top</a></p>
                  
-                  
+              
+                 <!-- DIVIDER -->
+                <hr class="featurette-divider">
+                
+                <h4>
+                    <a name="sec4"></a>
+                     Q: How can I view my order history?
+                </h4>
+                <p>A: You can view all past and current orders by navigating to the "History" button in your menu bar.
+</p>
+                 <p style="text-align:right;"><a href="#">Back to top</a></p>
+                 
+                 
+                 
+                <!-- DIVIDER -->
+                <hr class="featurette-divider">
+                
+                <h4>
+                    <a name="sec5"></a>
+                     Q: How can I change my address?
+                </h4>
+                <p>
+                    A: Click "Settings" on the menu bar to access and edit any personal information such as your address.
+                </p>
+                 <p style="text-align:right;"><a href="#">Back to top</a></p>
+                 
+                 
+                 
+                <!-- DIVIDER -->
+                <hr class="featurette-divider">
+                
+                <h4>
+                    <a name="sec6"></a>
+                    Q: How do I change my credit card number?
+                </h4>
+                <p>
+                    A: Click "Settings" on the menu bar to access and edit payment information.
+                </p>
+                 <p style="text-align:right;"><a href="#">Back to top</a></p>
+                 
+                 
+                <!-- DIVIDER -->
+                <hr class="featurette-divider">
+                
+                <h4>
+                    <a name="sec7"></a>
+                    Q: How can I change my monthly subscription type?
+                </h4>
+                <p>
+                    A: Changing your plan is easy. You can pick from Bronze, Silver, Gold, and Platinum and will be charged accordingly for the subscription. Navigate to "Settings" to edit your monthly subscription.
+                </p>
+                 <p style="text-align:right;"><a href="#">Back to top</a></p>
            	
+                 <br/>
+                  <br/>
+              <br/>
+              <br/>
               <br/>
               <br/>
               <br/>
